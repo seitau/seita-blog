@@ -11,6 +11,6 @@ jobs:
       - run:
           name: Build
           command: hugo -t hugo-icarus-theme
-      - run:
-          name: Deploy
+      - deploy:
+          branch: master
           command: firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
