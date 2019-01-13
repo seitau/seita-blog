@@ -4,14 +4,21 @@ jobs:
     branches:
       only:
         - master
-    working_directory: ~/repo
+    working_directory: ./
     docker:
       - image: cibuilds/hugo:latest
+      - image: circleci/node:4.8.2
     steps:
       - checkout
       - run:
+          name: Yarn Configuration
+          command: curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - && echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+      - run:
+          name: Install Yarn
+          command: sudo apt-get update && sudo apt-get install yarn
+      - run:
           name: Install Firebase Tools
-          command: npm install --save-dev firebase-tools
+          command: yarn add firebase-tools --dev
       - run:
           name: Build
           command: hugo -t hugo-icarus-theme
