@@ -13,4 +13,4 @@ jobs:
           command: hugo -t hugo-icarus-theme
       - deploy:
           branch: master
-          command: firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
+          command: firebase deploy --token=$FIREBASE_DEPLOY_TOKEN --project seita-blog
