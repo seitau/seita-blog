@@ -1,0 +1,24 @@
+version: 2
+jobs:
+  build:
+    branches:
+      only:
+        - master
+    working_directory: ~/repo
+    docker:
+      - image: cibuilds/hugo:latest
+    steps:
+      - checkout
+      - run:
+          name: Install firebase-tools
+          command: |
+            curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+            sudo apt-get install -y nodejs
+            echo prefix=${HOME}/.local >> ~/.npmrc
+            npm install -g firebase-tools
+      - run:
+          name: Build
+          command: hugo -t hugo-icarus-theme
+      - run:
+          name: Deploy
+          command: ~/.local/bin/firebase deploy --token $FIREBASE_TOKEN
