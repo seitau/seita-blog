@@ -9,14 +9,15 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install sudo
-          command: apt-get install -y sudo
+          command: |
+            apt-get update -yqq
+            apt-get install -y sudo
       - run:
           name: Yarn Configuration
           command: |
-            curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg |
-            sudo apt-key add - |
-            echo "deb https://dl.yarnpkg.com/debian/ stable main" |
+            curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg
+            sudo apt-key add -
+            echo "deb https://dl.yarnpkg.com/debian/ stable main"
             sudo tee /etc/apt/sources.list.d/yarn.list
       - run:
           name: Install Yarn
