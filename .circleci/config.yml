@@ -4,10 +4,8 @@ jobs:
     branches:
       only:
         - master
-    working_directory: ./
     docker:
       - image: cibuilds/hugo:latest
-      - image: circleci/node:4.8.2
     steps:
       - checkout
       - run:
