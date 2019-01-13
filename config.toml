@@ -14,7 +14,7 @@ themesDir = "./themes/"
     site_description = ""
     copyright  = "[Seita Uchimura](https://github.com/seita-uc) All Rights Reserved"
     avatar = "img/avatar.jpeg"
-    logo = "img/logo.png"
+    logo = "img/favicon.ico"
     disable_mathjax = false 
 
     # define which types of pages should be shown. By default the type with the most regular pages
@@ -44,14 +44,14 @@ themesDir = "./themes/"
 
 # Enter a link for the follow button on the left
 [params.profile]
-    follow_button = "https://github.com/digitalcraftsman"
+    follow_button = "https://github.com/seita-uc"
 
 
 [social]
 # Add your social network accounts to the profile section on the left
 # by entering your username. The links to your account will be
 # created automatically.
-    github          = "https://github.com/seita-uc"
+    github          = "seita-uc"
     gitlab          = ""
     bitbucket       = ""
     jsfiddle        = ""
@@ -78,7 +78,7 @@ themesDir = "./themes/"
     facebook        = ""
     facebook_admin  = ""
     twitter_domain  = ""
-    twitter         = "spf13"
+    twitter         = "sei_uchi_mura"
 
 # Enable and disable widgets for the right sidebar
 [params.widgets]
