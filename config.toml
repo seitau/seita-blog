@@ -1,4 +1,4 @@
-baseURL = ""
+baseURL = "https://seita-blog.firebaseapp.com/"
 languageCode = "en-us"
 title = "Seita Blog"
 theme = "hugo-icarus-theme"

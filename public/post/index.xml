@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Seita Blog</title>
-    <link>/post/</link>
+    <link>https://seita-blog.firebaseapp.com/post/</link>
     <description>Recent content in Posts on Seita Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 20 May 2017 11:58:06 +0200</lastBuildDate>
     
-	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://seita-blog.firebaseapp.com/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Formulas with MathJax</title>
-      <link>/2017/05/20/formulas-with-mathjax/</link>
+      <link>https://seita-blog.firebaseapp.com/2017/05/20/formulas-with-mathjax/</link>
       <pubDate>Sat, 20 May 2017 11:58:06 +0200</pubDate>
       
-      <guid>/2017/05/20/formulas-with-mathjax/</guid>
+      <guid>https://seita-blog.firebaseapp.com/2017/05/20/formulas-with-mathjax/</guid>
       <description>testtesttest</description>
     </item>
     
