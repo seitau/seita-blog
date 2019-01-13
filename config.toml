@@ -1,3 +1,89 @@
 baseURL = "http://example.org/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "Seita Blog"
+theme = "hugo-icarus-theme"
+themesDir = "./themes/"
+
+[permalinks]
+    post = "/:year/:month/:day/:slug"
+
+[params]
+    author = "Seita"
+    bio = "Blogger - Programmer - Student"
+    location = "Tokyo"
+    site_description = ""
+    copyright  = "[Seita Uchimura](https://github.com/seita-uc) All Rights Reserved"
+    avatar = "img/avatar.jpeg"
+    logo = "img/logo.png"
+    disable_mathjax = false 
+
+    # define which types of pages should be shown. By default the type with the most regular pages
+    mainSections = ["post"]
+
+    # Format dates with Go's time formatting
+    date_format = "2006-01-02"
+
+    # Add custom assets with their paths relative to the static folder
+	custom_css = []
+	custom_js  = []
+
+[[params.menu]]
+    before = true
+    label  = "Home"
+    link   = "/"
+
+[[params.menu]]
+    before = false
+    label  = "Tags"
+    link   = "tags/"
+
+[[params.menu]]
+    before = false
+    label  = "Categories"
+    link   = "categories/"
+
+# Enter a link for the follow button on the left
+[params.profile]
+    follow_button = "https://github.com/digitalcraftsman"
+
+
+[social]
+# Add your social network accounts to the profile section on the left
+# by entering your username. The links to your account will be
+# created automatically.
+    github          = "https://github.com/seita-uc"
+    gitlab          = ""
+    bitbucket       = ""
+    jsfiddle        = ""
+    codepen         = ""
+    foursquare      = ""
+    dribbble        = ""
+    deviantart      = ""
+    behance         = ""
+    flickr          = ""
+    instagram       = ""
+    youtube         = ""
+    vimeo           = ""
+    vine            = ""
+    medium          = ""
+    wordpress       = ""
+    tumblr          = ""
+    xing            = ""
+    linkedin        = ""
+    slideshare      = ""
+    stackoverflow   = ""
+    reddit          = ""
+    pinterest       = ""
+    googleplus      = ""
+    facebook        = ""
+    facebook_admin  = ""
+    twitter_domain  = ""
+    twitter         = "spf13"
+
+# Enable and disable widgets for the right sidebar
+[params.widgets]
+    recent_articles = true
+    categories = true
+    tags = true
+    tag_cloud = true
+
