@@ -3,11 +3,11 @@
     <!-- Twitter summary card with large image must be at least 280x150px -->
     <meta name="twitter:card" content="summary"/>
     <meta name="twitter:image:src" content="{{ index . 0 | absURL }}"/>
+  {{ end }}
   {{ else }}
-    {{ with .Site.Params.Images }}
-      <meta name="twitter:card" content="summary"/>
-      <meta name="twitter:image:src" content="{{ index . 0 | absURL }}"/>
-    {{ end }}
+  {{ with .Site.Params.Images }}
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:image:src" content="{{ index . 0 | absURL }}"/>
   {{ end }}
   <!-- Twitter Card data -->
   <meta name="twitter:title" content="{{ .Title }}"/>

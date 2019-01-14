@@ -1,5 +1,5 @@
 ---
-banner: "img/bch-electron-cash.jpg"
+banner: "img/bch-electron-cash.png"
 categories: ["programming", "cryptocurrency"]
 date: "2019-01-13T16:58:06+02:00"
 description: ""
