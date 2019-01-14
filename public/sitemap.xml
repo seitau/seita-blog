@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://seita.tokyo/2019/01/14/%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0%E3%81%8B%E3%82%89mnemonic%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%93%E3%81%A0%E3%82%89%E8%BA%93%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2/</loc>
+    <lastmod>2019-01-14T00:58:06+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seita.tokyo/2019/01/13/etherscan%E3%81%AB%E3%82%B3%E3%83%B3%E3%83%88%E3%83%A9%E3%82%AF%E3%83%88%E3%82%92%E7%99%BB%E9%8C%B2%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E4%BE%BF%E5%88%A9%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB/</loc>
+    <lastmod>2019-01-13T21:58:06+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://seita.tokyo/2019/01/13/electrum-litecoin-walletelectron-cash%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%83%8D%E3%83%83%E3%83%88%E3%81%AB%E3%81%A4%E3%81%AA%E3%81%90/</loc>
     <lastmod>2019-01-13T16:58:06+02:00</lastmod>
   </url>
@@ -13,8 +23,14 @@
   </url>
   
   <url>
+    <loc>https://seita.tokyo/tags/bitcoincash/</loc>
+    <lastmod>2019-01-13T21:58:06+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://seita.tokyo/tags/blockchain/</loc>
-    <lastmod>2019-01-13T16:58:06+02:00</lastmod>
+    <lastmod>2019-01-13T21:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -24,44 +40,50 @@
   </url>
   
   <url>
-    <loc>https://seita.tokyo/categories/cryptocurrency/</loc>
-    <lastmod>2019-01-13T16:58:06+02:00</lastmod>
+    <loc>https://seita.tokyo/tags/cryptocurrency/</loc>
+    <lastmod>2019-01-13T21:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://seita.tokyo/tags/cryptocurrency/</loc>
-    <lastmod>2019-01-13T16:58:06+02:00</lastmod>
+    <loc>https://seita.tokyo/tags/ethereum/</loc>
+    <lastmod>2019-01-14T00:58:06+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://seita.tokyo/tags/litecoin/</loc>
+    <lastmod>2019-01-13T21:58:06+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://seita.tokyo/tags/mnemonic/</loc>
+    <lastmod>2019-01-14T00:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://seita.tokyo/post/</loc>
-    <lastmod>2019-01-13T16:58:06+02:00</lastmod>
+    <lastmod>2019-01-14T00:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://seita.tokyo/categories/programming/</loc>
-    <lastmod>2019-01-13T16:58:06+02:00</lastmod>
+    <lastmod>2019-01-14T00:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://seita.tokyo/</loc>
-    <lastmod>2019-01-13T16:58:06+02:00</lastmod>
+    <lastmod>2019-01-14T00:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://seita.tokyo/tags/</loc>
-    <lastmod>2019-01-13T16:58:06+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://seita.tokyo/tags/tech/</loc>
-    <lastmod>2019-01-13T16:58:06+02:00</lastmod>
+    <lastmod>2019-01-13T21:58:06+02:00</lastmod>
     <priority>0</priority>
   </url>
   

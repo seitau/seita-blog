@@ -4,8 +4,9 @@ title = "Seita Blog"
 theme = "hugo-icarus-theme"
 # themesDir = "./themes/"
 disqusShortname = "seita-blog"
-pygmentsUseClasses = true
+# pygmentsUseClasses = true
 pygmentsCodefences = true
+pygmentsStyle = "monokai"
 coverImage = "img/avatar.jpg"
 
 [permalinks]
@@ -30,7 +31,7 @@ coverImage = "img/avatar.jpg"
     date_format = "2006-01-02"
 
     # Add custom assets with their paths relative to the static folder
-	custom_css = []
+	custom_css = ["css/custom.css"]
 	custom_js  = []
 
 [[params.menu]]

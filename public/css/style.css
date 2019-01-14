@@ -2114,6 +2114,7 @@ ol.toc {
 }
 .highlight .code .code {
   color: #66d9ef;
+  background-color: #272822;
 }
 .highlight .code .class .title {
   color: #fff;

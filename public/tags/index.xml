@@ -6,15 +6,24 @@
     <description>Recent content in Tags on Seita Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 13 Jan 2019 16:58:06 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 13 Jan 2019 21:58:06 +0200</lastBuildDate>
     
 	<atom:link href="https://seita.tokyo/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Bitcoincash</title>
+      <link>https://seita.tokyo/tags/bitcoincash/</link>
+      <pubDate>Sun, 13 Jan 2019 21:58:06 +0200</pubDate>
+      
+      <guid>https://seita.tokyo/tags/bitcoincash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Blockchain</title>
       <link>https://seita.tokyo/tags/blockchain/</link>
-      <pubDate>Sun, 13 Jan 2019 16:58:06 +0200</pubDate>
+      <pubDate>Sun, 13 Jan 2019 21:58:06 +0200</pubDate>
       
       <guid>https://seita.tokyo/tags/blockchain/</guid>
       <description></description>
@@ -23,18 +32,36 @@
     <item>
       <title>Cryptocurrency</title>
       <link>https://seita.tokyo/tags/cryptocurrency/</link>
-      <pubDate>Sun, 13 Jan 2019 16:58:06 +0200</pubDate>
+      <pubDate>Sun, 13 Jan 2019 21:58:06 +0200</pubDate>
       
       <guid>https://seita.tokyo/tags/cryptocurrency/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Tech</title>
-      <link>https://seita.tokyo/tags/tech/</link>
-      <pubDate>Sun, 13 Jan 2019 16:58:06 +0200</pubDate>
+      <title>Ethereum</title>
+      <link>https://seita.tokyo/tags/ethereum/</link>
+      <pubDate>Mon, 14 Jan 2019 00:58:06 +0200</pubDate>
       
-      <guid>https://seita.tokyo/tags/tech/</guid>
+      <guid>https://seita.tokyo/tags/ethereum/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Litecoin</title>
+      <link>https://seita.tokyo/tags/litecoin/</link>
+      <pubDate>Sun, 13 Jan 2019 21:58:06 +0200</pubDate>
+      
+      <guid>https://seita.tokyo/tags/litecoin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mnemonic</title>
+      <link>https://seita.tokyo/tags/mnemonic/</link>
+      <pubDate>Mon, 14 Jan 2019 00:58:06 +0200</pubDate>
+      
+      <guid>https://seita.tokyo/tags/mnemonic/</guid>
       <description></description>
     </item>
     

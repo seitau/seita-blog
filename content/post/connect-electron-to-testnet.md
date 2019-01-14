@@ -1,11 +1,11 @@
 ---
 banner: "img/bch-electron-cash.png"
-categories: ["programming", "cryptocurrency"]
 date: "2019-01-13T16:58:06+02:00"
 description: ""
 images: []
 menu: ""
-tags: [cryptocurrency, tech, blockchain]
+categories: ["programming"]
+tags: ["cryptocurrency", "litecoin", "bitcoincash", "blockchain"]
 title: "Electrum Litecoin Wallet・Electron Cashをテストネットにつなぐ"
 draft: false
 ---
