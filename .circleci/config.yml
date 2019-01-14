@@ -9,8 +9,12 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Build
+          name: Build Hugo Website
           command: hugo -t hugo-icarus-theme
+      - run:
+          name: cd 
+          command: cd ./public && ls
       - deploy:
+          name: Deploy Website to Firebase Hosting
           branch: master
           command: firebase deploy --token=$FIREBASE_DEPLOY_TOKEN --project seita-blog
