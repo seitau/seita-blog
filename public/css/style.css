@@ -804,9 +804,17 @@ code {
 .article-inner {
   overflow: hidden;
 }
-.article-banner {
-  width: 100%;
-  height: auto;
+@media screen and (max-width: 559px) {
+  .article-banner {
+    width: 100%;
+    height: 50%;
+  }
+}
+@media screen and (min-width: 560px) and (max-width: 799px) {
+  .article-banner {
+    width: 100%;
+    height: auto;
+  }
 }
 .article-header {
   padding: 20px 20px 0;
