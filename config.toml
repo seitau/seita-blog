@@ -6,6 +6,7 @@ theme = "hugo-icarus-theme"
 disqusShortname = "seita-blog"
 pygmentsUseClasses = true
 pygmentsCodefences = true
+thumbnail = "img/avatar.jpg"
 
 [permalinks]
     post = "/:year/:month/:day/:slug"
