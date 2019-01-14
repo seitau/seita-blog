@@ -8,13 +8,11 @@ jobs:
       - image: seitauc/docker-hugo-firebase:latest
     steps:
       - checkout
-      - run: ls && hugo version
         # install git submodules for managing third-party dependencies
       - run: git submodule sync && git submodule update --init
       - run:
           name: Build Hugo Website
           command: hugo -t hugo-icarus-theme
-      - run: cd ./public && ls
       - deploy:
           name: Deploy Website to Firebase Hosting
           branch: master
