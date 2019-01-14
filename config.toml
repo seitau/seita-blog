@@ -4,6 +4,8 @@ title = "Seita Blog"
 theme = "hugo-icarus-theme"
 # themesDir = "./themes/"
 disqusShortname = "seita-blog"
+pygmentsUseClasses = true
+pygmentsCodefences = true
 
 [permalinks]
     post = "/:year/:month/:day/:slug"
@@ -86,5 +88,5 @@ disqusShortname = "seita-blog"
     recent_articles = true
     categories = true
     tags = true
-    tag_cloud = true
+    tag_cloud = false
 

@@ -7,6 +7,6 @@ images: []
 menu: ""
 tags: []
 title: "Formulas with MathJax"
-disable_comments: false
+draft: true
 ---
 testtesttest
