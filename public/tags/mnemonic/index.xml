@@ -17,10 +17,7 @@
       <pubDate>Mon, 14 Jan 2019 00:58:06 +0200</pubDate>
       
       <guid>https://seita.tokyo/2019/01/14/%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0%E3%81%8B%E3%82%89mnemonic%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%93%E3%81%A0%E3%82%89%E8%BA%93%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2/</guid>
-      <description>fishの環境変数にこんな感じでmnemonicを宣言してtruffle-hdwallet-providerでアドレスを導出したところ、mnemonic code converterとは違うアドレスが出てきたので、あれ？ってなった。
-set -x MNEMONIC catalog park praise void alarm bright olive hidden box chicken squeeze shove 冷静に調べてみたところ、この環境変数をprocess.env.MNEMONICで読み込むと、
-catalogparkpraisevoidalarmbrightolivehiddenboxchickensqueezeshove mnemonicの単語間の空白が消えていたことが判明。 環境変数は基本的に文字列で読み込まれるからクオーテーションはいつもつけていなかったのですが、空白が消えるのは想定外でした。 あとmnemonicの空白がないと違うアドレスがでちゃうのも意外でした。
-set -x MNEMONIC &amp;#39;catalog park praise void alarm bright olive hidden box chicken squeeze shove&amp;#39; よってクオーテーションをつけてあげたらちゃんと空白つきでmnemonicが読み込まれ、欲しかったアドレスが出てきました。</description>
+      <description>&lt;p&gt;fishの環境変数にこんな感じでmnemonicを宣言してtruffle-hdwallet-providerでアドレスを導出したところ、&lt;a href=&#34;https://iancoleman.io/bip39/&#34;&gt;mnemonic code converter&lt;/a&gt;とは違うアドレスが出てきたので、あれ？ってなった。&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -24,16 +24,7 @@
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
     <meta property="og:image" content="https://seita.tokyo/img/site-feature-image.jpeg" />
     <meta property="og:title" content="Etherscanにコントラクトを登録するときに便利なツール" />
-<meta property="og:description" content="Ropstenでコントラクトをテストしようと思い、せっかくだからEtherscanに登録して弄ってみようと思ったものの、スムーズにいかなかったのでメモ。
-Etherscanにコントラクトを登録して内容を公開するには、deployしたコントラクトのソースを用意する必要があります。ここで問題なのが、コントラクトでたくさんimportしていた時に、すべてのコントラクトのコードを一箇所にまとめなきゃいけないという点です。初めて知った時は地獄だと思いました。
-複数ファイルにまたがるコントラクトをまとめる でも世の中には便利なツールを開発してくださる先駆者の方々がいらっしゃいます。
-自分はtruffleで開発していたのでtruffle-flattener一択でした。truffleを使っていないならsolidity-flattenerもありだと思いますが、自分の場合はpipを使ったことがなくて導入に苦労したのと、openzeppelin-solidityとかの継承関係を解決してくれないので使えませんでした。
-truffle-flattenerはコマンドラインで
-truffle-flattener original.sol &gt;&gt; output.sol とやれば、継承関係も重複なく一箇所に出力してくれます。超便利。 これでまとめたコードをEtherscanにコピペして登録完了！と思いきや、うまく行かない。なんで。
-コンストラクタに与えた引数のabiを取得する ここでもう一つ問題が。deploy時にコンストラクタに与えた引数のabiを入力しなきゃいけないんですね。これは面倒臭い。 ※ちなみにcontract abiの詳細はこちらのwikiに書いてあります。
-幸い手元にdeploy時の引数のデータが残っていたので、6つあった引数を最悪全部エンコードして繋げればよかったのですが、なんせ泥臭いので何か方法はないかと模索したところ出会ったのが、こちらのEthereum Contract ABI Converterというサイト。
-めっちゃ簡単にabi出せるやん。超便利。
-ということでめでたくEtherscanにコントラクトを登録できました。 過去に数回登録してたのにめっちゃ手間取った。。。" />
+<meta property="og:description" content="Ropstenでコントラクトをテストしようと思い、せっかくだからEtherscanに登録して弄ってみようと思ったものの、スムーズにいかなかったのでメモ。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://seita.tokyo/2019/01/13/etherscan%E3%81%AB%E3%82%B3%E3%83%B3%E3%83%88%E3%83%A9%E3%82%AF%E3%83%88%E3%82%92%E7%99%BB%E9%8C%B2%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E4%BE%BF%E5%88%A9%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB/" />
 <meta property="og:image" content="https://seita.tokyo/img/ethereum.png" />
@@ -43,16 +34,7 @@ truffle-flattener original.sol &gt;&gt; output.sol とやれば、継承関係�
     
     
 <meta itemprop="name" content="Etherscanにコントラクトを登録するときに便利なツール">
-<meta itemprop="description" content="Ropstenでコントラクトをテストしようと思い、せっかくだからEtherscanに登録して弄ってみようと思ったものの、スムーズにいかなかったのでメモ。
-Etherscanにコントラクトを登録して内容を公開するには、deployしたコントラクトのソースを用意する必要があります。ここで問題なのが、コントラクトでたくさんimportしていた時に、すべてのコントラクトのコードを一箇所にまとめなきゃいけないという点です。初めて知った時は地獄だと思いました。
-複数ファイルにまたがるコントラクトをまとめる でも世の中には便利なツールを開発してくださる先駆者の方々がいらっしゃいます。
-自分はtruffleで開発していたのでtruffle-flattener一択でした。truffleを使っていないならsolidity-flattenerもありだと思いますが、自分の場合はpipを使ったことがなくて導入に苦労したのと、openzeppelin-solidityとかの継承関係を解決してくれないので使えませんでした。
-truffle-flattenerはコマンドラインで
-truffle-flattener original.sol &gt;&gt; output.sol とやれば、継承関係も重複なく一箇所に出力してくれます。超便利。 これでまとめたコードをEtherscanにコピペして登録完了！と思いきや、うまく行かない。なんで。
-コンストラクタに与えた引数のabiを取得する ここでもう一つ問題が。deploy時にコンストラクタに与えた引数のabiを入力しなきゃいけないんですね。これは面倒臭い。 ※ちなみにcontract abiの詳細はこちらのwikiに書いてあります。
-幸い手元にdeploy時の引数のデータが残っていたので、6つあった引数を最悪全部エンコードして繋げればよかったのですが、なんせ泥臭いので何か方法はないかと模索したところ出会ったのが、こちらのEthereum Contract ABI Converterというサイト。
-めっちゃ簡単にabi出せるやん。超便利。
-ということでめでたくEtherscanにコントラクトを登録できました。 過去に数回登録してたのにめっちゃ手間取った。。。">
+<meta itemprop="description" content="Ropstenでコントラクトをテストしようと思い、せっかくだからEtherscanに登録して弄ってみようと思ったものの、スムーズにいかなかったのでメモ。">
 
 
 <meta itemprop="datePublished" content="2019-01-13T21:58:06&#43;02:00" />
@@ -352,9 +334,7 @@ truffle-flattener original.sol &gt;&gt; output.sol とやれば、継承関係�
 </header>
 
         <div class="article-entry" itemprop="articleBody">
-            
-
-<p>Ropstenでコントラクトをテストしようと思い、せっかくだからEtherscanに登録して弄ってみようと思ったものの、スムーズにいかなかったのでメモ。</p>
+            <p>Ropstenでコントラクトをテストしようと思い、せっかくだからEtherscanに登録して弄ってみようと思ったものの、スムーズにいかなかったのでメモ。</p>
 
 <p>Etherscanにコントラクトを登録して内容を公開するには、deployしたコントラクトのソースを用意する必要があります。ここで問題なのが、コントラクトでたくさんimportしていた時に、すべてのコントラクトのコードを一箇所にまとめなきゃいけないという点です。初めて知った時は地獄だと思いました。</p>
 
@@ -380,7 +360,6 @@ truffle-flattener original.sol &gt;&gt; output.sol とやれば、継承関係�
 
 <p>ということでめでたくEtherscanにコントラクトを登録できました。
 過去に数回登録してたのにめっちゃ手間取った。。。</p>
-
         </div>
         <footer class="article-footer">
     <a data-url="https://seita.tokyo/2019/01/13/etherscan%E3%81%AB%E3%82%B3%E3%83%B3%E3%83%88%E3%83%A9%E3%82%AF%E3%83%88%E3%82%92%E7%99%BB%E9%8C%B2%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E4%BE%BF%E5%88%A9%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB/" data-id="7fe4d9cef4d36454b61fc0c1f31e8b3b" class="article-share-link">

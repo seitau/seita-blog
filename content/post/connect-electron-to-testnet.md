@@ -10,6 +10,9 @@ title: "Electrum Litecoin Wallet・Electron Cashをテストネットにつな�
 draft: false
 ---
 開発に使う目的でインストールしたけどデフォルトでメインネットに接続してしまってテストネットへの切り替えボタンも見当たらなかったのでメモ。
+
+<!--more-->
+
 コマンドラインで以下のように開けばテストネットに繋がる。
 
 ## Electrum Litecoin Wallet

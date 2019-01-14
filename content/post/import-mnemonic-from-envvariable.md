@@ -12,6 +12,8 @@ draft: false
 
 fishの環境変数にこんな感じでmnemonicを宣言してtruffle-hdwallet-providerでアドレスを導出したところ、[mnemonic code converter](https://iancoleman.io/bip39/)とは違うアドレスが出てきたので、あれ？ってなった。
 
+<!--more-->
+
 {{< highlight fish >}}
 set -x MNEMONIC catalog park praise void alarm bright olive hidden box chicken squeeze shove
 {{< /highlight >}}

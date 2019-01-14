@@ -272,12 +272,10 @@
 <article class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
-        <div class="banner-holder">
             <a href="https://seita.tokyo/2019/01/14/%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0%E3%81%8B%E3%82%89mnemonic%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%93%E3%81%A0%E3%82%89%E8%BA%93%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2/" itemprop="url">
                 <img src="https://seita.tokyo/img/ethereum.png" class="article-banner">
-        </div>
+            </a>
         
-        </a>
 
         <header class="article-header">
     <a href="https://seita.tokyo/2019/01/14/%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0%E3%81%8B%E3%82%89mnemonic%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%93%E3%81%A0%E3%82%89%E8%BA%93%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2/">
@@ -329,10 +327,7 @@
 
         <div class="article-entry" itemprop="articleBody">
             <p>
-                fishの環境変数にこんな感じでmnemonicを宣言してtruffle-hdwallet-providerでアドレスを導出したところ、mnemonic code converterとは違うアドレスが出てきたので、あれ？ってなった。
-set -x MNEMONIC catalog park praise void alarm bright olive hidden box chicken squeeze shove 冷静に調べてみたところ、この環境変数をprocess.env.MNEMONICで読み込むと、
-catalogparkpraisevoidalarmbrightolivehiddenboxchickensqueezeshove mnemonicの単語間の空白が消えていたことが判明。 環境変数は基本的に文字列で読み込まれるからクオーテーションはいつもつけていなかったのですが、空白が消えるのは想定外でした。 あとmnemonicの空白がないと違うアドレスがでちゃうのも意外でした。
-set -x MNEMONIC &#39;catalog park praise void alarm bright olive hidden box chicken squeeze shove&#39; よってクオーテーションをつけてあげたらちゃんと空白つきでmnemonicが読み込まれ、欲しかったアドレスが出てきました。
+                <p>fishの環境変数にこんな感じでmnemonicを宣言してtruffle-hdwallet-providerでアドレスを導出したところ、<a href="https://iancoleman.io/bip39/">mnemonic code converter</a>とは違うアドレスが出てきたので、あれ？ってなった。</p>
             </p>
             <p class="article-more-link">
                 <a href="https://seita.tokyo/2019/01/14/%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0%E3%81%8B%E3%82%89mnemonic%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%93%E3%81%A0%E3%82%89%E8%BA%93%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2/">
@@ -423,12 +418,10 @@ set -x MNEMONIC &#39;catalog park praise void alarm bright olive hidden box chic
 <article class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
-        <div class="banner-holder">
             <a href="https://seita.tokyo/2019/01/13/etherscan%E3%81%AB%E3%82%B3%E3%83%B3%E3%83%88%E3%83%A9%E3%82%AF%E3%83%88%E3%82%92%E7%99%BB%E9%8C%B2%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E4%BE%BF%E5%88%A9%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB/" itemprop="url">
                 <img src="https://seita.tokyo/img/ethereum.png" class="article-banner">
-        </div>
+            </a>
         
-        </a>
 
         <header class="article-header">
     <a href="https://seita.tokyo/2019/01/13/etherscan%E3%81%AB%E3%82%B3%E3%83%B3%E3%83%88%E3%83%A9%E3%82%AF%E3%83%88%E3%82%92%E7%99%BB%E9%8C%B2%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E4%BE%BF%E5%88%A9%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB/">
@@ -488,16 +481,7 @@ set -x MNEMONIC &#39;catalog park praise void alarm bright olive hidden box chic
 
         <div class="article-entry" itemprop="articleBody">
             <p>
-                Ropstenでコントラクトをテストしようと思い、せっかくだからEtherscanに登録して弄ってみようと思ったものの、スムーズにいかなかったのでメモ。
-Etherscanにコントラクトを登録して内容を公開するには、deployしたコントラクトのソースを用意する必要があります。ここで問題なのが、コントラクトでたくさんimportしていた時に、すべてのコントラクトのコードを一箇所にまとめなきゃいけないという点です。初めて知った時は地獄だと思いました。
-複数ファイルにまたがるコントラクトをまとめる でも世の中には便利なツールを開発してくださる先駆者の方々がいらっしゃいます。
-自分はtruffleで開発していたのでtruffle-flattener一択でした。truffleを使っていないならsolidity-flattenerもありだと思いますが、自分の場合はpipを使ったことがなくて導入に苦労したのと、openzeppelin-solidityとかの継承関係を解決してくれないので使えませんでした。
-truffle-flattenerはコマンドラインで
-truffle-flattener original.sol &gt;&gt; output.sol とやれば、継承関係も重複なく一箇所に出力してくれます。超便利。 これでまとめたコードをEtherscanにコピペして登録完了！と思いきや、うまく行かない。なんで。
-コンストラクタに与えた引数のabiを取得する ここでもう一つ問題が。deploy時にコンストラクタに与えた引数のabiを入力しなきゃいけないんですね。これは面倒臭い。 ※ちなみにcontract abiの詳細はこちらのwikiに書いてあります。
-幸い手元にdeploy時の引数のデータが残っていたので、6つあった引数を最悪全部エンコードして繋げればよかったのですが、なんせ泥臭いので何か方法はないかと模索したところ出会ったのが、こちらのEthereum Contract ABI Converterというサイト。
-めっちゃ簡単にabi出せるやん。超便利。
-ということでめでたくEtherscanにコントラクトを登録できました。 過去に数回登録してたのにめっちゃ手間取った。。。
+                <p>Ropstenでコントラクトをテストしようと思い、せっかくだからEtherscanに登録して弄ってみようと思ったものの、スムーズにいかなかったのでメモ。</p>
             </p>
             <p class="article-more-link">
                 <a href="https://seita.tokyo/2019/01/13/etherscan%E3%81%AB%E3%82%B3%E3%83%B3%E3%83%88%E3%83%A9%E3%82%AF%E3%83%88%E3%82%92%E7%99%BB%E9%8C%B2%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E4%BE%BF%E5%88%A9%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB/">
@@ -588,12 +572,10 @@ truffle-flattener original.sol &gt;&gt; output.sol とやれば、継承関係�
 <article class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
-        <div class="banner-holder">
             <a href="https://seita.tokyo/2019/01/13/electrum-litecoin-walletelectron-cash%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%83%8D%E3%83%83%E3%83%88%E3%81%AB%E3%81%A4%E3%81%AA%E3%81%90/" itemprop="url">
                 <img src="https://seita.tokyo/img/bch-electron-cash.png" class="article-banner">
-        </div>
+            </a>
         
-        </a>
 
         <header class="article-header">
     <a href="https://seita.tokyo/2019/01/13/electrum-litecoin-walletelectron-cash%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%83%8D%E3%83%83%E3%83%88%E3%81%AB%E3%81%A4%E3%81%AA%E3%81%90/">
@@ -653,8 +635,7 @@ truffle-flattener original.sol &gt;&gt; output.sol とやれば、継承関係�
 
         <div class="article-entry" itemprop="articleBody">
             <p>
-                 開発に使う目的でインストールしたけどデフォルトでメインネットに接続してしまってテストネットへの切り替えボタンも見当たらなかったのでメモ。 コマンドラインで以下のように開けばテストネットに繋がる。
-Electrum Litecoin Wallet open -n /Applications/Electrum-LTC.app/ --args --testnet Electron Cash open -n /Applications/Electron-Cash.app --args --testnet 
+                <p>開発に使う目的でインストールしたけどデフォルトでメインネットに接続してしまってテストネットへの切り替えボタンも見当たらなかったのでメモ。</p>
             </p>
             <p class="article-more-link">
                 <a href="https://seita.tokyo/2019/01/13/electrum-litecoin-walletelectron-cash%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%83%8D%E3%83%83%E3%83%88%E3%81%AB%E3%81%A4%E3%81%AA%E3%81%90/">

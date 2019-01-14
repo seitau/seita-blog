@@ -24,10 +24,7 @@
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
     <meta property="og:image" content="https://seita.tokyo/img/site-feature-image.jpeg" />
     <meta property="og:title" content="環境変数からmnemonicを読み込んだら躓いたメモ" />
-<meta property="og:description" content="fishの環境変数にこんな感じでmnemonicを宣言してtruffle-hdwallet-providerでアドレスを導出したところ、mnemonic code converterとは違うアドレスが出てきたので、あれ？ってなった。
-set -x MNEMONIC catalog park praise void alarm bright olive hidden box chicken squeeze shove 冷静に調べてみたところ、この環境変数をprocess.env.MNEMONICで読み込むと、
-catalogparkpraisevoidalarmbrightolivehiddenboxchickensqueezeshove mnemonicの単語間の空白が消えていたことが判明。 環境変数は基本的に文字列で読み込まれるからクオーテーションはいつもつけていなかったのですが、空白が消えるのは想定外でした。 あとmnemonicの空白がないと違うアドレスがでちゃうのも意外でした。
-set -x MNEMONIC &#39;catalog park praise void alarm bright olive hidden box chicken squeeze shove&#39; よってクオーテーションをつけてあげたらちゃんと空白つきでmnemonicが読み込まれ、欲しかったアドレスが出てきました。" />
+<meta property="og:description" content="fishの環境変数にこんな感じでmnemonicを宣言してtruffle-hdwallet-providerでアドレスを導出したところ、mnemonic code converterとは違うアドレスが出てきたので、あれ？ってなった。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://seita.tokyo/2019/01/14/%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0%E3%81%8B%E3%82%89mnemonic%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%93%E3%81%A0%E3%82%89%E8%BA%93%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2/" />
 <meta property="og:image" content="https://seita.tokyo/img/ethereum.png" />
@@ -37,10 +34,7 @@ set -x MNEMONIC &#39;catalog park praise void alarm bright olive hidden box chic
     
     
 <meta itemprop="name" content="環境変数からmnemonicを読み込んだら躓いたメモ">
-<meta itemprop="description" content="fishの環境変数にこんな感じでmnemonicを宣言してtruffle-hdwallet-providerでアドレスを導出したところ、mnemonic code converterとは違うアドレスが出てきたので、あれ？ってなった。
-set -x MNEMONIC catalog park praise void alarm bright olive hidden box chicken squeeze shove 冷静に調べてみたところ、この環境変数をprocess.env.MNEMONICで読み込むと、
-catalogparkpraisevoidalarmbrightolivehiddenboxchickensqueezeshove mnemonicの単語間の空白が消えていたことが判明。 環境変数は基本的に文字列で読み込まれるからクオーテーションはいつもつけていなかったのですが、空白が消えるのは想定外でした。 あとmnemonicの空白がないと違うアドレスがでちゃうのも意外でした。
-set -x MNEMONIC &#39;catalog park praise void alarm bright olive hidden box chicken squeeze shove&#39; よってクオーテーションをつけてあげたらちゃんと空白つきでmnemonicが読み込まれ、欲しかったアドレスが出てきました。">
+<meta itemprop="description" content="fishの環境変数にこんな感じでmnemonicを宣言してtruffle-hdwallet-providerでアドレスを導出したところ、mnemonic code converterとは違うアドレスが出てきたので、あれ？ってなった。">
 
 
 <meta itemprop="datePublished" content="2019-01-14T00:58:06&#43;02:00" />
@@ -347,7 +341,6 @@ set -x MNEMONIC &#39;catalog park praise void alarm bright olive hidden box chic
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fish" data-lang="fish"><span style="color:#66d9ef">set</span> -x MNEMONIC <span style="color:#e6db74">&#39;catalog park praise void alarm bright olive hidden box chicken squeeze shove&#39;</span></code></pre></div>
 
 <p>よってクオーテーションをつけてあげたらちゃんと空白つきでmnemonicが読み込まれ、欲しかったアドレスが出てきました。</p>
-
         </div>
         <footer class="article-footer">
     <a data-url="https://seita.tokyo/2019/01/14/%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0%E3%81%8B%E3%82%89mnemonic%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%93%E3%81%A0%E3%82%89%E8%BA%93%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2/" data-id="bb683364c2d1387ce36c9123b3898947" class="article-share-link">
