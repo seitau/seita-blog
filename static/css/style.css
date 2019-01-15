@@ -804,10 +804,10 @@ code {
 .article-inner {
   overflow: hidden;
 }
-.article-banner {
-  width: 100%;
-  height: auto;
-}
+/*.article-banner {*/
+  /*width: 100%;*/
+  /*height: auto;*/
+/*}*/
 .article-header {
   padding: 20px 20px 0;
 }
@@ -2101,7 +2101,7 @@ ol.toc {
   height: 1.6em;
 }
 .highlight {
-  color: #ddd;
+  /*color: #ddd;*/
   background: #272822;
 }
 .highlight .code .tag,

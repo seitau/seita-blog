@@ -14,22 +14,22 @@ fishの環境変数にこんな感じでmnemonicを宣言してtruffle-hdwallet-
 
 <!--more-->
 
-{{< highlight fish >}}
+```fish
 set -x MNEMONIC catalog park praise void alarm bright olive hidden box chicken squeeze shove
-{{< /highlight >}}
+```
 
 冷静に調べてみたところ、この環境変数を`process.env.MNEMONIC`で読み込むと、
 
-{{< highlight text >}}
+```text
 catalogparkpraisevoidalarmbrightolivehiddenboxchickensqueezeshove
-{{< /highlight >}}
+```
 
 mnemonicの単語間の空白が消えていたことが判明。
 環境変数は基本的に文字列で読み込まれるからクオーテーションはいつもつけていなかったのですが、空白が消えるのは想定外でした。
 あとmnemonicの空白がないと違うアドレスがでちゃうのも意外でした。
 
-{{< highlight fish >}}
+```fish
 set -x MNEMONIC 'catalog park praise void alarm bright olive hidden box chicken squeeze shove'
-{{< /highlight >}}
+```
 
 よってクオーテーションをつけてあげたらちゃんと空白つきでmnemonicが読み込まれ、欲しかったアドレスが出てきました。
