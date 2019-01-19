@@ -2100,10 +2100,10 @@ ol.toc {
 .article-entry .highlight .line {
   height: 1.6em;
 }
-/*.highlight {*/
+.highlight {
   /*color: #ddd;*/
-  /*background: #272822;*/
-/*}*/
+  background: #272822;
+}
 .highlight .code .tag,
 .highlight .code .keyword,
 .highlight .code .selector-tag,

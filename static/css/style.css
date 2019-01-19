@@ -1059,6 +1059,11 @@ a.article-title:hover {
   cursor: pointer;
   margin-left: 20px;
 }
+.article-translation-link {
+  float: right;
+  cursor: pointer;
+  margin-left: 20px;
+}
 .article-share-link .fa-share {
   margin-right: 5px;
 }

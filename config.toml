@@ -1,5 +1,6 @@
 baseURL = "https://seita.tokyo/"
-languageCode = "en-us"
+languageCode = "ja"
+defaultContentLanguage = "ja"
 title = "Seita Blog"
 theme = "hugo-icarus-theme"
 # themesDir = "./themes/"
@@ -94,3 +95,13 @@ coverImage = "img/avatar.jpg"
     tags = true
     tag_cloud = false
 
+[languages]
+  [languages.ja]
+    languageName = "Japanese"
+    weight = 1
+    [languages.ja.params]
+      [languages.ja.params.navigation]
+  [languages.en]
+    languageName = "English"
+    weight = 2
+      [languages.en.params]

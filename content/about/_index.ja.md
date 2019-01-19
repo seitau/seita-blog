@@ -1,6 +1,5 @@
 ---
 title: "About"
-menu: "main"
 nodateline: true
 disable_comments: true
 ---
