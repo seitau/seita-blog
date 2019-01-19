@@ -1,5 +1,5 @@
 ---
-banner: "img/bch-electron-cash.png"
+banner: "img/coding.png"
 date: "2019-01-13T16:58:06+02:00"
 description: ""
 images: []

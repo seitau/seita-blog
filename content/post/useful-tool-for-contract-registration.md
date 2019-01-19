@@ -1,5 +1,6 @@
 ---
 banner: "img/ethereum.png"
+narrowBanner: true
 date: "2019-01-13T21:58:06+02:00"
 description: ""
 images: ["img/ethereum.png"]

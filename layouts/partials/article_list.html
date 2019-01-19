@@ -1,26 +1,32 @@
 {{ $paginator := .Paginate (where .Data.Pages "Section" "in" .Site.Params.mainSections) }}
 {{ range $paginator.Pages }}
 <article class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        {{ if and (isset .Params "banner") (not (eq .Params.banner "")) }}
-            <a href="{{ .Permalink }}" itemprop="url">
-                <img src="{{ .Params.banner | absURL }}" class="article-banner">
-            </a>
+  <div class="article-inner">
+    {{ if and (isset .Params "banner") (not (eq .Params.banner "")) }}
+    <div class="article-banner" href="{{ .Permalink }}" itemprop="url">
+      <a href="{{ .Permalink }}" itemprop="url">
+        {{ if .Params.narrowBanner }}
+        <img src="{{ .Params.banner | absURL }}" class="article-banner-image-narrow">
+        {{ else }}
+        <img src="{{ .Params.banner | absURL }}" class="article-banner-image">
         {{ end }}
+      </a>
+  </div>
+  {{ end }}
 
-        {{ partial "article_header" . }}
-        <div class="article-entry" itemprop="articleBody">
-            <p>
-                {{ .Description | default .Summary }}
-            </p>
-            <p class="article-more-link">
-                <a href="{{ .Permalink }}">
-                    {{with .Site.Data.l10n.articles.read_more}}{{.}}{{end}}
-                </a>
-            </p>
-        </div>
-        {{ partial "article_footer" . }}
-    </div>
+  {{ partial "article_header" . }}
+  <div class="article-entry" itemprop="articleBody">
+    <p>
+    {{ .Description | default .Summary }}
+    </p>
+    <p class="article-more-link">
+    <a href="{{ .Permalink }}">
+      {{with .Site.Data.l10n.articles.read_more}}{{.}}{{end}}
+    </a>
+    </p>
+  </div>
+  {{ partial "article_footer" . }}
+  </div>
 </article>
 {{ end }}
 

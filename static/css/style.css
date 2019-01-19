@@ -804,10 +804,10 @@ code {
 .article-inner {
   overflow: hidden;
 }
-/*.article-banner {*/
-  /*width: 100%;*/
-  /*height: auto;*/
-/*}*/
+.article-banner {
+  width: 100%;
+  height: auto;
+}
 .article-header {
   padding: 20px 20px 0;
 }
