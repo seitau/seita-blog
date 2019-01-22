@@ -7,7 +7,7 @@ theme = "hugo-icarus-theme"
 disqusShortname = "seita-blog"
 # pygmentsUseClasses = true
 pygmentsCodefences = true
-pygmentsStyle = "monokai"
+pygmentsStyle = "fruity"
 coverImage = "img/avatar.jpg"
 
 [permalinks]

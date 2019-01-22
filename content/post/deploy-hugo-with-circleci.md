@@ -51,7 +51,8 @@ EXPOSE 1313
 
 上で作成したimageをcircleciでpullしてfirebase hostingにデプロイします。
 
-config.ymlは以下のように設定しました。
+config.ymlは以下のような流れになりました。
+circleciの環境変数には`$FIREBASE_DEPLOY_TOKEN`と`FIREBASE_PROJECT_ID`を設定しています。
 
 ```yml
 version: 2
@@ -75,6 +76,6 @@ jobs:
           command: firebase deploy --token=$FIREBASE_DEPLOY_TOKEN --project $FIREBASE_PROJECT_ID
 ```
 
-circleciの環境変数に`$FIREBASE_DEPLOY_TOKEN`と`FIREBASE_PROJECT_ID`を設定しています。
+ここでは、git submoduleの更新、サイトのビルドとfirebaseへのデプロイを行なっています。
 
 以上で、快適なci環境の完成です。

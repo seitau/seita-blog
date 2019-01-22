@@ -2107,7 +2107,7 @@ ol.toc {
 }
 .highlight {
   /*color: #ddd;*/
-  background: #272822;
+  background: #111;
 }
 .highlight .code .tag,
 .highlight .code .keyword,
