@@ -6,7 +6,7 @@ description: ""
 images: ["img/ethereum.png"]
 menu: ""
 categories: ["programming"]
-tags: ["cryptocurrency", "litecoin", "bitcoincash", "blockchain"]
+tags: ["cryptocurrency", "ethereum", "blockchain"]
 title: "Etherscanにコントラクトを登録するときに便利なツール"
 draft: false
 ---
