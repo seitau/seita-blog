@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Seita Blog</title>
+    <link>https://seita.tokyo/post/</link>
+    <description>Recent content in Posts on Seita Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Mon, 21 Jan 2019 12:00:06 +0200</lastBuildDate>
+    
+	<atom:link href="https://seita.tokyo/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hugoをcircleciで自動デプロイする</title>
+      <link>https://seita.tokyo/2019/01/21/hugo%E3%82%92circleci%E3%81%A7%E8%87%AA%E5%8B%95%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%99%E3%82%8B/</link>
+      <pubDate>Mon, 21 Jan 2019 12:00:06 +0200</pubDate>
+      
+      <guid>https://seita.tokyo/2019/01/21/hugo%E3%82%92circleci%E3%81%A7%E8%87%AA%E5%8B%95%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%99%E3%82%8B/</guid>
+      <description>&lt;p&gt;最近このブログを含めて、hugoを使ってブログを構築する機会が多かったので、githubにプッシュしたらciが自動でfirebaseにデプロイしてくれる環境を作りました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>環境変数からmnemonicを読み込んだら躓いたメモ</title>
+      <link>https://seita.tokyo/2019/01/14/%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0%E3%81%8B%E3%82%89mnemonic%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%93%E3%81%A0%E3%82%89%E8%BA%93%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2/</link>
+      <pubDate>Mon, 14 Jan 2019 00:58:06 +0200</pubDate>
+      
+      <guid>https://seita.tokyo/2019/01/14/%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0%E3%81%8B%E3%82%89mnemonic%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%93%E3%81%A0%E3%82%89%E8%BA%93%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2/</guid>
+      <description>&lt;p&gt;fishの環境変数にこんな感じでmnemonicを宣言してtruffle-hdwallet-providerでアドレスを導出したところ、&lt;a href=&#34;https://iancoleman.io/bip39/&#34;&gt;mnemonic code converter&lt;/a&gt;とは違うアドレスが出てきたので、あれ？ってなった。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Etherscanにコントラクトを登録するときに便利なツール</title>
+      <link>https://seita.tokyo/2019/01/13/etherscan%E3%81%AB%E3%82%B3%E3%83%B3%E3%83%88%E3%83%A9%E3%82%AF%E3%83%88%E3%82%92%E7%99%BB%E9%8C%B2%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E4%BE%BF%E5%88%A9%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB/</link>
+      <pubDate>Sun, 13 Jan 2019 21:58:06 +0200</pubDate>
+      
+      <guid>https://seita.tokyo/2019/01/13/etherscan%E3%81%AB%E3%82%B3%E3%83%B3%E3%83%88%E3%83%A9%E3%82%AF%E3%83%88%E3%82%92%E7%99%BB%E9%8C%B2%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E4%BE%BF%E5%88%A9%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB/</guid>
+      <description>&lt;p&gt;Ropstenでコントラクトをテストしようと思い、せっかくだからEtherscanに登録して弄ってみようと思ったものの、スムーズにいかなかったのでメモ。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Electrum Litecoin Wallet・Electron Cashをテストネットにつなぐ</title>
+      <link>https://seita.tokyo/2019/01/13/electrum-litecoin-walletelectron-cash%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%83%8D%E3%83%83%E3%83%88%E3%81%AB%E3%81%A4%E3%81%AA%E3%81%90/</link>
+      <pubDate>Sun, 13 Jan 2019 16:58:06 +0200</pubDate>
+      
+      <guid>https://seita.tokyo/2019/01/13/electrum-litecoin-walletelectron-cash%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%83%8D%E3%83%83%E3%83%88%E3%81%AB%E3%81%A4%E3%81%AA%E3%81%90/</guid>
+      <description>&lt;p&gt;開発に使う目的でインストールしたけどデフォルトでメインネットに接続してしまってテストネットへの切り替えボタンも見当たらなかったのでメモ。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -55,6 +55,8 @@
           <td><a class="main-nav-link" href="{{ .URL }}">{{ .Name }}</a></td>
           {{ end }}
 
+          <td><a class="main-nav-link" href="{{ "about/" | absURL }}">About</a></td>
+
           {{ range .Site.Params.menu }}
           {{ if not .before }}
           <td><a class="main-nav-link" href="{{ .link  | absURL }}">{{ .label }}</a></td>
