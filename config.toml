@@ -93,7 +93,7 @@ coverImage = "img/avatar.jpg"
     recent_articles = true
     categories = true
     tags = true
-    tag_cloud = false
+    tag_cloud = true
 
 [languages]
   [languages.ja]
