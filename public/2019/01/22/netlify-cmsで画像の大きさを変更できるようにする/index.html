@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <title>Electrum Litecoin Wallet・Electron Cashをテストネットにつなぐ &middot; Seita Blog</title>
+    <title>Netlify CMSで画像の大きさを変更できるようにする &middot; Seita Blog</title>
     <meta name="generator" content="Hugo 0.53" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -10,7 +10,7 @@
       <meta name="description" content="留学・プログラミング・読書についての記録">
     
     
-    <link rel="canonical" href="https://seita.tokyo/2019/01/13/electrum-litecoin-walletelectron-cash%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%83%8D%E3%83%83%E3%83%88%E3%81%AB%E3%81%A4%E3%81%AA%E3%81%90/"/>
+    <link rel="canonical" href="https://seita.tokyo/2019/01/22/netlify-cms%E3%81%A7%E7%94%BB%E5%83%8F%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%99%E3%82%8B/"/>
     <link rel="icon" href="https://seita.tokyo/img/favicon.ico">
     <link rel="apple-touch-icon" href="https://seita.tokyo/apple-touch-icon.png"/>
     <link rel="stylesheet" href="https://seita.tokyo/css/style.css">
@@ -24,27 +24,31 @@
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
 
       
-      <meta property="og:image" content="https://seita.tokyo/img/coding.png" />
+      <meta property="og:image" content="https://seita.tokyo/img/netlify.png" />
       
-    <meta property="og:title" content="Electrum Litecoin Wallet・Electron Cashをテストネットにつなぐ" />
-<meta property="og:description" content="開発に使う目的でインストールしたけどデフォルトでメインネットに接続してしまってテストネットへの切り替えボタンも見当たらなかったのでメモ。" />
+    <meta property="og:title" content="Netlify CMSで画像の大きさを変更できるようにする" />
+<meta property="og:description" content="2019年に入ってから友人とUCSB留学ブログを運営しており、主に友人が記事の執筆、自分はブログサイトの開発を担当しています。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://seita.tokyo/2019/01/13/electrum-litecoin-walletelectron-cash%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%83%8D%E3%83%83%E3%83%88%E3%81%AB%E3%81%A4%E3%81%AA%E3%81%90/" /><meta property="article:published_time" content="2019-01-13T16:58:06&#43;02:00"/>
-<meta property="article:modified_time" content="2019-01-13T16:58:06&#43;02:00"/>
+<meta property="og:url" content="https://seita.tokyo/2019/01/22/netlify-cms%E3%81%A7%E7%94%BB%E5%83%8F%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%99%E3%82%8B/" />
+<meta property="og:image" content="https://seita.tokyo/img/netlify.png" />
+<meta property="article:published_time" content="2019-01-22T10:22:36-08:00"/>
+<meta property="article:modified_time" content="2019-01-22T10:22:36-08:00"/>
 
     
     
-<meta itemprop="name" content="Electrum Litecoin Wallet・Electron Cashをテストネットにつなぐ">
-<meta itemprop="description" content="開発に使う目的でインストールしたけどデフォルトでメインネットに接続してしまってテストネットへの切り替えボタンも見当たらなかったのでメモ。">
+<meta itemprop="name" content="Netlify CMSで画像の大きさを変更できるようにする">
+<meta itemprop="description" content="2019年に入ってから友人とUCSB留学ブログを運営しており、主に友人が記事の執筆、自分はブログサイトの開発を担当しています。">
 
 
-<meta itemprop="datePublished" content="2019-01-13T16:58:06&#43;02:00" />
-<meta itemprop="dateModified" content="2019-01-13T16:58:06&#43;02:00" />
-<meta itemprop="wordCount" content="17">
+<meta itemprop="datePublished" content="2019-01-22T10:22:36-08:00" />
+<meta itemprop="dateModified" content="2019-01-22T10:22:36-08:00" />
+<meta itemprop="wordCount" content="123">
+
+  <meta itemprop="image" content="https://seita.tokyo/img/netlify.png">
 
 
 
-<meta itemprop="keywords" content="cryptocurrency,litecoin,bitcoincash,blockchain," />
+<meta itemprop="keywords" content="netlify,netlify-cms,hugo," />
 
     
     
@@ -54,8 +58,8 @@
   
 
 
-<meta name="twitter:title" content="Electrum Litecoin Wallet・Electron Cashをテストネットにつなぐ"/>
-<meta name="twitter:description" content="開発に使う目的でインストールしたけどデフォルトでメインネットに接続してしまってテストネットへの切り替えボタンも見当たらなかったのでメモ。"/>
+<meta name="twitter:title" content="Netlify CMSで画像の大きさを変更できるようにする"/>
+<meta name="twitter:description" content="2019年に入ってから友人とUCSB留学ブログを運営しており、主に友人が記事の執筆、自分はブログサイトの開発を担当しています。"/>
 <meta name="twitter:site" content="https://seita.tokyo/"/>
 
 
@@ -272,19 +276,19 @@
     <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
-        <div class="article-banner" href="https://seita.tokyo/2019/01/13/electrum-litecoin-walletelectron-cash%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%83%8D%E3%83%83%E3%83%88%E3%81%AB%E3%81%A4%E3%81%AA%E3%81%90/" itemprop="url">
-            <a href="https://seita.tokyo/2019/01/13/electrum-litecoin-walletelectron-cash%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%83%8D%E3%83%83%E3%83%88%E3%81%AB%E3%81%A4%E3%81%AA%E3%81%90/" itemprop="url">
+        <div class="article-banner" href="https://seita.tokyo/2019/01/22/netlify-cms%E3%81%A7%E7%94%BB%E5%83%8F%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%99%E3%82%8B/" itemprop="url">
+            <a href="https://seita.tokyo/2019/01/22/netlify-cms%E3%81%A7%E7%94%BB%E5%83%8F%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%99%E3%82%8B/" itemprop="url">
                 
-                <img src="https://seita.tokyo/img/coding.png" class="article-banner-image">
+                <img src="https://seita.tokyo/img/netlify.png" class="article-banner-image-narrow">
                 
             </a>
         </div>
         
 
         <header class="article-header">
-    <a href="https://seita.tokyo/2019/01/13/electrum-litecoin-walletelectron-cash%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%83%8D%E3%83%83%E3%83%88%E3%81%AB%E3%81%A4%E3%81%AA%E3%81%90/">
+    <a href="https://seita.tokyo/2019/01/22/netlify-cms%E3%81%A7%E7%94%BB%E5%83%8F%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%99%E3%82%8B/">
     <h1 class="article-title" itemprop="name">
-        Electrum Litecoin Wallet・Electron Cashをテストネットにつなぐ
+        Netlify CMSで画像の大きさを変更できるようにする
     </h1>
     </a>
     <div class="article-meta">
@@ -292,7 +296,7 @@
         
         <div class="article-date">
             <i class="fa fa-calendar"></i>
-            <time datetime="2019-01-13 16:58:06 &#43;0200 &#43;0200" itemprop="datePublished">2019-01-13</time>
+            <time datetime="2019-01-22 10:22:36 -0800 PST" itemprop="datePublished">2019-01-22</time>
         </div>
         
         
@@ -316,19 +320,15 @@
                 <i class="fa fa-tags"></i>
                 
                 
-                <a class="article-category-link" href="https://seita.tokyo/tags/cryptocurrency">cryptocurrency</a>
+                <a class="article-category-link" href="https://seita.tokyo/tags/netlify">netlify</a>
                 &middot;
                 
                 
-                <a class="article-category-link" href="https://seita.tokyo/tags/litecoin">litecoin</a>
+                <a class="article-category-link" href="https://seita.tokyo/tags/netlify-cms">netlify-cms</a>
                 &middot;
                 
                 
-                <a class="article-category-link" href="https://seita.tokyo/tags/bitcoincash">bitcoincash</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="https://seita.tokyo/tags/blockchain">blockchain</a>
+                <a class="article-category-link" href="https://seita.tokyo/tags/hugo">hugo</a>
                 
                 
             </div>
@@ -338,22 +338,78 @@
 </header>
 
         <div class="article-entry" itemprop="articleBody">
-            <p>開発に使う目的でインストールしたけどデフォルトでメインネットに接続してしまってテストネットへの切り替えボタンも見当たらなかったのでメモ。</p>
+            <p>2019年に入ってから友人と<a href="https://ucsb.tokyo/">UCSB留学ブログ</a>を運営しており、主に友人が記事の執筆、自分はブログサイトの開発を担当しています。</p>
 
-<p>コマンドラインで以下のように開けばテストネットに繋がる。</p>
+<!--<iframe class="hatenablogcard" style="width:100%;height:155px;max-width:680px;" title="URLを記入するだけ！はてなブログカード風にWordpress記事も表示させるカスタマイズ方法" src="https://hatenablog-parts.com/embed?url=https://ucsb.tokyo/post/2019-01-14-ucsb%E3%81%AE%E5%9F%BA%E6%9C%AC%E6%83%85%E5%A0%B1/" width="300" height="150" frameborder="0" scrolling="no"></iframe>-->
 
-<h2 id="electrum-litecoin-wallet">Electrum Litecoin Wallet</h2>
-<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">open -n /Applications/Electrum-LTC.app/ --args --testnet</code></pre></div>
-<h2 id="electron-cash">Electron Cash</h2>
-<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">open -n /Applications/Electron-Cash.app --args --testnet</code></pre></div>
+<p>そこで現在、<a href="https://www.netlifycms.org/">Netlify CMS</a>を利用して執筆と開発を分離しているのですが、CMSからアップロードした画像のサイズが変更できないという苦情を受けたのでごにょごにょして修正しました。</p>
+
+<h1 id="editorcomponentを追加する">EditorComponentを追加する</h1>
+
+<p>Netlify CMSはreactで書かれているということで、最初はカスタマイズできるか自信がなかったのですが、<a href="https://www.netlifycms.org/docs/custom-widgets/#registereditorcomponent">document</a>を確認してみると、意外にもeditorのcomponentを簡単にカスタマイズできるようになっていて素敵でした。Hugoのfront matterに合わせて適当にボタンとかインプットとか増やせるみたいですね。</p>
+
+<p>早速documentに従って、<code>/static/admin/index.html</code>に記述していきます。</p>
+
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">&lt;script&gt;
+  CMS.registerEditorComponent({
+    id: <span style="color:#0086d2">&#34;customImage&#34;</span>,
+    label: <span style="color:#0086d2">&#34;CustomImage&#34;</span>,
+    fields: [
+      {label: <span style="color:#0086d2">&#34;Image&#34;</span>, name: <span style="color:#0086d2">&#34;image&#34;</span>, widget: <span style="color:#0086d2">&#34;image&#34;</span>},
+      {label: <span style="color:#0086d2">&#34;Width&#34;</span>, name: <span style="color:#0086d2">&#34;width&#34;</span>, widget: <span style="color:#0086d2">&#34;number&#34;</span>, min: <span style="color:#0086f7;font-weight:bold">1</span>, <span style="color:#fb660a;font-weight:bold">default</span>: <span style="color:#0086f7;font-weight:bold">400</span>}
+    ],
+    pattern: <span style="color:#0086d2">/^{ {&lt; customImage &#34;(\S+)&#34; (\S+) &gt;} }$/</span>,
+    fromBlock: <span style="color:#fb660a;font-weight:bold">function</span>(match) {
+      console.log(match)
+      <span style="color:#fb660a;font-weight:bold">return</span> {
+        image: match[<span style="color:#0086f7;font-weight:bold">1</span>],
+        width: match[<span style="color:#0086f7;font-weight:bold">2</span>]
+      };
+    },
+    toBlock: <span style="color:#fb660a;font-weight:bold">function</span>(obj) {
+      <span style="color:#fb660a;font-weight:bold">return</span> <span style="color:#0086d2">&#39;{ {&lt; customImage &#34;&#39;</span> + obj.image + <span style="color:#0086d2">&#39;&#34; &#39;</span> + obj.width + <span style="color:#0086d2">&#39; &gt;} }&#39;</span>
+    },
+    toPreview: <span style="color:#fb660a;font-weight:bold">function</span>(obj) {
+      <span style="color:#fb660a;font-weight:bold">return</span> (
+            <span style="color:#0086d2">&#39;&lt;figure&gt;&lt;img src=&#39;</span> + obj.image + <span style="color:#0086d2">&#39; width=&#39;</span> + obj.width + <span style="color:#0086d2">&#39; style=&#34;height:auto;&#34;/&gt;&lt;/figure&gt;&#39;</span>
+           );
+    }
+  });
+&lt;/script&gt;
+</code></pre></div>
+
+<p>上記のようにindex.htmlにscriptを追加すると、CMSからcustomImageという項目を選択することができるようになります。</p>
+
+<p>これで終わりかと思いきや、まだ一つやることがあります。</p>
+
+<p>上記のEditorComponentを使用してcustomImageを選択し画像を挿入すると、</p>
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{ {&lt; customImage <span style="color:#0086d2">&#34;example.jpg&#34;</span> <span style="color:#0086f7;font-weight:bold">400</span> &gt;} }
+</code></pre></div>
+<p>このようなshortcodeが実際のmarkdownファイルには記述されます。</p>
+
+<p>このままではまだhugoがimageとして解釈してくれないため、<a href="https://gohugo.io/templates/shortcode-templates/#create-custom-shortcodes">custom shortcode</a>を追加しましょう。</p>
+
+<h1 id="hugoのcustom-shortcodeを追加する">hugoのcustom shortcodeを追加する</h1>
+
+<p>hugoのプロジェクトルートにある<code>/layout/shortcodes</code>に<code>customImage.html</code>というファイルを作成し、以下のコードを保存してください。</p>
+<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go-html-template" data-lang="go-html-template">&lt;<span style="color:#fb660a;font-weight:bold">figure</span>&gt;
+    &lt;<span style="color:#fb660a;font-weight:bold">img</span> <span style="color:#ff0086;font-weight:bold">src</span>=<span style="color:#0086d2">&#34;</span><span style="color:#ff0007;background-color:#0f140f;font-weight:bold;font-style:italic">{{</span><span style="color:#ff0086;font-weight:bold">.Get</span><span style="color:#888"> </span>0<span style="color:#ff0007;background-color:#0f140f;font-weight:bold;font-style:italic">}}</span><span style="color:#0086d2">&#34;</span> <span style="color:#ff0086;font-weight:bold">width</span>=<span style="color:#0086d2">&#34;</span><span style="color:#ff0007;background-color:#0f140f;font-weight:bold;font-style:italic">{{</span><span style="color:#ff0086;font-weight:bold">.Get</span><span style="color:#888"> </span>1<span style="color:#ff0007;background-color:#0f140f;font-weight:bold;font-style:italic">}}</span><span style="color:#0086d2">&#34;</span> <span style="color:#ff0086;font-weight:bold">style</span>=<span style="color:#0086d2">&#34;height:auto;&#34;</span>/&gt;
+&lt;/<span style="color:#fb660a;font-weight:bold">figure</span>&gt;</code></pre></div>
+<p>shortcodeの第一引数にimageへのパス、第二引数にwidthの数値を入れることでサイズ可変のfigureを挿入することが可能になっています。</p>
+
+<p>これで、CMSからサイズの変更できるcustomImageを挿入することができるようになりました。</p>
+
+<h1 id="netlify-cms良き">Netlify CMS良き</h1>
+
+<p>CMSを選定する際に<a href="https://forestry.io/">forestly.io</a>とも迷いましたが、もともとの機能がシンプルな分Netlify CMSのほうが拡張性があったので、選んで正解だったかなと思いました。</p>
         </div>
         <footer class="article-footer">
-    <a data-url="https://seita.tokyo/2019/01/13/electrum-litecoin-walletelectron-cash%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%83%8D%E3%83%83%E3%83%88%E3%81%AB%E3%81%A4%E3%81%AA%E3%81%90/" data-id="aa29e640057854dd4b9865872c35cf0c" class="article-share-link">
+    <a data-url="https://seita.tokyo/2019/01/22/netlify-cms%E3%81%A7%E7%94%BB%E5%83%8F%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%99%E3%82%8B/" data-id="f01b09f6a0f36e9cf7088e69aeef4992" class="article-share-link">
         <i class="fa fa-share"></i>
         Share
     </a>
     
-    <a href="https://seita.tokyo/2019/01/13/electrum-litecoin-walletelectron-cash%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%83%8D%E3%83%83%E3%83%88%E3%81%AB%E3%81%A4%E3%81%AA%E3%81%90/#disqus_thread" class="article-comment-link">
+    <a href="https://seita.tokyo/2019/01/22/netlify-cms%E3%81%A7%E7%94%BB%E5%83%8F%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%99%E3%82%8B/#disqus_thread" class="article-comment-link">
         Comments
     </a>
     
@@ -433,14 +489,14 @@
     
 <nav id="article-nav">
     
-
-    
-    <a href="https://seita.tokyo/2019/01/13/etherscan%E3%81%AB%E3%82%B3%E3%83%B3%E3%83%88%E3%83%A9%E3%82%AF%E3%83%88%E3%82%92%E7%99%BB%E9%8C%B2%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E4%BE%BF%E5%88%A9%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="https://seita.tokyo/2019/01/21/hugo%E3%82%92circleci%E3%81%A7%E8%87%AA%E5%8B%95%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%99%E3%82%8B/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">
-          Newer
+          Older
       </strong>
-      <div class="article-nav-title">Etherscanにコントラクトを登録するときに便利なツール</div>
+      <div class="article-nav-title">Hugoをcircleciで自動デプロイする</div>
     </a>
+    
+
     
 </nav>
 
@@ -491,7 +547,7 @@
                 <div class="item-thumbnail">
                     <a href="https://seita.tokyo/2019/01/22/netlify-cms%E3%81%A7%E7%94%BB%E5%83%8F%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%99%E3%82%8B/" class="thumbnail">
                     
-                        <span style="background-image:url(https://seita.tokyo/img/netlify.png)" alt="Electrum Litecoin Wallet・Electron Cashをテストネットにつなぐ" class="thumbnail-image"></span>
+                        <span style="background-image:url(https://seita.tokyo/img/netlify.png)" alt="Netlify CMSで画像の大きさを変更できるようにする" class="thumbnail-image"></span>
                     
                     </a>
                 </div>
@@ -517,7 +573,7 @@
                 <div class="item-thumbnail">
                     <a href="https://seita.tokyo/2019/01/21/hugo%E3%82%92circleci%E3%81%A7%E8%87%AA%E5%8B%95%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%99%E3%82%8B/" class="thumbnail">
                     
-                        <span style="background-image:url(https://seita.tokyo/img/circleci.png)" alt="Electrum Litecoin Wallet・Electron Cashをテストネットにつなぐ" class="thumbnail-image"></span>
+                        <span style="background-image:url(https://seita.tokyo/img/circleci.png)" alt="Netlify CMSで画像の大きさを変更できるようにする" class="thumbnail-image"></span>
                     
                     </a>
                 </div>
@@ -543,7 +599,7 @@
                 <div class="item-thumbnail">
                     <a href="https://seita.tokyo/2019/01/14/%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0%E3%81%8B%E3%82%89mnemonic%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%93%E3%81%A0%E3%82%89%E8%BA%93%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2/" class="thumbnail">
                     
-                        <span style="background-image:url(https://seita.tokyo/img/ethereum.png)" alt="Electrum Litecoin Wallet・Electron Cashをテストネットにつなぐ" class="thumbnail-image"></span>
+                        <span style="background-image:url(https://seita.tokyo/img/ethereum.png)" alt="Netlify CMSで画像の大きさを変更できるようにする" class="thumbnail-image"></span>
                     
                     </a>
                 </div>
@@ -569,7 +625,7 @@
                 <div class="item-thumbnail">
                     <a href="https://seita.tokyo/2019/01/13/etherscan%E3%81%AB%E3%82%B3%E3%83%B3%E3%83%88%E3%83%A9%E3%82%AF%E3%83%88%E3%82%92%E7%99%BB%E9%8C%B2%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E4%BE%BF%E5%88%A9%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB/" class="thumbnail">
                     
-                        <span style="background-image:url(https://seita.tokyo/img/ethereum.png)" alt="Electrum Litecoin Wallet・Electron Cashをテストネットにつなぐ" class="thumbnail-image"></span>
+                        <span style="background-image:url(https://seita.tokyo/img/ethereum.png)" alt="Netlify CMSで画像の大きさを変更できるようにする" class="thumbnail-image"></span>
                     
                     </a>
                 </div>
@@ -595,7 +651,7 @@
                 <div class="item-thumbnail">
                     <a href="https://seita.tokyo/2019/01/13/electrum-litecoin-walletelectron-cash%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%83%8D%E3%83%83%E3%83%88%E3%81%AB%E3%81%A4%E3%81%AA%E3%81%90/" class="thumbnail">
                     
-                        <span style="background-image:url(https://seita.tokyo/img/coding.png)" alt="Electrum Litecoin Wallet・Electron Cashをテストネットにつなぐ" class="thumbnail-image"></span>
+                        <span style="background-image:url(https://seita.tokyo/img/coding.png)" alt="Netlify CMSで画像の大きさを変更できるようにする" class="thumbnail-image"></span>
                     
                     </a>
                 </div>

@@ -27,17 +27,15 @@
     {{ end }}
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-    <meta property="og:image" content="https://seita.tokyo/img/site-feature-image.jpeg" />
+
+      {{ if (and (isset .Params "banner") .IsPage)}}
+      <meta property="og:image" content="{{ .Params.banner | absURL }}" />
+      {{ else }}
+      <meta property="og:image" content="{{ index .Site.Params.Images 0 | absURL }}" />
+      {{ end }}
     {{ template "_internal/opengraph.html" . }}
     {{ template "_internal/google_news.html" . }}
     {{ template "_internal/schema.html" . }}
-    <!--{{ template "_internal/twitter_cards.html" . }}-->
-    <!--<meta name="twitter:card" content="summary"/>-->
-    <!--<meta name="twitter:image" content="https://seita.tokyo/img/site-feature-image.jpeg"/>-->
-    <!--<meta name="twitter:title" content="Seita Blog"/>-->
-    <!--<meta name="twitter:description" content="留学・Tech・読書についての記録"/>-->
-    <!--<meta name="twitter:site" content="@sei_uchi_mura"/>-->
-
     {{ partial "twitter-card" . }}
     {{ partial "head_custom" . }}
 
