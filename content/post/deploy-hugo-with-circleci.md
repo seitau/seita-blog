@@ -23,7 +23,7 @@ circleciからfirebaseへのデプロイに関しては[circleci公式ページ]
 
 以下のdockerfileはnode.jsのv8をベースにしてhugoとfirebase-toolsをインストールしています。
 
-```dockerfile
+{{< highlight dockerfile "linenos=table" >}}
 # use latest Node (alpine)
 FROM node:8
 
@@ -44,8 +44,7 @@ RUN  npm -g config set user root && \
 
 # Expose default hugo port
 EXPOSE 1313
-
-```
+{{< /highlight >}}
 
 # CircleCIのconfig.ymlを設定
 
@@ -54,7 +53,7 @@ EXPOSE 1313
 config.ymlは以下のような流れになりました。
 circleciの環境変数には`$FIREBASE_DEPLOY_TOKEN`と`FIREBASE_PROJECT_ID`を設定しています。
 
-```yml
+{{< highlight yaml "linenos=table" >}}
 version: 2
 jobs:
   build:
@@ -74,7 +73,7 @@ jobs:
           name: Deploy Website to Firebase Hosting
           branch: master
           command: firebase deploy --token=$FIREBASE_DEPLOY_TOKEN --project $FIREBASE_PROJECT_ID
-```
+{{< /highlight >}}
 
 ここでは、git submoduleの更新、サイトのビルドとfirebaseへのデプロイを行なっています。
 

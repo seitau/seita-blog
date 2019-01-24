@@ -24,33 +24,31 @@ Netlify CMSはreactで書かれているということで、最初はカスタ�
 
 早速documentに従って、`/static/admin/index.html`に記述していきます。
 
-{{< highlight js >}}
-<script>
-  CMS.registerEditorComponent({
-    id: "customImage",
-    label: "CustomImage",
-    fields: [
-      {label: "Image", name: "image", widget: "image"},
-      {label: "Width", name: "width", widget: "number", min: 1, default: 400}
-    ],
-    pattern: /^{ {< customImage "(\S+)" (\S+) >} }$/,
-    fromBlock: function(match) {
-      console.log(match)
-      return {
-        image: match[1],
-        width: match[2]
-      };
-    },
-    toBlock: function(obj) {
-      return '{ {< customImage "' + obj.image + '" ' + obj.width + ' >} }'
-    },
-    toPreview: function(obj) {
-      return (
-            '<figure><img src=' + obj.image + ' width=' + obj.width + ' style="height:auto;"/></figure>'
-           );
-    }
-  });
-</script>
+{{< highlight javascript "linenos=table" >}}
+CMS.registerEditorComponent({
+  id: "customImage",
+  label: "CustomImage",
+  fields: [
+    {label: "Image", name: "image", widget: "image"},
+    {label: "Width", name: "width", widget: "number", min: 1, default: 400}
+  ],
+  pattern: /^{ {< customImage "(\S+)" (\S+) >} }$/,
+  fromBlock: function(match) {
+    console.log(match)
+    return {
+      image: match[1],
+      width: match[2]
+    };
+  },
+  toBlock: function(obj) {
+    return '{ {< customImage "' + obj.image + '" ' + obj.width + ' >} }'
+  },
+  toPreview: function(obj) {
+    return (
+          '<figure><img src=' + obj.image + ' width=' + obj.width + ' style="height:auto;"/></figure>'
+         );
+  }
+});
 {{< /highlight >}}
 
 上記のようにindex.htmlにscriptを追加すると、CMSからcustomImageという項目を選択することができるようになります。
@@ -59,8 +57,8 @@ Netlify CMSはreactで書かれているということで、最初はカスタ�
 
 上記のEditorComponentを使用してcustomImageを選択し画像を挿入すると、
 
-```js
-{ {< customImage "example.jpg" 400 >} }
+```go-html-template
+{ {< customImage "example.jpg" 400 >} } 
 ```
 
 このようなshortcodeが実際のmarkdownファイルには記述されます。
