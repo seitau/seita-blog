@@ -15,37 +15,7 @@ draft: false
 
 <!--more-->
 
-<div class="body-iframe page-embed hatena-web-card">
-<div class="embed-wrapper">
-<div class="embed-wrapper-inner">
-<div class="embed-content with-thumb">
-<div class="thumb-wrapper">
-<a href="https://ucsb.tokyo/post/2019-01-14-%E3%81%9D%E3%82%82%E3%81%9D%E3%82%82%E3%82%AB%E3%83%AA%E3%83%95%E3%82%A9%E3%83%AB%E3%83%8B%E3%82%A2%E5%A4%A7%E5%AD%A6%E3%81%A3%E3%81%A6%E3%81%A9%E3%82%93%E3%81%AA%E3%81%A8%E3%81%93/" target="_blank">
-<img src="https://ucsb.tokyo/images/ucla.jpg" class="thumb">
-</a>
-</div>
-<div class="entry-body">
-<h2 class="entry-title">
-<a href="https://ucsb.tokyo/post/2019-01-14-%E3%81%9D%E3%82%82%E3%81%9D%E3%82%82%E3%82%AB%E3%83%AA%E3%83%95%E3%82%A9%E3%83%AB%E3%83%8B%E3%82%A2%E5%A4%A7%E5%AD%A6%E3%81%A3%E3%81%A6%E3%81%A9%E3%82%93%E3%81%AA%E3%81%A8%E3%81%93/" target="_blank">
-UCSB留学ブログ
-</a>
-</h2>
-<div class="entry-content">
-そもそもカリフォルニア大学ってどんなとこ？
-こんにちは、しんのすけです！ 今回は、そもそもUCSBを含むカリフォルニア大学がどんなところなのか紹介します！
-</div>
-</div>
-</div>
-<div class="embed-footer">
-<a href="https://ucsb.tokyo/
-" target="_blank">
-<img src="https://ucsb.tokyo/images/favicon.ico" alt="" title="Wikipedia" class="favicon">
-https://ucsb.tokyo/
-</a>
-</div>
-</div>
-</div>
-</div>
+{{< web-embed title="UCSB留学ブログ" url="https://ucsb.tokyo/post/2019-01-14-%E3%81%9D%E3%82%82%E3%81%9D%E3%82%82%E3%82%AB%E3%83%AA%E3%83%95%E3%82%A9%E3%83%AB%E3%83%8B%E3%82%A2%E5%A4%A7%E5%AD%A6%E3%81%A3%E3%81%A6%E3%81%A9%E3%82%93%E3%81%AA%E3%81%A8%E3%81%93/" content="こんにちは、しんのすけです！今回は、そもそもUCSBを含むカリフォルニア大学がどんなところなのか紹介します！UCSBについてはまたほかの記事で。" img="https://ucsb.tokyo/images/ucla.jpg" >}}
 
 そこで現在、[Netlify CMS](https://www.netlifycms.org/)を利用して執筆と開発を分離しているのですが、CMSからアップロードした画像のサイズが変更できないという苦情を受けたのでごにょごにょして修正しました。
 

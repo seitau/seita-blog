@@ -1,0 +1,32 @@
+<div class="body-iframe page-embed hatena-web-card">
+    <div class="embed-wrapper">
+        <div class="embed-wrapper-inner">
+            <div class="embed-content with-thumb">
+                <div class="thumb-wrapper">
+                    <a href="{{ .Get "url" }}" target="_blank">
+                        <img src="{{ .Get "img" }}" class="thumb">
+                    </a>
+                </div>
+                <div class="entry-body">
+                    <h2 class="entry-title">
+                        <a href="{{ .Get "url" }}" target="_blank">
+                            {{ .Get "title" }}
+                        </a>
+                    </h2>
+                    <div class="entry-content">
+                            {{ .Get "content" }}
+                    </div>
+                </div>
+            </div>
+            {{ $url := urls.Parse ( .Get "url" ) }}
+            {{ $baseUrl := path.Join $url.Scheme $url.Host }}
+            <div class="embed-footer">
+                <a href="{{ $baseUrl }}"target="_blank">
+                    <img src="https://www.google.com/s2/favicons?domain={{ $url.Host }}" alt="" title="{{ .Get "title" }}" class="favicon">
+                    {{ $baseUrl }}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
