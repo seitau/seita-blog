@@ -134,3 +134,10 @@ div.page-embed.hatena-web-card div.embed-footer img.favicon{
     vertical-align: middle;
     border: none !important;
 }
+
+/* Font Awesome hatena bookmark */
+.fa-hatena:before {
+    content: "B!";
+    font-family: Verdana;
+    font-weight: bold
+}
