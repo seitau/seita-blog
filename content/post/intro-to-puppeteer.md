@@ -3,7 +3,7 @@ title: "PuppeteerでHeadlessブラウザ入門"
 date: 2019-01-28T00:20:37-08:00
 banner: "img/puppeteer.png"
 narrowBanner: true
-description: "PuppeteerでHeadlessブラウザ入門"
+description: ""
 images: ["img/puppeteer.png"]
 menu: ""
 categories: ["programming"]
@@ -11,6 +11,8 @@ tags: ["puppeteer", "headless-browser", "chrome", "scraping"]
 draft: false
 ---
 大好きなgoogle cloud functionsでheadlessブラウザを動かしてスクレイピングできると聞きつけたので早速入門。
+
+<!--more-->
 
 APIのdocumentは[こちら](https://github.com/GoogleChrome/puppeteer/blob/v1.11.0/docs/api.md#browserpages)。
 

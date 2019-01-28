@@ -15,7 +15,7 @@ draft: false
 
 <!--more-->
 
-<!--<iframe class="hatenablogcard" style="width:100%;height:155px;max-width:680px;" title="URLを記入するだけ！はてなブログカード風にWordpress記事も表示させるカスタマイズ方法" src="https://hatenablog-parts.com/embed?url=https://ucsb.tokyo/post/2019-01-14-ucsb%E3%81%AE%E5%9F%BA%E6%9C%AC%E6%83%85%E5%A0%B1/" width="300" height="150" frameborder="0" scrolling="no"></iframe>-->
+<iframe class="hatenablogcard" style="width:100%;height:155px;max-width:680px;" title="UCSB留学ブログ" src="https://hatenablog-parts.com/embed?url=https://ucsb.tokyo/post/2019-01-17-%E5%A4%96%E5%9B%BD%E3%81%AE%E7%BE%8E%E5%AE%B9%E9%99%A2%E3%81%A7%E9%AB%AA%E3%82%92%E5%88%87%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F%E3%83%A1%E3%83%B3%E3%82%BA%E7%B7%A8/" width="300" height="150" frameborder="0" scrolling="no"></iframe>
 
 そこで現在、[Netlify CMS](https://www.netlifycms.org/)を利用して執筆と開発を分離しているのですが、CMSからアップロードした画像のサイズが変更できないという苦情を受けたのでごにょごにょして修正しました。
 
