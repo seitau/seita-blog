@@ -71,6 +71,15 @@
 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    
+    
+
+    
+        
+        
+    
+
+      
 </head>
 <body>
 <div class="container">
@@ -336,13 +345,13 @@
         <div class="article-entry" itemprop="articleBody">
             <p>fishの環境変数にこんな感じでmnemonicを宣言してtruffle-hdwallet-providerでアドレスを導出したところ、<a href="https://iancoleman.io/bip39/">mnemonic code converter</a>とは違うアドレスが出てきたので、あれ？ってなった。</p>
 
-<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fish" data-lang="fish"><span style="color:#fb660a;font-weight:bold">set</span> -x MNEMONIC catalog park praise void alarm bright olive hidden box chicken squeeze shove</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fish" data-lang="fish"><span style="color:#66d9ef">set</span> -x MNEMONIC catalog park praise void alarm bright olive hidden box chicken squeeze shove</code></pre></div>
 <p>冷静に調べてみたところ、この環境変数を<code>process.env.MNEMONIC</code>で読み込むと、</p>
-<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">catalogparkpraisevoidalarmbrightolivehiddenboxchickensqueezeshove</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">catalogparkpraisevoidalarmbrightolivehiddenboxchickensqueezeshove</code></pre></div>
 <p>mnemonicの単語間の空白が消えていたことが判明。
 環境変数は基本的に文字列で読み込まれるからクオーテーションはいつもつけていなかったのですが、空白が消えるのは想定外でした。
 あとmnemonicの空白がないと違うアドレスがでちゃうのも意外でした。</p>
-<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fish" data-lang="fish"><span style="color:#fb660a;font-weight:bold">set</span> -x MNEMONIC <span style="color:#0086d2">&#39;catalog park praise void alarm bright olive hidden box chicken squeeze shove&#39;</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fish" data-lang="fish"><span style="color:#66d9ef">set</span> -x MNEMONIC <span style="color:#e6db74">&#39;catalog park praise void alarm bright olive hidden box chicken squeeze shove&#39;</span></code></pre></div>
 <p>よってクオーテーションをつけてあげたらちゃんと空白つきでmnemonicが読み込まれ、欲しかったアドレスが出てきました。</p>
         </div>
         <footer class="article-footer">

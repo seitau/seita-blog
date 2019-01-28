@@ -42,7 +42,7 @@
 
 <meta itemprop="datePublished" content="2019-01-21T12:00:06&#43;02:00" />
 <meta itemprop="dateModified" content="2019-01-21T12:00:06&#43;02:00" />
-<meta itemprop="wordCount" content="83">
+<meta itemprop="wordCount" content="164">
 
   <meta itemprop="image" content="https://seita.tokyo/img/circleci.png">
 
@@ -71,6 +71,15 @@
 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    
+    
+
+    
+        
+        
+    
+
+      
 </head>
 <body>
 <div class="container">
@@ -343,51 +352,106 @@
 <p>circleciからfirebaseへのデプロイに関しては<a href="https://circleci.com/docs/2.0/deployment-integrations/#firebase">circleci公式ページ</a>に説明があるので省略しますが、公式で紹介されているdockerイメージにはhugoとfirebase-toolsがインストールされているものがなかったので、勉強を兼ねて自作しました。完成イメージは<a href="https://hub.docker.com/r/seitauc/docker-hugo-firebase">docker hub</a>にupload済みです。</p>
 
 <p>以下のdockerfileはnode.jsのv8をベースにしてhugoとfirebase-toolsをインストールしています。</p>
-<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#080;background-color:#0f140f;font-style:italic"># use latest Node (alpine)</span>
-<span style="color:#fb660a;font-weight:bold">FROM</span><span style="color:#0086d2"> node:8</span>
 
-<span style="color:#080;background-color:#0f140f;font-style:italic"># Download and install hugo</span>
-<span style="color:#fb660a;font-weight:bold">ENV</span><span style="color:#0086d2"> HUGO_VERSION 0.53</span>
-<span style="color:#fb660a;font-weight:bold">ENV</span><span style="color:#0086d2"> HUGO_BINARY hugo_${HUGO_VERSION}_Linux-64bit.deb</span>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#75715e"># use latest Node (alpine)</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> node:8</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Download and install hugo</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span><span style="color:#e6db74"> HUGO_VERSION 0.53</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span><span style="color:#e6db74"> HUGO_BINARY hugo_${HUGO_VERSION}_Linux-64bit.deb</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> curl -sL -o /tmp/hugo.deb <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    https://github.com/spf13/hugo/releases/download/v<span style="color:#e6db74">${</span>HUGO_VERSION<span style="color:#e6db74">}</span>/<span style="color:#e6db74">${</span>HUGO_BINARY<span style="color:#e6db74">}</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    dpkg -i /tmp/hugo.deb <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    rm /tmp/hugo.deb <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    mkdir /usr/share/blog<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> /usr/share/blog</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span>  npm -g config set user root <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>     npm install -g firebase-tools<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Expose default hugo port</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">EXPOSE</span><span style="color:#e6db74"> 1313</span></code></pre></td></tr></table>
+</div>
+</div>
 
-<span style="color:#fb660a;font-weight:bold">RUN</span> curl -sL -o /tmp/hugo.deb <span style="color:#0086d2">\
-</span><span style="color:#0086d2"></span>    https://github.com/spf13/hugo/releases/download/v<span style="color:#0086d2">${</span><span style="color:#fb660a">HUGO_VERSION</span><span style="color:#0086d2">}</span>/<span style="color:#0086d2">${</span><span style="color:#fb660a">HUGO_BINARY</span><span style="color:#0086d2">}</span> &amp;&amp; <span style="color:#0086d2">\
-</span><span style="color:#0086d2"></span>    dpkg -i /tmp/hugo.deb &amp;&amp; <span style="color:#0086d2">\
-</span><span style="color:#0086d2"></span>    rm /tmp/hugo.deb &amp;&amp; <span style="color:#0086d2">\
-</span><span style="color:#0086d2"></span>    mkdir /usr/share/blog
-
-<span style="color:#fb660a;font-weight:bold">WORKDIR</span><span style="color:#0086d2"> /usr/share/blog</span>
-
-<span style="color:#fb660a;font-weight:bold">RUN</span>  npm -g config set user root &amp;&amp; <span style="color:#0086d2">\
-</span><span style="color:#0086d2"></span>     npm install -g firebase-tools
-
-<span style="color:#080;background-color:#0f140f;font-style:italic"># Expose default hugo port</span>
-<span style="color:#fb660a;font-weight:bold">EXPOSE</span><span style="color:#0086d2"> 1313</span></code></pre></div>
 <h1 id="circleciのconfig-ymlを設定">CircleCIのconfig.ymlを設定</h1>
 
 <p>上で作成したimageをcircleciでpullしてfirebase hostingにデプロイします。</p>
 
 <p>config.ymlは以下のような流れになりました。
 circleciの環境変数には<code>$FIREBASE_DEPLOY_TOKEN</code>と<code>FIREBASE_PROJECT_ID</code>を設定しています。</p>
-<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">version:<span style="color:#888"> </span><span style="color:#0086f7;font-weight:bold">2</span><span style="color:#888">
-</span><span style="color:#888"></span>jobs:<span style="color:#888">
-</span><span style="color:#888">  </span>build:<span style="color:#888">
-</span><span style="color:#888">    </span>branches:<span style="color:#888">
-</span><span style="color:#888">      </span>only:<span style="color:#888">
-</span><span style="color:#888">        </span>-<span style="color:#888"> </span>master<span style="color:#888">
-</span><span style="color:#888">    </span>docker:<span style="color:#888">
-</span><span style="color:#888">      </span>-<span style="color:#888"> </span>image:<span style="color:#888"> </span>seitauc/docker-hugo-firebase:latest<span style="color:#888">
-</span><span style="color:#888">    </span>steps:<span style="color:#888">
-</span><span style="color:#888">      </span>-<span style="color:#888"> </span>checkout<span style="color:#888">
-</span><span style="color:#888">        </span><span style="color:#080;background-color:#0f140f;font-style:italic"># install git submodules for managing third-party dependencies</span><span style="color:#888">
-</span><span style="color:#888">      </span>-<span style="color:#888"> </span>run:<span style="color:#888"> </span>git<span style="color:#888"> </span>submodule<span style="color:#888"> </span>sync<span style="color:#888"> </span><span style="color:#ff0007;background-color:#0f140f;font-weight:bold;font-style:italic">&amp;&amp;</span><span style="color:#888"> </span>git<span style="color:#888"> </span>submodule<span style="color:#888"> </span>update<span style="color:#888"> </span>--init<span style="color:#888">
-</span><span style="color:#888">      </span>-<span style="color:#888"> </span>run:<span style="color:#888">
-</span><span style="color:#888">          </span>name:<span style="color:#888"> </span>Build<span style="color:#888"> </span>Hugo<span style="color:#888"> </span>Website<span style="color:#888">
-</span><span style="color:#888">          </span>command:<span style="color:#888"> </span>hugo<span style="color:#888"> </span>-t<span style="color:#888"> </span>hugo-icarus-theme<span style="color:#888">
-</span><span style="color:#888">      </span>-<span style="color:#888"> </span>deploy:<span style="color:#888">
-</span><span style="color:#888">          </span>name:<span style="color:#888"> </span>Deploy<span style="color:#888"> </span>Website<span style="color:#888"> </span>to<span style="color:#888"> </span>Firebase<span style="color:#888"> </span>Hosting<span style="color:#888">
-</span><span style="color:#888">          </span>branch:<span style="color:#888"> </span>master<span style="color:#888">
-</span><span style="color:#888">          </span>command:<span style="color:#888"> </span>firebase<span style="color:#888"> </span>deploy<span style="color:#888"> </span>--token=$FIREBASE_DEPLOY_TOKEN<span style="color:#888"> </span>--project<span style="color:#888"> </span>$FIREBASE_PROJECT_ID</code></pre></div>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">version: <span style="color:#ae81ff">2</span>
+jobs:
+  build:
+    branches:
+      only:
+        - master
+    docker:
+      - image: seitauc/docker-hugo-firebase:latest
+    steps:
+      - checkout
+        <span style="color:#75715e"># install git submodules for managing third-party dependencies</span>
+      - run: git submodule sync <span style="color:#75715e">&amp;&amp;</span> git submodule update --init
+      - run:
+          name: Build Hugo Website
+          command: hugo -t hugo-icarus-theme
+      - deploy:
+          name: Deploy Website to Firebase Hosting
+          branch: master
+          command: firebase deploy --token=$FIREBASE_DEPLOY_TOKEN --project $FIREBASE_PROJECT_ID</code></pre></td></tr></table>
+</div>
+</div>
+
 <p>ここでは、git submoduleの更新、サイトのビルドとfirebaseへのデプロイを行なっています。</p>
 
 <p>以上で、快適なci環境の完成です。</p>

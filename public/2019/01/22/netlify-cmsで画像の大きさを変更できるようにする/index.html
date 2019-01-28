@@ -42,7 +42,7 @@
 
 <meta itemprop="datePublished" content="2019-01-22T10:22:36-08:00" />
 <meta itemprop="dateModified" content="2019-01-22T10:22:36-08:00" />
-<meta itemprop="wordCount" content="123">
+<meta itemprop="wordCount" content="148">
 
   <meta itemprop="image" content="https://seita.tokyo/img/netlify.png">
 
@@ -71,6 +71,15 @@
 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    
+    
+
+    
+        
+        
+    
+
+      
 </head>
 <body>
 <div class="container">
@@ -350,41 +359,69 @@
 
 <p>早速documentに従って、<code>/static/admin/index.html</code>に記述していきます。</p>
 
-<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">&lt;script&gt;
-  CMS.registerEditorComponent({
-    id: <span style="color:#0086d2">&#34;customImage&#34;</span>,
-    label: <span style="color:#0086d2">&#34;CustomImage&#34;</span>,
-    fields: [
-      {label: <span style="color:#0086d2">&#34;Image&#34;</span>, name: <span style="color:#0086d2">&#34;image&#34;</span>, widget: <span style="color:#0086d2">&#34;image&#34;</span>},
-      {label: <span style="color:#0086d2">&#34;Width&#34;</span>, name: <span style="color:#0086d2">&#34;width&#34;</span>, widget: <span style="color:#0086d2">&#34;number&#34;</span>, min: <span style="color:#0086f7;font-weight:bold">1</span>, <span style="color:#fb660a;font-weight:bold">default</span>: <span style="color:#0086f7;font-weight:bold">400</span>}
-    ],
-    pattern: <span style="color:#0086d2">/^{ {&lt; customImage &#34;(\S+)&#34; (\S+) &gt;} }$/</span>,
-    fromBlock: <span style="color:#fb660a;font-weight:bold">function</span>(match) {
-      console.log(match)
-      <span style="color:#fb660a;font-weight:bold">return</span> {
-        image: match[<span style="color:#0086f7;font-weight:bold">1</span>],
-        width: match[<span style="color:#0086f7;font-weight:bold">2</span>]
-      };
-    },
-    toBlock: <span style="color:#fb660a;font-weight:bold">function</span>(obj) {
-      <span style="color:#fb660a;font-weight:bold">return</span> <span style="color:#0086d2">&#39;{ {&lt; customImage &#34;&#39;</span> + obj.image + <span style="color:#0086d2">&#39;&#34; &#39;</span> + obj.width + <span style="color:#0086d2">&#39; &gt;} }&#39;</span>
-    },
-    toPreview: <span style="color:#fb660a;font-weight:bold">function</span>(obj) {
-      <span style="color:#fb660a;font-weight:bold">return</span> (
-            <span style="color:#0086d2">&#39;&lt;figure&gt;&lt;img src=&#39;</span> + obj.image + <span style="color:#0086d2">&#39; width=&#39;</span> + obj.width + <span style="color:#0086d2">&#39; style=&#34;height:auto;&#34;/&gt;&lt;/figure&gt;&#39;</span>
-           );
-    }
-  });
-&lt;/script&gt;
-</code></pre></div>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">25
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">CMS</span>.<span style="color:#a6e22e">registerEditorComponent</span>({
+  <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;customImage&#34;</span>,
+  <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;CustomImage&#34;</span>,
+  <span style="color:#a6e22e">fields</span><span style="color:#f92672">:</span> [
+    {<span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Image&#34;</span>, <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;image&#34;</span>, <span style="color:#a6e22e">widget</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;image&#34;</span>},
+    {<span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Width&#34;</span>, <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;width&#34;</span>, <span style="color:#a6e22e">widget</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;number&#34;</span>, <span style="color:#a6e22e">min</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>, <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">400</span>}
+  ],
+  <span style="color:#a6e22e">pattern</span><span style="color:#f92672">:</span> <span style="color:#e6db74">/^{ {&lt; customImage &#34;(\S+)&#34; (\S+) &gt;} }$/</span>,
+  <span style="color:#a6e22e">fromBlock</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">match</span>) {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">match</span>)
+    <span style="color:#66d9ef">return</span> {
+      <span style="color:#a6e22e">image</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">match</span>[<span style="color:#ae81ff">1</span>],
+      <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">match</span>[<span style="color:#ae81ff">2</span>]
+    };
+  },
+  <span style="color:#a6e22e">toBlock</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">obj</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;{ {&lt; customImage &#34;&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">image</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;&#34; &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">width</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; &gt;} }&#39;</span>
+  },
+  <span style="color:#a6e22e">toPreview</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">obj</span>) {
+    <span style="color:#66d9ef">return</span> (
+          <span style="color:#e6db74">&#39;&lt;figure&gt;&lt;img src=&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">image</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; width=&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">width</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; style=&#34;height:auto;&#34;/&gt;&lt;/figure&gt;&#39;</span>
+         );
+  }
+});
+</code></pre></td></tr></table>
+</div>
+</div>
 
 <p>上記のようにindex.htmlにscriptを追加すると、CMSからcustomImageという項目を選択することができるようになります。</p>
 
 <p>これで終わりかと思いきや、まだ一つやることがあります。</p>
 
 <p>上記のEditorComponentを使用してcustomImageを選択し画像を挿入すると、</p>
-<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{ {&lt; customImage <span style="color:#0086d2">&#34;example.jpg&#34;</span> <span style="color:#0086f7;font-weight:bold">400</span> &gt;} }
-</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go-html-template" data-lang="go-html-template">{ {&lt; <span style="color:#f92672">customImage</span> <span style="color:#960050;background-color:#1e0010">&#34;</span><span style="color:#a6e22e">example</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">jpg</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#a6e22e">400</span> &gt;} } </code></pre></div>
 <p>このようなshortcodeが実際のmarkdownファイルには記述されます。</p>
 
 <p>このままではまだhugoがimageとして解釈してくれないため、<a href="https://gohugo.io/templates/shortcode-templates/#create-custom-shortcodes">custom shortcode</a>を追加しましょう。</p>
@@ -392,9 +429,9 @@
 <h1 id="hugoのcustom-shortcodeを追加する">hugoのcustom shortcodeを追加する</h1>
 
 <p>hugoのプロジェクトルートにある<code>/layout/shortcodes</code>に<code>customImage.html</code>というファイルを作成し、以下のコードを保存してください。</p>
-<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go-html-template" data-lang="go-html-template">&lt;<span style="color:#fb660a;font-weight:bold">figure</span>&gt;
-    &lt;<span style="color:#fb660a;font-weight:bold">img</span> <span style="color:#ff0086;font-weight:bold">src</span>=<span style="color:#0086d2">&#34;</span><span style="color:#ff0007;background-color:#0f140f;font-weight:bold;font-style:italic">{{</span><span style="color:#ff0086;font-weight:bold">.Get</span><span style="color:#888"> </span>0<span style="color:#ff0007;background-color:#0f140f;font-weight:bold;font-style:italic">}}</span><span style="color:#0086d2">&#34;</span> <span style="color:#ff0086;font-weight:bold">width</span>=<span style="color:#0086d2">&#34;</span><span style="color:#ff0007;background-color:#0f140f;font-weight:bold;font-style:italic">{{</span><span style="color:#ff0086;font-weight:bold">.Get</span><span style="color:#888"> </span>1<span style="color:#ff0007;background-color:#0f140f;font-weight:bold;font-style:italic">}}</span><span style="color:#0086d2">&#34;</span> <span style="color:#ff0086;font-weight:bold">style</span>=<span style="color:#0086d2">&#34;height:auto;&#34;</span>/&gt;
-&lt;/<span style="color:#fb660a;font-weight:bold">figure</span>&gt;</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go-html-template" data-lang="go-html-template">&lt;<span style="color:#f92672">figure</span>&gt;
+    &lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#75715e">{{</span><span style="color:#a6e22e">.Get</span> <span style="color:#a6e22e">0</span><span style="color:#75715e">}}</span><span style="color:#e6db74">&#34;</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#75715e">{{</span><span style="color:#a6e22e">.Get</span> <span style="color:#a6e22e">1</span><span style="color:#75715e">}}</span><span style="color:#e6db74">&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;height:auto;&#34;</span>/&gt;
+&lt;/<span style="color:#f92672">figure</span>&gt;</code></pre></div>
 <p>shortcodeの第一引数にimageへのパス、第二引数にwidthの数値を入れることでサイズ可変のfigureを挿入することが可能になっています。</p>
 
 <p>これで、CMSからサイズの変更できるcustomImageを挿入することができるようになりました。</p>

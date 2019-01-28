@@ -71,6 +71,15 @@
 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    
+    
+
+    
+        
+        
+    
+
+      
 </head>
 <body>
 <div class="container">
@@ -349,7 +358,7 @@
 <p>自分はtruffleで開発していたので<a href="https://www.npmjs.com/package/truffle-flattener">truffle-flattener</a>一択でした。truffleを使っていないなら<a href="https://github.com/BlockCatIO/solidity-flattener">solidity-flattener</a>もありだと思いますが、自分の場合はpipを使ったことがなくて導入に苦労したのと、openzeppelin-solidityとかの継承関係を解決してくれないので使えませんでした。</p>
 
 <p>truffle-flattenerはコマンドラインで</p>
-<div class="highlight"><pre style="color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fish" data-lang="fish">truffle-flattener original.sol &gt;&gt; output.sol</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fish" data-lang="fish">truffle-flattener original.sol <span style="color:#f92672">&gt;&gt;</span> output.sol</code></pre></div>
 <p>とやれば、継承関係も重複なく一箇所に出力してくれます。超便利。
 これでまとめたコードをEtherscanにコピペして登録完了！と思いきや、うまく行かない。なんで。</p>
 
