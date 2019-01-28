@@ -15,7 +15,7 @@ draft: false
 APIのdocumentは[こちら](https://github.com/GoogleChrome/puppeteer/blob/v1.11.0/docs/api.md#browserpages)。
 
 # Amazonにログインしてみる
-いままでkindleでハイライトした箇所が[Amazon Kindle](https://read.amazon.co.jp/notebook?ref_=kcr_notebook_lib)で確認できることは知っていたのですが、いまいち有効活用できてなかったので、自分がkindleで読んだ本の情報をスクレイピングしてなにか作ろうかと思いまずログインしました。コードは以下。
+いままでkindleでハイライトした箇所が[Amazon Kindle](https://read.amazon.co.jp/notebook?ref_=kcr_notebook_lib)で確認できることは知っていたのですが、いまいち有効活用できてなかったので、自分がkindleで読んだ本の情報をスクレイピングしてなにか作ろう!と思い立ち、まずはログイン処理を実装しました。コードは以下。
 
 {{< highlight javascript "linenos=table" >}}
 const puppeteer = require('puppeteer');
