@@ -25,6 +25,7 @@ coverImage = "img/avatar.jpg"
     avatar = "img/icon.jpg"
     logo = "img/favicon.ico"
     disable_mathjax = false 
+    ogpApiEndpoint = "https://us-central1-kindle-7ef16.cloudfunctions.net/ogp?url="
 
     # define which types of pages should be shown. By default the type with the most regular pages
     mainSections = ["post"]
@@ -33,8 +34,8 @@ coverImage = "img/avatar.jpg"
     date_format = "2006-01-02"
 
     # Add custom assets with their paths relative to the static folder
-	custom_css = ["css/custom.css"]
-	custom_js  = []
+	  custom_css = ["css/custom.css"]
+	  custom_js  = []
 
 [[params.menu]]
     before = true
