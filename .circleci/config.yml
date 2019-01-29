@@ -16,4 +16,4 @@ jobs:
       - deploy:
           name: Deploy Website to Firebase Hosting
           branch: master
-          command: firebase deploy --token=$FIREBASE_DEPLOY_TOKEN --project seita-blog
+          command: firebase deploy --token=$FIREBASE_DEPLOY_TOKEN --project seita-blog --only hosting
