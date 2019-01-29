@@ -1,15 +1,13 @@
 {{ $url := .Get "url" }}
-{{ $json := getJSON .Site.Baseurl "ogp?url=" $url }}
-{{ $siteName := $json.Title }}
-{{ $ogp := $json.Ogp }}
-
-{{ $title := index $ogp.Ogtitle 0 }}
-{{ $description := index $ogp.Ogdescription 0 }}
-{{ $image := index $ogp.Og:image 0 }}
+{{ $json := getJSON $.Page.Site.Params.OgpApiEndpoint $url }}
+{{ $siteName := $json.siteName }}
+{{ $title := $json.title }}
+{{ $description := $json.description }}
+{{ $image := $json.image }}
 {{ $urlInfo := urls.Parse $url }}
-{{ $host := path.Join $url.Scheme $url.Host }}
-{{ $favicon := path.Join "https://www.google.com/s2/favicons?domain=" $url.Host }}
-
+{{ $host := path.Join $urlInfo.Scheme $urlInfo.Host }}
+{{ $prefix := "https://www.google.com/s2/favicons?domain=" }}
+{{ $favicon := printf "%s%s" $prefix $urlInfo.Host }}
 
 <div class="body-iframe page-embed hatena-web-card">
     <div class="embed-wrapper">

@@ -25,7 +25,7 @@ coverImage = "img/avatar.jpg"
     avatar = "img/icon.jpg"
     logo = "img/favicon.ico"
     disable_mathjax = false 
-    ogpApiEndpoint = "https://us-central1-kindle-7ef16.cloudfunctions.net/ogp?url="
+    ogpApiEndpoint = "https://seita.tokyo/ogp?url="
 
     # define which types of pages should be shown. By default the type with the most regular pages
     mainSections = ["post"]
