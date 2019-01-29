@@ -15,7 +15,7 @@ draft: false
 
 <!--more-->
 
-{{< web-embed title="UCSB留学ブログ" url="https://ucsb.tokyo/post/2019-01-14-%E3%81%9D%E3%82%82%E3%81%9D%E3%82%82%E3%82%AB%E3%83%AA%E3%83%95%E3%82%A9%E3%83%AB%E3%83%8B%E3%82%A2%E5%A4%A7%E5%AD%A6%E3%81%A3%E3%81%A6%E3%81%A9%E3%82%93%E3%81%AA%E3%81%A8%E3%81%93/" content="こんにちは、しんのすけです！今回は、そもそもUCSBを含むカリフォルニア大学がどんなところなのか紹介します！UCSBについてはまたほかの記事で。" img="https://ucsb.tokyo/images/ucla.jpg" >}}
+{{< web-embed url="https://ucsb.tokyo/post/2019-01-14-%E3%81%9D%E3%82%82%E3%81%9D%E3%82%82%E3%82%AB%E3%83%AA%E3%83%95%E3%82%A9%E3%83%AB%E3%83%8B%E3%82%A2%E5%A4%A7%E5%AD%A6%E3%81%A3%E3%81%A6%E3%81%A9%E3%82%93%E3%81%AA%E3%81%A8%E3%81%93/" >}}
 
 そこで現在、[Netlify CMS](https://www.netlifycms.org/)を利用して執筆と開発を分離しているのですが、CMSからアップロードした画像のサイズが変更できないという苦情を受けたのでごにょごにょして修正しました。
 

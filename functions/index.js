@@ -1,3 +1,5 @@
+'use strict';
+
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const serviceAccount = functions.config().service_account;
@@ -15,13 +17,23 @@ exports.ogp = functions.https.onRequest((req, res) => {
         return res.json({ error: "Error getting ogp data: please provide url" });
     }
     return parser(params['url'], false)
-        .then((ogpData) => {
-            console.log(ogpData);
+        .then((data) => {
+            if (!data.hasOwnProperty('title')) {
+                console.error("Error getting ogp data: no ogpData returned");
+                return res.json({ error: "no ogpData returned" });
+            }
+            let ogpData = {};
+            ogpData['title'] = data.title;
+            for(let prop in data.ogp) {
+                if (/^og:/g.test(prop)) {
+                    console.log(prop);
+                    ogpData[prop.split(':')[1]] = data.ogp[prop][0];
+                }
+            }
             return res.set('Cache-Control', chacheControl).json(ogpData);
         })
         .catch((err) => {
-            console.error(err);
-            return res.json({ error: "Error getting ogp data:" + err });
+            console.error("Error getting ogp data: " + err);
+            return res.json({ error: err });
         });
 });
-
