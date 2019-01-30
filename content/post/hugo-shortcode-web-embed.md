@@ -1,6 +1,6 @@
 ---
 title: "Hugoにブログカード埋め込みshortcodeを実装する"
-date: 2019-01-28T11:24:15-08:00
+date: 2019-01-29T11:24:15-08:00
 banner: "img/hugo.png"
 narrowBanner: true
 description: ""
