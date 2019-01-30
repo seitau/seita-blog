@@ -10,6 +10,7 @@ pygmentsCodefences = true
 pygmentsStyle = "monokai"
 # pygmentsOptions = "linenos=table"
 coverImage = "img/avatar.jpg"
+enableEmoji = true
 
 [permalinks]
     post = "/:year/:month/:day/:slug"

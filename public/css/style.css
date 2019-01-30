@@ -729,6 +729,7 @@ code {
 #profile .inner .social-links > table td {
   text-align: center;
   font-size: 24px;
+  width: 25px;
 }
 #profile .inner .social-links > table td a {
   position: relative;

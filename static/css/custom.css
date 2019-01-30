@@ -1,6 +1,11 @@
-/*p code {*/
-  /*background-color: #272822;*/
-/*}*/
+.emoji {
+    font-family: "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Apple Color Emoji",
+    "Noto Color Emoji",
+    "Noto Emoji",
+    sans-serif;
+}
 
 .article-banner-image {
   object-fit: cover;

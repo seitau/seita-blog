@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://seita.tokyo/2019/01/28/puppeteer%E3%81%A7headless%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E5%85%A5%E9%96%80/</loc>
+    <lastmod>2019-01-28T00:20:37-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://seita.tokyo/2019/01/22/netlify-cms%E3%81%A7%E7%94%BB%E5%83%8F%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%99%E3%82%8B/</loc>
     <lastmod>2019-01-22T10:22:36-08:00</lastmod>
   </url>
@@ -69,6 +74,12 @@
   </url>
   
   <url>
+    <loc>https://seita.tokyo/tags/chrome/</loc>
+    <lastmod>2019-01-28T00:20:37-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://seita.tokyo/tags/circleci/</loc>
     <lastmod>2019-01-21T12:00:06+02:00</lastmod>
     <priority>0</priority>
@@ -83,6 +94,12 @@
   <url>
     <loc>https://seita.tokyo/tags/ethereum/</loc>
     <lastmod>2019-01-14T00:58:06+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://seita.tokyo/tags/headless-browser/</loc>
+    <lastmod>2019-01-28T00:20:37-08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -118,19 +135,31 @@
   
   <url>
     <loc>https://seita.tokyo/post/</loc>
-    <lastmod>2019-01-22T10:22:36-08:00</lastmod>
+    <lastmod>2019-01-28T00:20:37-08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://seita.tokyo/categories/programming/</loc>
-    <lastmod>2019-01-22T10:22:36-08:00</lastmod>
+    <lastmod>2019-01-28T00:20:37-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://seita.tokyo/tags/puppeteer/</loc>
+    <lastmod>2019-01-28T00:20:37-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://seita.tokyo/tags/scraping/</loc>
+    <lastmod>2019-01-28T00:20:37-08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://seita.tokyo/</loc>
-    <lastmod>2019-01-22T10:22:36-08:00</lastmod>
+    <lastmod>2019-01-28T00:20:37-08:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
