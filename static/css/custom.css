@@ -23,6 +23,11 @@
   /*position: absolute;*/
 }
 
+.article-banner-holder {
+    height: 190px;
+    margin-top:10px;
+}
+
 .article-banner {
   width: auto;
   height: 200px;
