@@ -6,10 +6,19 @@
     <description>Recent content on Seita Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 28 Jan 2019 00:20:37 -0800</lastBuildDate>
+    <lastBuildDate>Tue, 29 Jan 2019 11:24:15 -0800</lastBuildDate>
     
 	<atom:link href="https://seita.tokyo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hugoにブログカード埋め込みshortcodeを実装する</title>
+      <link>https://seita.tokyo/2019/01/29/hugo%E3%81%AB%E3%83%96%E3%83%AD%E3%82%B0%E3%82%AB%E3%83%BC%E3%83%89%E5%9F%8B%E3%82%81%E8%BE%BC%E3%81%BFshortcode%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%99%E3%82%8B/</link>
+      <pubDate>Tue, 29 Jan 2019 11:24:15 -0800</pubDate>
+      
+      <guid>https://seita.tokyo/2019/01/29/hugo%E3%81%AB%E3%83%96%E3%83%AD%E3%82%B0%E3%82%AB%E3%83%BC%E3%83%89%E5%9F%8B%E3%82%81%E8%BE%BC%E3%81%BFshortcode%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%99%E3%82%8B/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://seita.tokyo/2019/01/22/netlify-cms%E3%81%A7%E7%94%BB%E5%83%8F%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%99%E3%82%8B/&#34;&gt;先日書いた記事&lt;/a&gt;で、他に自分が運営している&lt;a href=&#34;https://ucsb.tokyo/&#34;&gt;UCSB留学ブログ&lt;/a&gt;を記事に埋め込んで紹介したのですが、実はその埋め込み作業にかなり手間がかかったのでまとめます。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>PuppeteerでHeadlessブラウザ入門</title>
@@ -26,7 +35,9 @@
       <pubDate>Tue, 22 Jan 2019 10:22:36 -0800</pubDate>
       
       <guid>https://seita.tokyo/2019/01/22/netlify-cms%E3%81%A7%E7%94%BB%E5%83%8F%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%99%E3%82%8B/</guid>
-      <description>&lt;p&gt;2019年に入ってから友人と&lt;a href=&#34;https://ucsb.tokyo/&#34;&gt;UCSB留学ブログ&lt;/a&gt;を運営しており、主に友人が記事の執筆、自分はブログサイトの開発を担当しています。&lt;/p&gt;</description>
+      <description>&lt;p&gt;2019年に入ってから友人と&lt;a href=&#34;https://ucsb.tokyo/&#34;&gt;UCSB留学ブログ&lt;/a&gt;を運営しており、主に友人が記事の執筆、自分はブログサイトの開発を担当しています。&lt;/p&gt;
+
+&lt;p&gt;そこで現在、&lt;a href=&#34;https://www.netlifycms.org/&#34;&gt;Netlify CMS&lt;/a&gt;を利用して執筆と開発を分離しているのですが、CMSからアップロードした画像のサイズが変更できないという苦情を受けたのでごにょごにょして修正しました。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -63,6 +74,15 @@
       
       <guid>https://seita.tokyo/2019/01/13/electrum-litecoin-walletelectron-cash%E3%82%92%E3%83%86%E3%82%B9%E3%83%88%E3%83%8D%E3%83%83%E3%83%88%E3%81%AB%E3%81%A4%E3%81%AA%E3%81%90/</guid>
       <description>&lt;p&gt;開発に使う目的でインストールしたけどデフォルトでメインネットに接続してしまってテストネットへの切り替えボタンも見当たらなかったのでメモ。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Gincoのエンジニアインターンってどんな感じ？</title>
+      <link>https://seita.tokyo/2018/12/18/ginco%E3%81%AE%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%B3%E3%81%A3%E3%81%A6%E3%81%A9%E3%82%93%E3%81%AA%E6%84%9F%E3%81%98/</link>
+      <pubDate>Tue, 18 Dec 2018 14:48:24 -0800</pubDate>
+      
+      <guid>https://seita.tokyo/2018/12/18/ginco%E3%81%AE%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%B3%E3%81%A3%E3%81%A6%E3%81%A9%E3%82%93%E3%81%AA%E6%84%9F%E3%81%98/</guid>
+      <description>   Gincoのエンジニアインターンってどんな感じ？   こんにちは、Gincoでエンジニアインターンをしていた文系大学生の内村です。 していた、というのも、実は2018年の9月をもってGincoを退    https/tech.ginco.io      </description>
     </item>
     
   </channel>

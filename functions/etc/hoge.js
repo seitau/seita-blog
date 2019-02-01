@@ -1,17 +1,41 @@
-var ogs = require('open-graph-scraper');
-var parser = require('ogp-parser');
-var options = {'url': 'https://ucsb.tokyo/post/2019-01-08-%E8%87%AA%E5%B7%B1%E7%B4%B9%E4%BB%8B/'};
-//ogs(options, function (error, results) {
-  //console.log('error:', error); // This is returns true or false. True if there was a error. The error it self is inside the results object.
-  //console.log('results:', results);
-//});
+const parser = require('ogp-parser');
 
-parser("https://ucsb.tokyo/post/2019-01-08-%E8%87%AA%E5%B7%B1%E7%B4%B9%E4%BB%8B/", false)
-    .then((data) => {
-        return console.log(data);
-    })
-    .catch((err) => {
-        return console.error("Error getting ogp data: " + err);
-    });
+//parser("https://tech.ginco.io/post/neo-hackathon/", false)
+    //.then((data) => {
+        //return console.log(data);
+    //})
+    //.catch((err) => {
+        //return console.error("Error getting ogp data: " + err);
+    //});
 
+const cheerio = require('cheerio');
+const request = require('request');
+
+request({
+    method: 'GET',
+    url: 'https://www.ivysoho.net/article.php/uikit-fan-7'
+}, (err, res, body) => {
+    if (err) {
+        console.error(err);
+    };
+
+    const $ = cheerio.load(res.body);
+    let ogp = new Object();
+    ogp['siteName'] = $('title').text();
+    $('head').contents().filter('meta').each((i, elem) => {
+        if (elem.hasOwnProperty('attribs')) {
+            const attrs = elem.attribs;
+            if (Object.prototype.hasOwnProperty.call(attrs, 'property')) {
+                if (/^og:/g.test(attrs.property)) {
+                    let prop = attrs.property;
+                    let content = attrs.content;
+                    ogp[prop.split(':')[1]] = content;
+                };
+            }
+        };
+    });    
+
+    console.log(ogp)
+    return ogp;
+});
 

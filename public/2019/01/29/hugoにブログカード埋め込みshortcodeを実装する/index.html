@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>Hugoにブログカード埋め込みshortcodeを実装する &middot; Seita Blog</title>
+    <meta name="generator" content="Hugo 0.53" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="Seita">
+    
+      <meta name="description" content="留学・プログラミング・読書についての記録">
+    
+    
+    <link rel="canonical" href="https://seita.tokyo/2019/01/29/hugo%E3%81%AB%E3%83%96%E3%83%AD%E3%82%B0%E3%82%AB%E3%83%BC%E3%83%89%E5%9F%8B%E3%82%81%E8%BE%BC%E3%81%BFshortcode%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%99%E3%82%8B/"/>
+    <link rel="icon" href="https://seita.tokyo/img/favicon.ico">
+    <link rel="apple-touch-icon" href="https://seita.tokyo/apple-touch-icon.png"/>
+    <link rel="stylesheet" href="https://seita.tokyo/css/style.css">
+    <link rel="stylesheet" href="https://seita.tokyo/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://seita.tokyo/css/monokai.css">
+    <link rel="stylesheet" href="https://seita.tokyo/fancybox/jquery.fancybox.css">
+    
+    <link rel="stylesheet" href="https://seita.tokyo/css/custom.css">
+    
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+      
+      <meta property="og:image" content="https://seita.tokyo/img/hugo.png" />
+      
+    <meta property="og:title" content="Hugoにブログカード埋め込みshortcodeを実装する" />
+<meta property="og:description" content="先日書いた記事で、他に自分が運営しているUCSB留学ブログを記事に埋め込んで紹介したのですが、実はその埋め込み作業にかなり手間がかかったのでまとめます。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://seita.tokyo/2019/01/29/hugo%E3%81%AB%E3%83%96%E3%83%AD%E3%82%B0%E3%82%AB%E3%83%BC%E3%83%89%E5%9F%8B%E3%82%81%E8%BE%BC%E3%81%BFshortcode%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%99%E3%82%8B/" />
+<meta property="og:image" content="https://seita.tokyo/img/hugo.png" />
+<meta property="article:published_time" content="2019-01-29T11:24:15-08:00"/>
+<meta property="article:modified_time" content="2019-01-29T11:24:15-08:00"/>
+
+    
+    
+<meta itemprop="name" content="Hugoにブログカード埋め込みshortcodeを実装する">
+<meta itemprop="description" content="先日書いた記事で、他に自分が運営しているUCSB留学ブログを記事に埋め込んで紹介したのですが、実はその埋め込み作業にかなり手間がかかったのでまとめます。">
+
+
+<meta itemprop="datePublished" content="2019-01-29T11:24:15-08:00" />
+<meta itemprop="dateModified" content="2019-01-29T11:24:15-08:00" />
+<meta itemprop="wordCount" content="614">
+
+  <meta itemprop="image" content="https://seita.tokyo/img/hugo.png">
+
+
+
+<meta itemprop="keywords" content="hugo,shortcode," />
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:image:src" content="https://seita.tokyo/img/site-feature-image.jpeg"/>
+    
+  
+
+
+<meta name="twitter:title" content="Hugoにブログカード埋め込みshortcodeを実装する"/>
+<meta name="twitter:description" content="先日書いた記事で、他に自分が運営しているUCSB留学ブログを記事に埋め込んで紹介したのですが、実はその埋め込み作業にかなり手間がかかったのでまとめます。"/>
+<meta name="twitter:site" content="https://seita.tokyo/"/>
+
+
+
+
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    
+    
+
+    
+        
+        
+    
+
+      
+</head>
+<body>
+<div class="container">
+
+
+<div id="container">
+	<header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="https://seita.tokyo/" id="logo">
+          
+          <i class="logo" style="background-image: url('https://seita.tokyo/img/favicon.ico')"></i>
+          
+          <span class="site-title">Seita Blog</span>
+      </a>
+      <nav id="main-nav">
+          
+          
+          <a class="main-nav-link" href="https://seita.tokyo/">Home</a>
+          
+          
+          
+          
+          
+          
+
+          
+
+          <a class="main-nav-link" href="https://seita.tokyo/about/">About</a>
+
+          
+          
+          
+          
+          <a class="main-nav-link" href="https://seita.tokyo/tags/">Tags</a>
+          
+          
+          
+          <a class="main-nav-link" href="https://seita.tokyo/categories/">Categories</a>
+          
+          
+      </nav>
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="https://seita.tokyo/img/icon.jpg"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+              <input type="search" name="q" class="search-form-input" placeholder="Search">
+              <button type="submit" class="search-form-submit">
+              </button>
+              <input type="hidden" name="sitesearch" value="https://seita.tokyo/" />
+         </form>
+        </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tbody>
+          <tr>
+          
+          
+          <td><a class="main-nav-link" href="https://seita.tokyo/">Home</a></td>
+          
+          
+          
+          
+          
+          
+
+          
+
+          <td><a class="main-nav-link" href="https://seita.tokyo/about/">About</a></td>
+
+          
+          
+          
+          
+          <td><a class="main-nav-link" href="https://seita.tokyo/tags/">Tags</a></td>
+          
+          
+          
+          <td><a class="main-nav-link" href="https://seita.tokyo/categories/">Categories</a></td>
+          
+          
+          <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+          <input type="search" name="q" class="search-form-input" placeholder="Search">
+          <input type="hidden" name="sitesearch" value="https://seita.tokyo/" />
+          </form>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</header>
+
+   	
+   	<div class="outer">
+   	
+    	<aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      
+      <img id="avatar" src="https://seita.tokyo/img/icon.jpg">
+      
+      <h2 id="name">Seita</h2>
+      <h3 id="title">Blogger - Programmer - Student</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>Tokyo</span>
+      
+          <a id="follow" href="https://github.com/seita-uc">
+            Follow
+          </a>
+      
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        8
+        <span>POSTS</span>
+      </div>
+      <div class="article-info-block">
+        
+          17
+        
+        <span>
+          TAGS
+        </span>
+      </div>
+    </div>
+    <div class="profile-block social-links">
+      <table>
+        <tr>
+          
+<td><a href="//github.com/seita-uc" target="_blank" title="GitHub"><i class="fa fa-github"></i></a></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<td><a href="//facebook.com/seitauchimura" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></td>
+
+
+
+<td><a href="//twitter.com/sei_uchi_mura" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></td>
+
+
+          <td><a href="https://seita.tokyo/index.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></td>
+          <td class="hatena"><a href="http://b.hatena.ne.jp/entry/s/seita.tokyo/" target="_blank" title="Hatena"><i class="fa fa-hatena"></i></a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</aside>
+
+    
+
+    <section id="main">
+    
+    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        <div class="article-banner" href="https://seita.tokyo/2019/01/29/hugo%E3%81%AB%E3%83%96%E3%83%AD%E3%82%B0%E3%82%AB%E3%83%BC%E3%83%89%E5%9F%8B%E3%82%81%E8%BE%BC%E3%81%BFshortcode%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%99%E3%82%8B/" itemprop="url">
+            <a href="https://seita.tokyo/2019/01/29/hugo%E3%81%AB%E3%83%96%E3%83%AD%E3%82%B0%E3%82%AB%E3%83%BC%E3%83%89%E5%9F%8B%E3%82%81%E8%BE%BC%E3%81%BFshortcode%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%99%E3%82%8B/" itemprop="url">
+                
+                <img src="https://seita.tokyo/img/hugo.png" class="article-banner-image-narrow">
+                
+            </a>
+        </div>
+        
+
+        <header class="article-header">
+    <a href="https://seita.tokyo/2019/01/29/hugo%E3%81%AB%E3%83%96%E3%83%AD%E3%82%B0%E3%82%AB%E3%83%BC%E3%83%89%E5%9F%8B%E3%82%81%E8%BE%BC%E3%81%BFshortcode%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%99%E3%82%8B/">
+    <h1 class="article-title" itemprop="name">
+        Hugoにブログカード埋め込みshortcodeを実装する
+    </h1>
+    </a>
+    <div class="article-meta">
+
+        
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2019-01-29 11:24:15 -0800 PST" itemprop="datePublished">2019-01-29</time>
+        </div>
+        
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-folder"></i>
+                
+                
+                <a class="article-category-link" href="https://seita.tokyo/categories/programming">programming</a>
+                
+                
+            </div>
+            
+        
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                
+                <a class="article-category-link" href="https://seita.tokyo/tags/hugo">hugo</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://seita.tokyo/tags/shortcode">shortcode</a>
+                
+                
+            </div>
+            
+        
+    </div>
+</header>
+
+        <div class="article-entry" itemprop="articleBody">
+            <p><a href="https://seita.tokyo/2019/01/22/netlify-cms%E3%81%A7%E7%94%BB%E5%83%8F%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%99%E3%82%8B/">先日書いた記事</a>で、他に自分が運営している<a href="https://ucsb.tokyo/">UCSB留学ブログ</a>を記事に埋め込んで紹介したのですが、実はその埋め込み作業にかなり手間がかかったのでまとめます。</p>
+
+<h1 id="はてなのapiで埋め込めない">はてなのapiで埋め込めない</h1>
+
+<p>最初は<a href="https://nelog.jp/hatenablogcard">こちら</a>の記事にも書かれているように、iframeではてなのapiを使用して手軽に済ませようと思ったのですが(以下例）、なぜかうまく画像が表示されず苦戦。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">iframe</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hatenablogcard&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width:100%;height:155px;max-width:680px;&#34;</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;URLを記入するだけ！はてなブログカード風にWordpress記事も表示させるカスタマイズ方法&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://hatenablog-parts.com/embed?url=http://nelog.jp/wordpress-blog-card&#34;</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;300&#34;</span> <span style="color:#a6e22e">height</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;150&#34;</span> <span style="color:#a6e22e">frameborder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#a6e22e">scrolling</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;no&#34;</span>&gt;&lt;/<span style="color:#f92672">iframe</span>&gt;</code></pre></div>
+<p>自分のサイトのogpがちゃんと設定されていないのかなとも思いましたが、twitterやfacebook
+では綺麗に表示されているので大丈夫そう。。</p>
+
+<h1 id="自作しよう">自作しよう</h1>
+
+<p>いくら調べても原因がわからなかったのでhtmlをベタ書きして埋め込もうかとも思いましたが、悔しいのできっちり自作してやることにしました。参考にしたのは以下のサイト。</p>
+
+<ul>
+<li><a href="https://blog.piyo.tech/posts/2018-04-04-ogp-json/">ブログのビルド用にOGPの情報をJSONで返すサーバーも作った - PIYO - Tech &amp; Life -</a></li>
+<li><a href="https://webuilder240.hatenablog.com/entry/2018/01/22/080000">URLのOGP情報をスクレイピングするだけのWebAPIを作った - Webuilder240&rsquo;s Blog</a></li>
+</ul>
+
+<p>目標としては、hugoの<a href="https://gohugo.io/templates/data-templates/#data-driven-content">data driven content</a>を利用してshortcodeでurlを指定するだけでogpの情報を埋め込める実装を目指しました。</p>
+
+<h2 id="ogpの情報をjsonで返却するapiを実装する">ogpの情報をJSONで返却するapiを実装する</h2>
+
+<p>早速cloud functions for firebaseを利用し、ogpの情報をスクレイプしてJSONで結果を返すapiを作ります。以下該当コード。</p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">31
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">exports</span>.<span style="color:#a6e22e">ogp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">onRequest</span>((<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">parser</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;ogp-parser&#34;</span>);
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">query</span>;
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">chacheControl</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;public, max-age=31557600, s-maxage=31557600&#39;</span>;
+    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">hasOwnProperty</span>(<span style="color:#e6db74">&#39;url&#39;</span>)) {
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;Error getting ogp data: please provide url&#34;</span>);
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>({ <span style="color:#a6e22e">error</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Error getting ogp data: please provide url&#34;</span> });
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">parser</span>(encodeURI(<span style="color:#a6e22e">params</span>[<span style="color:#e6db74">&#39;url&#39;</span>]), <span style="color:#66d9ef">false</span>)
+        .<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">data</span>) =&gt; {
+            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">data</span>);
+            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">params</span>[<span style="color:#e6db74">&#39;url&#39;</span>]);
+            <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">hasOwnProperty</span>(<span style="color:#e6db74">&#39;title&#39;</span>)) {
+                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;Error getting ogp data: no ogpData returned&#34;</span>);
+                <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>({ <span style="color:#a6e22e">error</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;no ogpData returned&#34;</span> });
+            }
+            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">ogpData</span> <span style="color:#f92672">=</span> {};
+            <span style="color:#a6e22e">ogpData</span>[<span style="color:#e6db74">&#39;siteName&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">title</span>;
+            <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">prop</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">ogp</span>) {
+                <span style="color:#66d9ef">if</span> (<span style="color:#e6db74">/^og:/g</span>.<span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">prop</span>)) {
+                    <span style="color:#a6e22e">ogpData</span>[<span style="color:#a6e22e">prop</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;:&#39;</span>)[<span style="color:#ae81ff">1</span>]] <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">ogp</span>[<span style="color:#a6e22e">prop</span>][<span style="color:#ae81ff">0</span>];
+                }
+            }
+            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;Cache-Control&#39;</span>, <span style="color:#a6e22e">chacheControl</span>).<span style="color:#a6e22e">json</span>(<span style="color:#a6e22e">ogpData</span>);
+        })
+        .<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">err</span>) =&gt; {
+            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;Error getting ogp data: &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">err</span>);
+            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>({ <span style="color:#a6e22e">error</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">err</span> });
+        });
+});
+</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>apiのendpointにクエリパラメーターでurlを付与することでogpを取得できるようになっています。また、何度もapiを叩いて欲しくないのでCache-Controlでcacheを1年間有効にしています。</p>
+
+<p>加えて、9行目でogpのparserにencodeURIしたurlを渡しているのは、素のurlをparserに渡す実装にしていたところ、urlに日本語が入っているページをリクエストしたら <code>404 page not found</code> でogpの情報が返ってきてしまっていたためです。しばらく原因がわからずハマったので注意してください。</p>
+
+<h2 id="firebase-hostingとfunctionsを連携する">firebase hostingとfunctionsを連携する</h2>
+
+<p>このブログではfirebase hostingを採用しているため、同様にfirebaseのサービスであるfunctionsとは簡単に連携することができます。</p>
+
+<p><a href="https://firebase.google.com/docs/hosting/functions?hl=ja#direct_hosting_requests_to_your_function">Cloud Functions による動的コンテンツの配信  |  Firebase</a></p>
+
+<p>上のdocumentに従って、<code>firebase.json</code> にrewritesの設定を追記します。これだけでfirebase hostingのbase domainに関数名を加えるだけでapiを叩けるようになります。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;hosting&#34;</span>: {
+    <span style="color:#f92672">&#34;public&#34;</span>: <span style="color:#e6db74">&#34;public&#34;</span>,
+    <span style="color:#f92672">&#34;ignore&#34;</span>: [
+      <span style="color:#e6db74">&#34;firebase.json&#34;</span>,
+      <span style="color:#e6db74">&#34;**/.*&#34;</span>,
+      <span style="color:#e6db74">&#34;**/node_modules/**&#34;</span>
+    ],
+    <span style="color:#f92672">&#34;rewrites&#34;</span>: [ {
+      <span style="color:#f92672">&#34;source&#34;</span>: <span style="color:#e6db74">&#34;/ogp&#34;</span>, <span style="color:#f92672">&#34;function&#34;</span>: <span style="color:#e6db74">&#34;ogp&#34;</span>
+    } ]
+  },
+  <span style="color:#f92672">&#34;functions&#34;</span>: {
+    <span style="color:#f92672">&#34;predeploy&#34;</span>: [
+      <span style="color:#e6db74">&#34;npm --prefix \&#34;$RESOURCE_DIR\&#34; run lint&#34;</span>
+    ]
+  }
+}</code></pre></div>
+<h2 id="hugoのshortcodeを作る">hugoのshortcodeを作る</h2>
+
+<p>続いてshortcodeを実装します。完成したコードは以下です。自分は <code>web-embed.html</code> としてshortcodeに追加しました。</p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go-html-template" data-lang="go-html-template"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">40
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go-html-template" data-lang="go-html-template"><span style="color:#75715e">{{</span> <span style="color:#a6e22e">$url</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">.Get</span> <span style="color:#e6db74">&#34;url&#34;</span> <span style="color:#75715e">}}</span>
+<span style="color:#75715e">{{</span> <span style="color:#a6e22e">$json</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">getJSON</span> <span style="color:#a6e22e">$.Page.Site.Params.OgpApiEndpoint</span> <span style="color:#a6e22e">$url</span> <span style="color:#75715e">}}</span>
+<span style="color:#75715e">{{</span> <span style="color:#a6e22e">$siteName</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">$json</span><span style="color:#a6e22e">.siteName</span> <span style="color:#75715e">}}</span>
+<span style="color:#75715e">{{</span> <span style="color:#a6e22e">$title</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">$json</span><span style="color:#a6e22e">.title</span> <span style="color:#75715e">}}</span>
+<span style="color:#75715e">{{</span> <span style="color:#a6e22e">$description</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">$json</span><span style="color:#a6e22e">.description</span> <span style="color:#75715e">}}</span>
+<span style="color:#75715e">{{</span> <span style="color:#a6e22e">$image</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">$json</span><span style="color:#a6e22e">.image</span> <span style="color:#75715e">}}</span>
+<span style="color:#75715e">{{</span> <span style="color:#a6e22e">$urlInfo</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">urls</span><span style="color:#a6e22e">.Parse</span> <span style="color:#a6e22e">$url</span> <span style="color:#75715e">}}</span>
+<span style="color:#75715e">{{</span> <span style="color:#a6e22e">$host</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">path</span><span style="color:#a6e22e">.Join</span> <span style="color:#a6e22e">$urlInfo</span><span style="color:#a6e22e">.Scheme</span> <span style="color:#a6e22e">$urlInfo</span><span style="color:#a6e22e">.Host</span> <span style="color:#75715e">}}</span>
+<span style="color:#75715e">{{</span> <span style="color:#a6e22e">$prefix</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;https://www.google.com/s2/favicons?domain=&#34;</span> <span style="color:#75715e">}}</span>
+<span style="color:#75715e">{{</span> <span style="color:#a6e22e">$favicon</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">printf</span> <span style="color:#e6db74">&#34;%s%s&#34;</span> <span style="color:#a6e22e">$prefix</span> <span style="color:#a6e22e">$urlInfo</span><span style="color:#a6e22e">.Host</span> <span style="color:#75715e">}}</span>
+
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;body-iframe page-embed hatena-web-card&#34;</span>&gt;
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;embed-wrapper&#34;</span>&gt;
+        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;embed-wrapper-inner&#34;</span>&gt;
+            &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;embed-content with-thumb&#34;</span>&gt;
+                &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;thumb-wrapper&#34;</span>&gt;
+                    &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#75715e">{{</span> <span style="color:#a6e22e">$url</span> <span style="color:#75715e">}}</span><span style="color:#e6db74">&#34;</span> <span style="color:#a6e22e">target</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;_blank&#34;</span>&gt;
+                        &lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#75715e">{{</span> <span style="color:#a6e22e">$image</span> <span style="color:#75715e">}}</span><span style="color:#e6db74">&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;thumb&#34;</span>&gt;
+                    &lt;/<span style="color:#f92672">a</span>&gt;
+                &lt;/<span style="color:#f92672">div</span>&gt;
+                &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;entry-body&#34;</span>&gt;
+                    &lt;<span style="color:#f92672">h2</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;entry-title&#34;</span>&gt;
+                        &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#75715e">{{</span> <span style="color:#a6e22e">$url</span> <span style="color:#75715e">}}</span><span style="color:#e6db74">&#34;</span> <span style="color:#a6e22e">target</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;_blank&#34;</span>&gt;
+                            <span style="color:#75715e">{{</span> <span style="color:#a6e22e">$title</span> <span style="color:#75715e">}}</span>
+                        &lt;/<span style="color:#f92672">a</span>&gt;
+                    &lt;/<span style="color:#f92672">h2</span>&gt;
+                    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;entry-content&#34;</span>&gt;
+                            <span style="color:#75715e">{{</span> <span style="color:#a6e22e">$description</span> <span style="color:#75715e">}}</span>
+                    &lt;/<span style="color:#f92672">div</span>&gt;
+                &lt;/<span style="color:#f92672">div</span>&gt;
+            &lt;/<span style="color:#f92672">div</span>&gt;
+            &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;embed-footer&#34;</span>&gt;
+                &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#75715e">{{</span> <span style="color:#a6e22e">$host</span> <span style="color:#75715e">}}</span><span style="color:#e6db74">&#34;</span><span style="color:#a6e22e">target</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;_blank&#34;</span>&gt;
+                    &lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#75715e">{{</span> <span style="color:#a6e22e">$favicon</span> <span style="color:#75715e">}}</span><span style="color:#e6db74">&#34;</span> <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#75715e">{{</span> <span style="color:#a6e22e">$title</span> <span style="color:#75715e">}}</span><span style="color:#e6db74">&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;favicon&#34;</span>&gt;
+                    <span style="color:#75715e">{{</span> <span style="color:#a6e22e">$host</span> <span style="color:#75715e">}}</span>
+                &lt;/<span style="color:#f92672">a</span>&gt;
+            &lt;/<span style="color:#f92672">div</span>&gt;
+        &lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>サイトのconfigに設定したOgpApiEndpointにgetJSONした結果を利用しています。faviconに関してはgoogleのapiを利用して取得しています。</p>
+
+<p>上記のshortcodeに対応するcssが以下です。はてなのcssを丸パクリしています。</p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">64
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">65
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">66
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">67
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">68
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">69
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">div</span>.<span style="color:#a6e22e">page-embed</span>.<span style="color:#a6e22e">hatena-web-card</span>{
+    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">155</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> rgba(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0.1</span>);
+}
+
+<span style="color:#f92672">div</span>.<span style="color:#a6e22e">page-embed</span>.<span style="color:#a6e22e">hatena-web-card</span> <span style="color:#f92672">div</span>.<span style="color:#a6e22e">embed-wrapper-inner</span>{
+    <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">12</span><span style="color:#66d9ef">px</span>;
+}
+
+<span style="color:#f92672">div</span>.<span style="color:#a6e22e">page-embed</span>.<span style="color:#a6e22e">hatena-web-card</span> <span style="color:#f92672">div</span>.<span style="color:#a6e22e">embed-content</span>.<span style="color:#a6e22e">with-thumb</span>{
+    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">overflow</span>: <span style="color:#66d9ef">hidden</span>;
+    <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">relative</span>;
+}
+
+<span style="color:#f92672">div</span>.<span style="color:#a6e22e">page-embed</span>.<span style="color:#a6e22e">hatena-web-card</span> <span style="color:#f92672">div</span>.<span style="color:#a6e22e">embed-content</span>.<span style="color:#a6e22e">with-thumb</span> .<span style="color:#a6e22e">thumb-wrapper</span>{
+    <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">absolute</span>;
+    <span style="color:#66d9ef">top</span>: <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">right</span>: <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">overflow</span>: <span style="color:#66d9ef">hidden</span>;
+}
+<span style="color:#f92672">div</span>.<span style="color:#a6e22e">page-embed</span>.<span style="color:#a6e22e">hatena-web-card</span> <span style="color:#f92672">div</span>.<span style="color:#a6e22e">embed-content</span>.<span style="color:#a6e22e">with-thumb</span> .<span style="color:#a6e22e">thumb-wrapper</span> .<span style="color:#a6e22e">thumb</span>{
+    <span style="color:#66d9ef">width</span>: <span style="color:#66d9ef">auto</span>;
+    <span style="color:#66d9ef">max-width</span>: <span style="color:#ae81ff">200</span><span style="color:#66d9ef">%</span>;
+    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">border</span>: <span style="color:#66d9ef">none</span> <span style="color:#75715e">!important</span>;
+    <span style="color:#66d9ef">display</span>:<span style="color:#66d9ef">block</span>;
+    <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">relative</span>;
+    <span style="color:#66d9ef">left</span>: <span style="color:#ae81ff">50</span><span style="color:#66d9ef">%</span>;
+    <span style="color:#66d9ef">transform</span>: translateX(<span style="color:#ae81ff">-50</span><span style="color:#66d9ef">%</span>);
+}
+
+<span style="color:#f92672">div</span>.<span style="color:#a6e22e">page-embed</span>.<span style="color:#a6e22e">hatena-web-card</span> <span style="color:#f92672">div</span>.<span style="color:#a6e22e">embed-content</span>.<span style="color:#a6e22e">with-thumb</span> .<span style="color:#a6e22e">entry-body</span>{
+    <span style="color:#66d9ef">margin-right</span>: <span style="color:#ae81ff">110</span><span style="color:#66d9ef">px</span>;
+}
+<span style="color:#f92672">div</span>.<span style="color:#a6e22e">page-embed</span>.<span style="color:#a6e22e">hatena-web-card</span> <span style="color:#f92672">div</span>.<span style="color:#a6e22e">embed-content</span>.<span style="color:#a6e22e">with-thumb</span> .<span style="color:#a6e22e">entry-body</span> .<span style="color:#a6e22e">entry-title</span>{
+    <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">17</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">line-height</span>: <span style="color:#ae81ff">1.4</span>;
+    <span style="color:#66d9ef">max-height</span>: <span style="color:#ae81ff">47</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">overflow</span>: <span style="color:#66d9ef">hidden</span>;
+    <span style="color:#66d9ef">border</span>: <span style="color:#66d9ef">none</span>;
+}
+
+<span style="color:#f92672">div</span>.<span style="color:#a6e22e">page-embed</span>.<span style="color:#a6e22e">hatena-web-card</span> <span style="color:#f92672">div</span>.<span style="color:#a6e22e">embed-content</span>.<span style="color:#a6e22e">with-thumb</span> .<span style="color:#a6e22e">entry-body</span> .<span style="color:#a6e22e">entry-content</span>{
+    <span style="color:#66d9ef">line-height</span>: <span style="color:#ae81ff">1.5</span>;
+    <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">12</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">max-height</span>: <span style="color:#ae81ff">72</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">overflow</span>: <span style="color:#66d9ef">hidden</span>;
+    <span style="color:#66d9ef">border</span>: <span style="color:#66d9ef">none</span>;
+    <span style="color:#66d9ef">padding-bottom</span>:<span style="color:#ae81ff">0</span>;
+}
+
+<span style="color:#f92672">div</span>.<span style="color:#a6e22e">page-embed</span>.<span style="color:#a6e22e">hatena-web-card</span> <span style="color:#f92672">div</span>.<span style="color:#a6e22e">embed-footer</span>{
+    <span style="color:#66d9ef">margin-top</span>: <span style="color:#ae81ff">8</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">15</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">relative</span>;
+    <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">11</span><span style="color:#66d9ef">px</span>;
+}
+
+<span style="color:#f92672">div</span>.<span style="color:#a6e22e">page-embed</span>.<span style="color:#a6e22e">hatena-web-card</span> <span style="color:#f92672">div</span>.<span style="color:#a6e22e">embed-footer</span> <span style="color:#f92672">img</span>.<span style="color:#a6e22e">favicon</span>{
+    <span style="color:#66d9ef">width</span>:<span style="color:#ae81ff">16</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">16</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">inline</span>;
+    <span style="color:#66d9ef">vertical-align</span>: <span style="color:#66d9ef">middle</span>;
+    <span style="color:#66d9ef">border</span>: <span style="color:#66d9ef">none</span> <span style="color:#75715e">!important</span>;
+}</code></pre></td></tr></table>
+</div>
+</div>
+
+<h2 id="結果">結果</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go-html-template" data-lang="go-html-template">{ {&lt; <span style="color:#f92672">web-embed</span> <span style="color:#a6e22e">url</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://seita.tokyo/&#34;</span> &gt;} }</code></pre></div>
+<p>↑これがこうなる↓</p>
+
+<p>
+
+
+
+
+
+
+
+
+
+
+<div class="body-iframe page-embed hatena-web-card">
+    <div class="embed-wrapper">
+        <div class="embed-wrapper-inner">
+            <div class="embed-content with-thumb">
+                <div class="thumb-wrapper">
+                    <a href="https://seita.tokyo/" target="_blank">
+                        <img src="https://seita.tokyo/img/site-feature-image.jpeg" class="thumb">
+                    </a>
+                </div>
+                <div class="entry-body">
+                    <h2 class="entry-title">
+                        <a href="https://seita.tokyo/" target="_blank">
+                            Seita Blog
+                        </a>
+                    </h2>
+                    <div class="entry-content">
+                            留学・プログラミング・読書についての記録
+                    </div>
+                </div>
+            </div>
+            <div class="embed-footer">
+                <a href="https/seita.tokyo"target="_blank">
+                    <img src="https://www.google.com/s2/favicons?domain=seita.tokyo" alt="" title="Seita Blog" class="favicon">
+                    https/seita.tokyo
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<span class=emoji>⚠️</span>コードブロックがshortcodeとして解釈されるのを防ぐため波括弧にスペースを入れて対処しています。</p>
+        </div>
+        <footer class="article-footer">
+    <a data-url="https://seita.tokyo/2019/01/29/hugo%E3%81%AB%E3%83%96%E3%83%AD%E3%82%B0%E3%82%AB%E3%83%BC%E3%83%89%E5%9F%8B%E3%82%81%E8%BE%BC%E3%81%BFshortcode%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%99%E3%82%8B/" data-id="b8f7a8b63621c29607ab6c50f7930499" class="article-share-link">
+        <i class="fa fa-share"></i>
+        Share
+    </a>
+    
+    <a href="https://seita.tokyo/2019/01/29/hugo%E3%81%AB%E3%83%96%E3%83%AD%E3%82%B0%E3%82%AB%E3%83%BC%E3%83%89%E5%9F%8B%E3%82%81%E8%BE%BC%E3%81%BFshortcode%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%99%E3%82%8B/#disqus_thread" class="article-comment-link">
+        Comments
+    </a>
+    
+
+    
+
+
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+    </div>
+
+    
+<nav id="article-nav">
+    
+    <a href="https://seita.tokyo/2019/01/28/puppeteer%E3%81%A7headless%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E5%85%A5%E9%96%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          Older
+      </strong>
+      <div class="article-nav-title">PuppeteerでHeadlessブラウザ入門</div>
+    </a>
+    
+
+    
+</nav>
+
+
+</article>
+
+
+<section id="comments">
+    <div id="disqus_thread">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "seita-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+</section>
+
+
+
+    </section>
+
+   	
+    	<aside id="sidebar">
+    
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        Recents
+    </h3>
+    <div class="widget">
+        <ul id="recent-post">
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="https://seita.tokyo/2019/01/29/hugo%E3%81%AB%E3%83%96%E3%83%AD%E3%82%B0%E3%82%AB%E3%83%BC%E3%83%89%E5%9F%8B%E3%82%81%E8%BE%BC%E3%81%BFshortcode%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%99%E3%82%8B/" class="thumbnail">
+                    
+                        <span style="background-image:url(https://seita.tokyo/img/hugo.png)" alt="Hugoにブログカード埋め込みshortcodeを実装する" class="thumbnail-image"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="https://seita.tokyo/categories/programming">
+                        programming
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="https://seita.tokyo/2019/01/29/hugo%E3%81%AB%E3%83%96%E3%83%AD%E3%82%B0%E3%82%AB%E3%83%BC%E3%83%89%E5%9F%8B%E3%82%81%E8%BE%BC%E3%81%BFshortcode%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%99%E3%82%8B/" class="title">Hugoにブログカード埋め込みshortcodeを実装する</a></p>
+                    <p class="item-date">
+                        <time datetime="2019-01-29 11:24:15 -0800 PST" itemprop="datePublished">2019-01-29</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="https://seita.tokyo/2019/01/28/puppeteer%E3%81%A7headless%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E5%85%A5%E9%96%80/" class="thumbnail">
+                    
+                        <span style="background-image:url(https://seita.tokyo/img/puppeteer.png)" alt="Hugoにブログカード埋め込みshortcodeを実装する" class="thumbnail-image"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="https://seita.tokyo/categories/programming">
+                        programming
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="https://seita.tokyo/2019/01/28/puppeteer%E3%81%A7headless%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E5%85%A5%E9%96%80/" class="title">PuppeteerでHeadlessブラウザ入門</a></p>
+                    <p class="item-date">
+                        <time datetime="2019-01-28 00:20:37 -0800 PST" itemprop="datePublished">2019-01-28</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="https://seita.tokyo/2019/01/22/netlify-cms%E3%81%A7%E7%94%BB%E5%83%8F%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%99%E3%82%8B/" class="thumbnail">
+                    
+                        <span style="background-image:url(https://seita.tokyo/img/netlify.png)" alt="Hugoにブログカード埋め込みshortcodeを実装する" class="thumbnail-image"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="https://seita.tokyo/categories/programming">
+                        programming
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="https://seita.tokyo/2019/01/22/netlify-cms%E3%81%A7%E7%94%BB%E5%83%8F%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%99%E3%82%8B/" class="title">Netlify CMSで画像の大きさを変更できるようにする</a></p>
+                    <p class="item-date">
+                        <time datetime="2019-01-22 10:22:36 -0800 PST" itemprop="datePublished">2019-01-22</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="https://seita.tokyo/2019/01/21/hugo%E3%82%92circleci%E3%81%A7%E8%87%AA%E5%8B%95%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%99%E3%82%8B/" class="thumbnail">
+                    
+                        <span style="background-image:url(https://seita.tokyo/img/circleci.png)" alt="Hugoにブログカード埋め込みshortcodeを実装する" class="thumbnail-image"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="https://seita.tokyo/categories/programming">
+                        programming
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="https://seita.tokyo/2019/01/21/hugo%E3%82%92circleci%E3%81%A7%E8%87%AA%E5%8B%95%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%99%E3%82%8B/" class="title">Hugoをcircleciで自動デプロイする</a></p>
+                    <p class="item-date">
+                        <time datetime="2019-01-21 12:00:06 &#43;0200 &#43;0200" itemprop="datePublished">2019-01-21</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="https://seita.tokyo/2019/01/14/%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0%E3%81%8B%E3%82%89mnemonic%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%93%E3%81%A0%E3%82%89%E8%BA%93%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2/" class="thumbnail">
+                    
+                        <span style="background-image:url(https://seita.tokyo/img/ethereum.png)" alt="Hugoにブログカード埋め込みshortcodeを実装する" class="thumbnail-image"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="https://seita.tokyo/categories/programming">
+                        programming
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="https://seita.tokyo/2019/01/14/%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0%E3%81%8B%E3%82%89mnemonic%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%93%E3%81%A0%E3%82%89%E8%BA%93%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2/" class="title">環境変数からmnemonicを読み込んだら躓いたメモ</a></p>
+                    <p class="item-date">
+                        <time datetime="2019-01-14 00:58:06 &#43;0200 &#43;0200" itemprop="datePublished">2019-01-14</time>
+                    </p>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+        <ul class="category-list">
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://seita.tokyo/categories/programming">
+                    programming
+                </a>
+                <span class="category-list-count">8</span>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        Tags
+    </h3>
+    <div class="widget">
+        <ul class="category-list">
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://seita.tokyo/tags/bitcoincash">
+                    bitcoincash
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://seita.tokyo/tags/blockchain">
+                    blockchain
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://seita.tokyo/tags/chrome">
+                    chrome
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://seita.tokyo/tags/circleci">
+                    circleci
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://seita.tokyo/tags/cryptocurrency">
+                    cryptocurrency
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://seita.tokyo/tags/ethereum">
+                    ethereum
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://seita.tokyo/tags/ginco">
+                    ginco
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://seita.tokyo/tags/headless-browser">
+                    headless-browser
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://seita.tokyo/tags/hugo">
+                    hugo
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://seita.tokyo/tags/intern">
+                    intern
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://seita.tokyo/tags/litecoin">
+                    litecoin
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://seita.tokyo/tags/mnemonic">
+                    mnemonic
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://seita.tokyo/tags/netlify">
+                    netlify
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://seita.tokyo/tags/netlify-cms">
+                    netlify-cms
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://seita.tokyo/tags/puppeteer">
+                    puppeteer
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://seita.tokyo/tags/scraping">
+                    scraping
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://seita.tokyo/tags/shortcode">
+                    shortcode
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        Tag cloud
+    </h3>
+    <div class="widget tagcloud">
+        
+        
+        <a href="https://seita.tokyo/tags/bitcoincash" style="font-size: 12px;">bitcoincash</a>
+        
+        
+        <a href="https://seita.tokyo/tags/blockchain" style="font-size: 12px;">blockchain</a>
+        
+        
+        <a href="https://seita.tokyo/tags/chrome" style="font-size: 12px;">chrome</a>
+        
+        
+        <a href="https://seita.tokyo/tags/circleci" style="font-size: 12px;">circleci</a>
+        
+        
+        <a href="https://seita.tokyo/tags/cryptocurrency" style="font-size: 12px;">cryptocurrency</a>
+        
+        
+        <a href="https://seita.tokyo/tags/ethereum" style="font-size: 12px;">ethereum</a>
+        
+        
+        <a href="https://seita.tokyo/tags/ginco" style="font-size: 12px;">ginco</a>
+        
+        
+        <a href="https://seita.tokyo/tags/headless-browser" style="font-size: 12px;">headless-browser</a>
+        
+        
+        <a href="https://seita.tokyo/tags/hugo" style="font-size: 12px;">hugo</a>
+        
+        
+        <a href="https://seita.tokyo/tags/intern" style="font-size: 12px;">intern</a>
+        
+        
+        <a href="https://seita.tokyo/tags/litecoin" style="font-size: 12px;">litecoin</a>
+        
+        
+        <a href="https://seita.tokyo/tags/mnemonic" style="font-size: 12px;">mnemonic</a>
+        
+        
+        <a href="https://seita.tokyo/tags/netlify" style="font-size: 12px;">netlify</a>
+        
+        
+        <a href="https://seita.tokyo/tags/netlify-cms" style="font-size: 12px;">netlify-cms</a>
+        
+        
+        <a href="https://seita.tokyo/tags/puppeteer" style="font-size: 12px;">puppeteer</a>
+        
+        
+        <a href="https://seita.tokyo/tags/scraping" style="font-size: 12px;">scraping</a>
+        
+        
+        <a href="https://seita.tokyo/tags/shortcode" style="font-size: 12px;">shortcode</a>
+        
+    </div>
+</div>
+
+
+
+
+
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+    
+	</div>
+</div>
+
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019
+      <a href="https://github.com/seita-uc">Seita Uchimura</a> All Rights Reserved
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://seita.tokyo/fancybox/jquery.fancybox.pack.js"></script>
+<script src="https://seita.tokyo/js/script.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+</body>
+</html>
