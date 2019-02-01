@@ -1,21 +1,45 @@
-
 {{ define "main" }}
-    {{ $context := . }}
-    
-    {{ with .Content }}
-        {{ partial "single_article.html" $context }}
-    {{ else }}
-    <section class="archives-wrap">
-        <div class="archive-category-wrap">
-            <span class="archive-category">{{ .Title }}</span>
+<section class="archives-wrap">
+    <div class="archive-list-wrap">
+        <span class="archive-category">{{ .Title }}</span>
+    </div>
+</section>
+
+{{ $paginator := .Paginate .Data.Pages }}
+{{ range $paginator.Pages }}
+
+<article class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        {{ if and (isset .Params "banner") (not (eq .Params.banner "")) }}
+        <div class="article-banner" href="{{ .Permalink }}" itemprop="url">
+            <a href="{{ .Permalink }}" itemprop="url">
+                {{ if .Params.narrowBanner }}
+                <div class="article-banner-holder">
+                    <img src="{{ .Params.banner | absURL }}" class="article-banner-image-narrow">
+                </div>
+                {{ else }}
+                <img src="{{ .Params.banner | absURL }}" class="article-banner-image">
+                {{ end }}
+            </a>
         </div>
-        <div class="archives">
-            {{ $paginator := .Paginate .Data.Pages }}
-            {{ range $paginator.Pages }}
-                {{ .Render "summary" }} 
-            {{ end }}
+        {{ end }}
+
+        {{ partial "article_header" . }}
+        <div class="article-entry" itemprop="articleBody">
+            <p>
+            {{ .Description | default .Summary }}
+            </p>
+            <p class="article-more-link">
+            <a href="{{ .Permalink }}">
+                {{with .Site.Data.l10n.articles.read_more}}{{.}}{{end}}
+            </a>
+            </p>
         </div>
-    </section>
-    {{ partial "pagination" . }}
-    {{ end }}
+        {{ partial "article_footer" . }}
+    </div>
+</article>
+{{ end }}
+
+{{ partial "pagination" . }}
+
 {{ end }}

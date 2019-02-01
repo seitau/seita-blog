@@ -151,3 +151,8 @@ div.page-embed.hatena-web-card div.embed-footer img.favicon{
     font-family: Verdana;
     font-weight: bold
 }
+
+.archive-list-wrap{
+    font-size: 1.4em;
+    margin: 40px 0 5px 0;
+}
