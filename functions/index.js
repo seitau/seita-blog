@@ -19,7 +19,7 @@ function parseOgp(url) {
             if (err) {
                 console.error(err);
                 reject(err);
-            };
+            }
             const $ = cheerio.load(res.body);
             let ogp = new Object();
             ogp['siteName'] = $('title').text();
@@ -31,14 +31,14 @@ function parseOgp(url) {
                             let prop = attrs.property;
                             let content = attrs.content;
                             ogp[prop.split(':')[1]] = content.replace(/\r?\n/g,"");
-                        };
+                        }
                     }
-                };
+                }
             });
             resolve(ogp);
         });
     });
-};
+}
 
 exports.ogp = functions.https.onRequest((req, res) => {
     const params = req.query;

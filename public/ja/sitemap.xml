@@ -43,6 +43,11 @@
   </url>
   
   <url>
+    <loc>https://seita.tokyo/2018/09/14/neo%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%83%81%E3%83%A3%E3%83%AC%E3%83%B3%E3%82%B8%E6%9D%B1%E4%BA%AC%E3%81%A7%E6%BA%96%E5%84%AA%E5%8B%9D%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</loc>
+    <lastmod>2018-09-14T15:02:50-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://seita.tokyo/about/</loc>
     <xhtml:link
                 rel="alternate"
@@ -114,6 +119,12 @@
   </url>
   
   <url>
+    <loc>https://seita.tokyo/tags/hackathon/</loc>
+    <lastmod>2018-09-14T15:02:50-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://seita.tokyo/tags/headless-browser/</loc>
     <lastmod>2019-01-28T00:20:37-08:00</lastmod>
     <priority>0</priority>
@@ -140,6 +151,12 @@
   <url>
     <loc>https://seita.tokyo/tags/mnemonic/</loc>
     <lastmod>2019-01-14T00:58:06+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://seita.tokyo/tags/neo/</loc>
+    <lastmod>2018-09-14T15:02:50-08:00</lastmod>
     <priority>0</priority>
   </url>
   

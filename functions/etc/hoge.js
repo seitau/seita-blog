@@ -17,7 +17,7 @@ request({
 }, (err, res, body) => {
     if (err) {
         console.error(err);
-    };
+    }
 
     const $ = cheerio.load(res.body);
     let ogp = new Object();
@@ -30,9 +30,9 @@ request({
                     let prop = attrs.property;
                     let content = attrs.content;
                     ogp[prop.split(':')[1]] = content;
-                };
+                }
             }
-        };
+        }
     });    
 
     console.log(ogp)
