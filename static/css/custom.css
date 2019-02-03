@@ -44,6 +44,10 @@ code>span {
     background-color: #272822 !important;
 }
 
+p>code {
+    color: #e96900;
+}
+
 .embed-card.embed-blogcard{
     max-width: 100% !important;
 }
