@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Seita Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 29 Jan 2019 11:24:15 -0800</lastBuildDate>
+    <lastBuildDate>Fri, 01 Feb 2019 00:41:08 -0800</lastBuildDate>
     
 	<atom:link href="https://seita.tokyo/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Goでブロックチェーンを作る  Part 1: 基本型</title>
+      <link>https://seita.tokyo/2019/02/01/go%E3%81%A7%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8B-part-1-%E5%9F%BA%E6%9C%AC%E5%9E%8B/</link>
+      <pubDate>Fri, 01 Feb 2019 00:41:08 -0800</pubDate>
+      
+      <guid>https://seita.tokyo/2019/02/01/go%E3%81%A7%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8B-part-1-%E5%9F%BA%E6%9C%AC%E5%9E%8B/</guid>
+      <description>&lt;p&gt;この記事はIvan Kuznetsovさんの&lt;a href=&#34;https://jeiwan.cc/posts/building-blockchain-in-go-part-1/&#34;&gt;Building Blockchain in Go. Part 1: Basic Prototype&lt;/a&gt;を本人の許可を得て翻訳したものです。本来はpart1からpart7までのシリーズになっていますが、今回はpart1のみを翻訳しました。随時他のパートも翻訳していく予定です。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Hugoにブログカード埋め込みshortcodeを実装する</title>
@@ -93,7 +102,7 @@
       
       <guid>https://seita.tokyo/2018/09/14/neo%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%83%81%E3%83%A3%E3%83%AC%E3%83%B3%E3%82%B8%E6%9D%B1%E4%BA%AC%E3%81%A7%E6%BA%96%E5%84%AA%E5%8B%9D%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</guid>
       <description>
-  NEOブロックチェーンチャレンジ東京で準優勝しました!   こんにちは、エンジニアインターンの内村です。みなさま、NEOの開発はされていますでしょうか？実は先日開催された、NEOブロックチェーンチャレンジ東京というハッカソンに弊社エンジニアチームで出場いたしまして、有難いことに準優勝を頂くことができました。この記事では、NEOブロックチェーンチャレンジ東京のイベントの様子や、弊社チームが開発したプロダクトの内容をレポートしたいと思います。    https/tech.ginco.io      </description>
+  NEOăă­ăăŻăă§ăźăłăăŁăŹăłă¸ćąäşŹă§ćşĺŞĺăăžăă!   ăăăŤăĄăŻăă¨ăłă¸ăă˘ă¤ăłăżăźăłăŽĺćă§ăă ăżăŞăăžăNEOăŽéçşăŻăăăŚăăžăă§ăăăăďź ĺŽăŻĺćĽéĺŹăăăăNEOăă­ăăŻăă§ăźăłăăŁăŹăłă¸ćąäşŹă¨ăăăăăŤă˝ăłăŤĺźç¤žă¨ăłă¸ăă˘ăăźă ă§ĺşĺ ´ăăăăžăăŚăćéŁăăă¨ăŤćşĺŞĺăé ăăă¨ăă§ăăžăăă ăăŽč¨äşă§ăŻăNEOăă­ăăŻăă§ăźăłăăŁăŹăłă¸ćąäşŹăŽă¤ăăłăăŽć§ĺ­ăăĺźç¤žăăźă ăéçşăăăă­ăăŻăăŽĺĺŽšăăŹăăźăăăăă¨ćăăžăă    https/tech.ginco.io      </description>
     </item>
     
   </channel>

@@ -1,9 +1,9 @@
 ---
-banner: "img/ethereum.png"
-narrowBanner: true
+banner: "img/ethereum-homestead.jpg"
+narrowBanner: false
 date: "2019-01-14T00:58:06+02:00"
 description: ""
-images: ["img/ethereum.png"]
+images: ["img/ethereum-homestead.jpg"]
 menu: ""
 categories: ["programming"]
 tags: ["mnemonic", "ethereum"]

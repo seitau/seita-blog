@@ -9,6 +9,7 @@ disqusShortname = "seita-blog"
 pygmentsCodefences = true
 pygmentsStyle = "monokai"
 # pygmentsOptions = "linenos=table"
+# pygmentsUseClassic = true
 coverImage = "img/avatar.jpg"
 enableEmoji = true
 

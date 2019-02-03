@@ -118,7 +118,8 @@ body,
 body {
   color: #565a5f;
   background: #f5f8f9;
-  font: 14px "open sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
+  /*font: 14px "open sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;*/
+  font: 16px "open sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
   -webkit-text-size-adjust: 100%;
 }
 a {
@@ -130,12 +131,13 @@ a:visited {
 }
 code {
   /*margin: 0 2px;*/
-  color: #e96900;
+  /*color: #e96900;*/
   /*padding: 3px 5px;*/
-  font-size: 0.95em;
+  font-size: 14px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
-  font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
+  font-family:  Menlo, "Source Code Pro", Consolas, Monaco, Consolas, monospace;
+  font-weight: 600;
   /*background-color: #f8f8f8;*/
 }
 .outer {
@@ -2080,11 +2082,11 @@ ol.toc {
   margin: 0px;
   display: block;
   overflow-x: auto;
-  padding: 5px 10px;
+  padding: 20px 20px;
   font-size: 14px;
-  font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
+  font-family:  Menlo, "Source Code Pro", Consolas, Monaco, Consolas, monospace;
   line-height: 22.400000000000002px;
-  background: #272822;
+  background: #272b2d;
   border-radius: 5px;
 }
 .highlight table {
@@ -2103,7 +2105,7 @@ ol.toc {
   padding-right: 20px;
 }
 .article-entry .highlight {
-  /*margin: 1.6em 0;*/
+  margin: 1.6em 0;
 }
 .article-entry .highlight .line {
   height: 1.6em;

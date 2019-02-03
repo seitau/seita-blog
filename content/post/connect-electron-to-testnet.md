@@ -16,12 +16,12 @@ draft: false
 コマンドラインで以下のように開けばテストネットに繋がる。
 
 ## Electrum Litecoin Wallet
-```text
+```bash
 open -n /Applications/Electrum-LTC.app/ --args --testnet
 ```
 
 ## Electron Cash
-```text
+```bash
 open -n /Applications/Electron-Cash.app --args --testnet
 ```
 

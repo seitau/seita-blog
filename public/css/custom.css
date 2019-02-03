@@ -23,6 +23,11 @@
   /*position: absolute;*/
 }
 
+.article-banner-holder {
+    height: 190px;
+    margin-top:10px;
+}
+
 .article-banner {
   width: auto;
   height: 200px;
@@ -36,7 +41,7 @@
 }
 
 code>span {
-    background-color: #272822 !important;
+    background-color: #272b2d !important;
 }
 
 .embed-card.embed-blogcard{
@@ -145,4 +150,9 @@ div.page-embed.hatena-web-card div.embed-footer img.favicon{
     content: "B!";
     font-family: Verdana;
     font-weight: bold
+}
+
+.archive-list-wrap{
+    font-size: 1.4em;
+    margin: 40px 0 5px 0;
 }

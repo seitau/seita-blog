@@ -20,6 +20,8 @@
     
     <link rel="stylesheet" href="https://seita.tokyo/css/custom.css">
     
+    <link rel="stylesheet" href="https://seita.tokyo/css/tomorrow_night_bright.css">
+    
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
 
@@ -28,7 +30,7 @@
       
     <meta property="og:title" content="NEOブロックチェーンチャレンジ東京で準優勝しました!" />
 <meta property="og:description" content="
-  NEOブロックチェーンチャレンジ東京で準優勝しました!   こんにちは、エンジニアインターンの内村です。みなさま、NEOの開発はされていますでしょうか？実は先日開催された、NEOブロックチェーンチャレンジ東京というハッカソンに弊社エンジニアチームで出場いたしまして、有難いことに準優勝を頂くことができました。この記事では、NEOブロックチェーンチャレンジ東京のイベントの様子や、弊社チームが開発したプロダクトの内容をレポートしたいと思います。    https/tech.ginco.io      " />
+  NEOăă­ăăŻăă§ăźăłăăŁăŹăłă¸ćąäşŹă§ćşĺŞĺăăžăă!   ăăăŤăĄăŻăă¨ăłă¸ăă˘ă¤ăłăżăźăłăŽĺćă§ăă ăżăŞăăžăNEOăŽéçşăŻăăăŚăăžăă§ăăăăďź ĺŽăŻĺćĽéĺŹăăăăNEOăă­ăăŻăă§ăźăłăăŁăŹăłă¸ćąäşŹă¨ăăăăăŤă˝ăłăŤĺźç¤žă¨ăłă¸ăă˘ăăźă ă§ĺşĺ ´ăăăăžăăŚăćéŁăăă¨ăŤćşĺŞĺăé ăăă¨ăă§ăăžăăă ăăŽč¨äşă§ăŻăNEOăă­ăăŻăă§ăźăłăăŁăŹăłă¸ćąäşŹăŽă¤ăăłăăŽć§ĺ­ăăĺźç¤žăăźă ăéçşăăăă­ăăŻăăŽĺĺŽšăăŹăăźăăăăă¨ćăăžăă    https/tech.ginco.io      " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://seita.tokyo/2018/09/14/neo%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%83%81%E3%83%A3%E3%83%AC%E3%83%B3%E3%82%B8%E6%9D%B1%E4%BA%AC%E3%81%A7%E6%BA%96%E5%84%AA%E5%8B%9D%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/" />
 <meta property="og:image" content="https://seita.tokyo/img/ginco.png" />
@@ -39,12 +41,12 @@
     
 <meta itemprop="name" content="NEOブロックチェーンチャレンジ東京で準優勝しました!">
 <meta itemprop="description" content="
-  NEOブロックチェーンチャレンジ東京で準優勝しました!   こんにちは、エンジニアインターンの内村です。みなさま、NEOの開発はされていますでしょうか？実は先日開催された、NEOブロックチェーンチャレンジ東京というハッカソンに弊社エンジニアチームで出場いたしまして、有難いことに準優勝を頂くことができました。この記事では、NEOブロックチェーンチャレンジ東京のイベントの様子や、弊社チームが開発したプロダクトの内容をレポートしたいと思います。    https/tech.ginco.io      ">
+  NEOăă­ăăŻăă§ăźăłăăŁăŹăłă¸ćąäşŹă§ćşĺŞĺăăžăă!   ăăăŤăĄăŻăă¨ăłă¸ăă˘ă¤ăłăżăźăłăŽĺćă§ăă ăżăŞăăžăNEOăŽéçşăŻăăăŚăăžăă§ăăăăďź ĺŽăŻĺćĽéĺŹăăăăNEOăă­ăăŻăă§ăźăłăăŁăŹăłă¸ćąäşŹă¨ăăăăăŤă˝ăłăŤĺźç¤žă¨ăłă¸ăă˘ăăźă ă§ĺşĺ ´ăăăăžăăŚăćéŁăăă¨ăŤćşĺŞĺăé ăăă¨ăă§ăăžăăă ăăŽč¨äşă§ăŻăNEOăă­ăăŻăă§ăźăłăăŁăŹăłă¸ćąäşŹăŽă¤ăăłăăŽć§ĺ­ăăĺźç¤žăăźă ăéçşăăăă­ăăŻăăŽĺĺŽšăăŹăăźăăăăă¨ćăăžăă    https/tech.ginco.io      ">
 
 
 <meta itemprop="datePublished" content="2018-09-14T15:02:50-08:00" />
 <meta itemprop="dateModified" content="2018-09-14T15:02:50-08:00" />
-<meta itemprop="wordCount" content="3">
+<meta itemprop="wordCount" content="13">
 
   <meta itemprop="image" content="https://seita.tokyo/img/ginco.png">
 
@@ -62,7 +64,7 @@
 
 <meta name="twitter:title" content="NEOブロックチェーンチャレンジ東京で準優勝しました!"/>
 <meta name="twitter:description" content="
-  NEOブロックチェーンチャレンジ東京で準優勝しました!   こんにちは、エンジニアインターンの内村です。みなさま、NEOの開発はされていますでしょうか？実は先日開催された、NEOブロックチェーンチャレンジ東京というハッカソンに弊社エンジニアチームで出場いたしまして、有難いことに準優勝を頂くことができました。この記事では、NEOブロックチェーンチャレンジ東京のイベントの様子や、弊社チームが開発したプロダクトの内容をレポートしたいと思います。    https/tech.ginco.io      "/>
+  NEOăă­ăăŻăă§ăźăłăăŁăŹăłă¸ćąäşŹă§ćşĺŞĺăăžăă!   ăăăŤăĄăŻăă¨ăłă¸ăă˘ă¤ăłăżăźăłăŽĺćă§ăă ăżăŞăăžăNEOăŽéçşăŻăăăŚăăžăă§ăăăăďź ĺŽăŻĺćĽéĺŹăăăăNEOăă­ăăŻăă§ăźăłăăŁăŹăłă¸ćąäşŹă¨ăăăăăŤă˝ăłăŤĺźç¤žă¨ăłă¸ăă˘ăăźă ă§ĺşĺ ´ăăăăžăăŚăćéŁăăă¨ăŤćşĺŞĺăé ăăă¨ăă§ăăžăăă ăăŽč¨äşă§ăŻăNEOăă­ăăŻăă§ăźăłăăŁăŹăłă¸ćąäşŹăŽă¤ăăłăăŽć§ĺ­ăăĺźç¤žăăźă ăéçşăăăă­ăăŻăăŽĺĺŽšăăŹăăźăăăăă¨ćăăžăă    https/tech.ginco.io      "/>
 <meta name="twitter:site" content="https://seita.tokyo/"/>
 
 
@@ -201,12 +203,12 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        9
+        10
         <span>POSTS</span>
       </div>
       <div class="article-info-block">
         
-          19
+          21
         
         <span>
           TAGS
@@ -292,7 +294,9 @@
         <div class="article-banner" href="https://seita.tokyo/2018/09/14/neo%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%83%81%E3%83%A3%E3%83%AC%E3%83%B3%E3%82%B8%E6%9D%B1%E4%BA%AC%E3%81%A7%E6%BA%96%E5%84%AA%E5%8B%9D%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/" itemprop="url">
             <a href="https://seita.tokyo/2018/09/14/neo%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%83%81%E3%83%A3%E3%83%AC%E3%83%B3%E3%82%B8%E6%9D%B1%E4%BA%AC%E3%81%A7%E6%BA%96%E5%84%AA%E5%8B%9D%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/" itemprop="url">
                 
-                <img src="https://seita.tokyo/img/ginco.png" class="article-banner-image-narrow">
+                <div class="article-banner-holder">
+                    <img src="https://seita.tokyo/img/ginco.png" class="article-banner-image-narrow">
+                </div>
                 
             </a>
         </div>
@@ -375,17 +379,22 @@
                 <div class="entry-body">
                     <h2 class="entry-title">
                         <a href="https://tech.ginco.io/post/neo-hackathon/" target="_blank">
-                            NEOブロックチェーンチャレンジ東京で準優勝しました!
+                            NEOăă­ăăŻăă§ăźăłăăŁăŹăłă¸ćąäşŹă§ćşĺŞĺăăžăă!
                         </a>
                     </h2>
                     <div class="entry-content">
-                            こんにちは、エンジニアインターンの内村です。みなさま、NEOの開発はされていますでしょうか？実は先日開催された、NEOブロックチェーンチャレンジ東京というハッカソンに弊社エンジニアチームで出場いたしまして、有難いことに準優勝を頂くことができました。この記事では、NEOブロックチェーンチャレンジ東京のイベントの様子や、弊社チームが開発したプロダクトの内容をレポートしたいと思います。
+                            ăăăŤăĄăŻăă¨ăłă¸ăă˘ă¤ăłăżăźăłăŽĺćă§ăă
+
+ăżăŞăăžăNEOăŽéçşăŻăăăŚăăžăă§ăăăăďź
+ĺŽăŻĺćĽéĺŹăăăăNEOăă­ăăŻăă§ăźăłăăŁăŹăłă¸ćąäşŹă¨ăăăăăŤă˝ăłăŤĺźç¤žă¨ăłă¸ăă˘ăăźă ă§ĺşĺ ´ăăăăžăăŚăćéŁăăă¨ăŤćşĺŞĺăé ăăă¨ăă§ăăžăăă
+
+ăăŽč¨äşă§ăŻăNEOăă­ăăŻăă§ăźăłăăŁăŹăłă¸ćąäşŹăŽă¤ăăłăăŽć§ĺ­ăăĺźç¤žăăźă ăéçşăăăă­ăăŻăăŽĺĺŽšăăŹăăźăăăăă¨ćăăžăă
                     </div>
                 </div>
             </div>
             <div class="embed-footer">
                 <a href="https/tech.ginco.io"target="_blank">
-                    <img src="https://www.google.com/s2/favicons?domain=tech.ginco.io" alt="" title="NEOブロックチェーンチャレンジ東京で準優勝しました!" class="favicon">
+                    <img src="https://www.google.com/s2/favicons?domain=tech.ginco.io" alt="" title="NEOăă­ăăŻăă§ăźăłăăŁăŹăłă¸ćąäşŹă§ćşĺŞĺăăžăă!" class="favicon">
                     https/tech.ginco.io
                 </a>
             </div>
@@ -538,6 +547,32 @@
             
             <li>
                 <div class="item-thumbnail">
+                    <a href="https://seita.tokyo/2019/02/01/go%E3%81%A7%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8B-part-1-%E5%9F%BA%E6%9C%AC%E5%9E%8B/" class="thumbnail">
+                    
+                        <span style="background-image:url(https://seita.tokyo/img/gopher.png)" alt="NEOブロックチェーンチャレンジ東京で準優勝しました!" class="thumbnail-image"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="https://seita.tokyo/categories/programming">
+                        programming
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="https://seita.tokyo/2019/02/01/go%E3%81%A7%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8B-part-1-%E5%9F%BA%E6%9C%AC%E5%9E%8B/" class="title">Goでブロックチェーンを作る  Part 1: 基本型</a></p>
+                    <p class="item-date">
+                        <time datetime="2019-02-01 00:41:08 -0800 PST" itemprop="datePublished">2019-02-01</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
                     <a href="https://seita.tokyo/2019/01/29/hugo%E3%81%AB%E3%83%96%E3%83%AD%E3%82%B0%E3%82%AB%E3%83%BC%E3%83%89%E5%9F%8B%E3%82%81%E8%BE%BC%E3%81%BFshortcode%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%99%E3%82%8B/" class="thumbnail">
                     
                         <span style="background-image:url(https://seita.tokyo/img/hugo.png)" alt="NEOブロックチェーンチャレンジ東京で準優勝しました!" class="thumbnail-image"></span>
@@ -640,32 +675,6 @@
                 </div>
             </li>
             
-            <li>
-                <div class="item-thumbnail">
-                    <a href="https://seita.tokyo/2019/01/14/%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0%E3%81%8B%E3%82%89mnemonic%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%93%E3%81%A0%E3%82%89%E8%BA%93%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2/" class="thumbnail">
-                    
-                        <span style="background-image:url(https://seita.tokyo/img/ethereum.png)" alt="NEOブロックチェーンチャレンジ東京で準優勝しました!" class="thumbnail-image"></span>
-                    
-                    </a>
-                </div>
-                <div class="item-inner">
-                    
-                    
-                    <p class="item-category">
-                        
-                        <a class="article-category-link" href="https://seita.tokyo/categories/programming">
-                        programming
-                        </a>
-                    </p>
-                    
-                    
-                    <p class="item-title"><a href="https://seita.tokyo/2019/01/14/%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0%E3%81%8B%E3%82%89mnemonic%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%93%E3%81%A0%E3%82%89%E8%BA%93%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2/" class="title">環境変数からmnemonicを読み込んだら躓いたメモ</a></p>
-                    <p class="item-date">
-                        <time datetime="2019-01-14 00:58:06 &#43;0200 &#43;0200" itemprop="datePublished">2019-01-14</time>
-                    </p>
-                </div>
-            </li>
-            
         </ul>
     </div>
 </div>
@@ -684,7 +693,7 @@
                 <a class="category-list-link" href="https://seita.tokyo/categories/programming">
                     programming
                 </a>
-                <span class="category-list-count">9</span>
+                <span class="category-list-count">10</span>
             </li>
             
         </ul>
@@ -717,7 +726,7 @@
                 <a class="category-list-link" href="https://seita.tokyo/tags/blockchain">
                     blockchain
                 </a>
-                <span class="category-list-count">3</span>
+                <span class="category-list-count">4</span>
             </li>
             
             <li class="category-list-item">
@@ -756,6 +765,14 @@
                 
                 <a class="category-list-link" href="https://seita.tokyo/tags/ginco">
                     ginco
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://seita.tokyo/tags/golang">
+                    golang
                 </a>
                 <span class="category-list-count">1</span>
             </li>
@@ -856,6 +873,14 @@
                 <span class="category-list-count">1</span>
             </li>
             
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://seita.tokyo/tags/translation">
+                    translation
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
         </ul>
     </div>
 </div>
@@ -894,6 +919,9 @@
         <a href="https://seita.tokyo/tags/ginco" style="font-size: 12px;">ginco</a>
         
         
+        <a href="https://seita.tokyo/tags/golang" style="font-size: 12px;">golang</a>
+        
+        
         <a href="https://seita.tokyo/tags/hackathon" style="font-size: 12px;">hackathon</a>
         
         
@@ -928,6 +956,9 @@
         
         
         <a href="https://seita.tokyo/tags/shortcode" style="font-size: 12px;">shortcode</a>
+        
+        
+        <a href="https://seita.tokyo/tags/translation" style="font-size: 12px;">translation</a>
         
     </div>
 </div>

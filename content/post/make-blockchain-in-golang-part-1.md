@@ -7,7 +7,7 @@ description: ""
 images: ["img/gopher.png"]
 menu: ""
 categories: ["programming"]
-tags: ["blockchain", "golang"]
+tags: ["blockchain", "golang", "translation"]
 draft: false
 ---
 

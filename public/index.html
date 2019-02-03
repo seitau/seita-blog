@@ -23,6 +23,8 @@
     
     <link rel="stylesheet" href="https://seita.tokyo/css/custom.css">
     
+    <link rel="stylesheet" href="https://seita.tokyo/css/tomorrow_night_bright.css">
+    
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
 
@@ -33,7 +35,7 @@
 <meta property="og:description" content="留学・プログラミング・読書についての記録" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://seita.tokyo/" />
-<meta property="og:updated_time" content="2019-01-29T11:24:15-08:00"/>
+<meta property="og:updated_time" content="2019-02-01T00:41:08-08:00"/>
 
     
     
@@ -189,12 +191,12 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        9
+        10
         <span>POSTS</span>
       </div>
       <div class="article-info-block">
         
-          19
+          21
         
         <span>
           TAGS
@@ -279,10 +281,172 @@
 <article class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
+    <div class="article-banner" href="https://seita.tokyo/2019/02/01/go%E3%81%A7%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8B-part-1-%E5%9F%BA%E6%9C%AC%E5%9E%8B/" itemprop="url">
+      <a href="https://seita.tokyo/2019/02/01/go%E3%81%A7%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8B-part-1-%E5%9F%BA%E6%9C%AC%E5%9E%8B/" itemprop="url">
+        
+        <div class="article-banner-holder">
+            <img src="https://seita.tokyo/img/gopher.png" class="article-banner-image-narrow">
+        </div>
+        
+      </a>
+  </div>
+  
+
+  <header class="article-header">
+    <a href="https://seita.tokyo/2019/02/01/go%E3%81%A7%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8B-part-1-%E5%9F%BA%E6%9C%AC%E5%9E%8B/">
+    <h1 class="article-title" itemprop="name">
+        Goでブロックチェーンを作る  Part 1: 基本型
+    </h1>
+    </a>
+    <div class="article-meta">
+
+        
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2019-02-01 00:41:08 -0800 PST" itemprop="datePublished">2019-02-01</time>
+        </div>
+        
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-folder"></i>
+                
+                
+                <a class="article-category-link" href="https://seita.tokyo/categories/programming">programming</a>
+                
+                
+            </div>
+            
+        
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                
+                <a class="article-category-link" href="https://seita.tokyo/tags/blockchain">blockchain</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://seita.tokyo/tags/golang">golang</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://seita.tokyo/tags/translation">translation</a>
+                
+                
+            </div>
+            
+        
+    </div>
+</header>
+
+  <div class="article-entry" itemprop="articleBody">
+    <p>
+    <p>この記事はIvan Kuznetsovさんの<a href="https://jeiwan.cc/posts/building-blockchain-in-go-part-1/">Building Blockchain in Go. Part 1: Basic Prototype</a>を本人の許可を得て翻訳したものです。本来はpart1からpart7までのシリーズになっていますが、今回はpart1のみを翻訳しました。随時他のパートも翻訳していく予定です。</p>
+    </p>
+    <p class="article-more-link">
+    <a href="https://seita.tokyo/2019/02/01/go%E3%81%A7%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8B-part-1-%E5%9F%BA%E6%9C%AC%E5%9E%8B/">
+      Read more
+    </a>
+    </p>
+  </div>
+  <footer class="article-footer">
+    <a data-url="https://seita.tokyo/2019/02/01/go%E3%81%A7%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8B-part-1-%E5%9F%BA%E6%9C%AC%E5%9E%8B/" data-id="70d49fa6a2839204cd2a02bc8fd14d72" class="article-share-link">
+        <i class="fa fa-share"></i>
+        Share
+    </a>
+    
+    <a href="https://seita.tokyo/2019/02/01/go%E3%81%A7%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8B-part-1-%E5%9F%BA%E6%9C%AC%E5%9E%8B/#disqus_thread" class="article-comment-link">
+        Comments
+    </a>
+    
+
+    
+
+
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+  </div>
+</article>
+
+<article class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
     <div class="article-banner" href="https://seita.tokyo/2019/01/29/hugo%E3%81%AB%E3%83%96%E3%83%AD%E3%82%B0%E3%82%AB%E3%83%BC%E3%83%89%E5%9F%8B%E3%82%81%E8%BE%BC%E3%81%BFshortcode%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%99%E3%82%8B/" itemprop="url">
       <a href="https://seita.tokyo/2019/01/29/hugo%E3%81%AB%E3%83%96%E3%83%AD%E3%82%B0%E3%82%AB%E3%83%BC%E3%83%89%E5%9F%8B%E3%82%81%E8%BE%BC%E3%81%BFshortcode%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%99%E3%82%8B/" itemprop="url">
         
-        <img src="https://seita.tokyo/img/hugo.png" class="article-banner-image-narrow">
+        <div class="article-banner-holder">
+            <img src="https://seita.tokyo/img/hugo.png" class="article-banner-image-narrow">
+        </div>
         
       </a>
   </div>
@@ -436,7 +600,9 @@
     <div class="article-banner" href="https://seita.tokyo/2019/01/28/puppeteer%E3%81%A7headless%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E5%85%A5%E9%96%80/" itemprop="url">
       <a href="https://seita.tokyo/2019/01/28/puppeteer%E3%81%A7headless%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E5%85%A5%E9%96%80/" itemprop="url">
         
-        <img src="https://seita.tokyo/img/puppeteer.png" class="article-banner-image-narrow">
+        <div class="article-banner-holder">
+            <img src="https://seita.tokyo/img/puppeteer.png" class="article-banner-image-narrow">
+        </div>
         
       </a>
   </div>
@@ -598,7 +764,9 @@
     <div class="article-banner" href="https://seita.tokyo/2019/01/22/netlify-cms%E3%81%A7%E7%94%BB%E5%83%8F%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%99%E3%82%8B/" itemprop="url">
       <a href="https://seita.tokyo/2019/01/22/netlify-cms%E3%81%A7%E7%94%BB%E5%83%8F%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%99%E3%82%8B/" itemprop="url">
         
-        <img src="https://seita.tokyo/img/netlify.png" class="article-banner-image-narrow">
+        <div class="article-banner-holder">
+            <img src="https://seita.tokyo/img/netlify.png" class="article-banner-image-narrow">
+        </div>
         
       </a>
   </div>
@@ -758,7 +926,9 @@
     <div class="article-banner" href="https://seita.tokyo/2019/01/21/hugo%E3%82%92circleci%E3%81%A7%E8%87%AA%E5%8B%95%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%99%E3%82%8B/" itemprop="url">
       <a href="https://seita.tokyo/2019/01/21/hugo%E3%82%92circleci%E3%81%A7%E8%87%AA%E5%8B%95%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%99%E3%82%8B/" itemprop="url">
         
-        <img src="https://seita.tokyo/img/circleci.png" class="article-banner-image-narrow">
+        <div class="article-banner-holder">
+            <img src="https://seita.tokyo/img/circleci.png" class="article-banner-image-narrow">
+        </div>
         
       </a>
   </div>
@@ -912,7 +1082,7 @@
     <div class="article-banner" href="https://seita.tokyo/2019/01/14/%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0%E3%81%8B%E3%82%89mnemonic%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%93%E3%81%A0%E3%82%89%E8%BA%93%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2/" itemprop="url">
       <a href="https://seita.tokyo/2019/01/14/%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0%E3%81%8B%E3%82%89mnemonic%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%93%E3%81%A0%E3%82%89%E8%BA%93%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2/" itemprop="url">
         
-        <img src="https://seita.tokyo/img/ethereum.png" class="article-banner-image-narrow">
+        <img src="https://seita.tokyo/img/ethereum-homestead.jpg" class="article-banner-image">
         
       </a>
   </div>
@@ -1066,7 +1236,7 @@
     <div class="article-banner" href="https://seita.tokyo/2019/01/13/etherscan%E3%81%AB%E3%82%B3%E3%83%B3%E3%83%88%E3%83%A9%E3%82%AF%E3%83%88%E3%82%92%E7%99%BB%E9%8C%B2%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E4%BE%BF%E5%88%A9%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB/" itemprop="url">
       <a href="https://seita.tokyo/2019/01/13/etherscan%E3%81%AB%E3%82%B3%E3%83%B3%E3%83%88%E3%83%A9%E3%82%AF%E3%83%88%E3%82%92%E7%99%BB%E9%8C%B2%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E4%BE%BF%E5%88%A9%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB/" itemprop="url">
         
-        <img src="https://seita.tokyo/img/ethereum.png" class="article-banner-image-narrow">
+        <img src="https://seita.tokyo/img/ethereum-homestead.jpg" class="article-banner-image">
         
       </a>
   </div>
@@ -1386,7 +1556,9 @@
     <div class="article-banner" href="https://seita.tokyo/2018/12/18/ginco%E3%81%AE%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%B3%E3%81%A3%E3%81%A6%E3%81%A9%E3%82%93%E3%81%AA%E6%84%9F%E3%81%98/" itemprop="url">
       <a href="https://seita.tokyo/2018/12/18/ginco%E3%81%AE%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%B3%E3%81%A3%E3%81%A6%E3%81%A9%E3%82%93%E3%81%AA%E6%84%9F%E3%81%98/" itemprop="url">
         
-        <img src="https://seita.tokyo/img/ginco.png" class="article-banner-image-narrow">
+        <div class="article-banner-holder">
+            <img src="https://seita.tokyo/img/ginco.png" class="article-banner-image-narrow">
+        </div>
         
       </a>
   </div>
@@ -1541,7 +1713,9 @@
     <div class="article-banner" href="https://seita.tokyo/2018/09/14/neo%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%83%81%E3%83%A3%E3%83%AC%E3%83%B3%E3%82%B8%E6%9D%B1%E4%BA%AC%E3%81%A7%E6%BA%96%E5%84%AA%E5%8B%9D%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/" itemprop="url">
       <a href="https://seita.tokyo/2018/09/14/neo%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%83%81%E3%83%A3%E3%83%AC%E3%83%B3%E3%82%B8%E6%9D%B1%E4%BA%AC%E3%81%A7%E6%BA%96%E5%84%AA%E5%8B%9D%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/" itemprop="url">
         
-        <img src="https://seita.tokyo/img/ginco.png" class="article-banner-image-narrow">
+        <div class="article-banner-holder">
+            <img src="https://seita.tokyo/img/ginco.png" class="article-banner-image-narrow">
+        </div>
         
       </a>
   </div>
@@ -1602,7 +1776,7 @@
   <div class="article-entry" itemprop="articleBody">
     <p>
     
-  NEOブロックチェーンチャレンジ東京で準優勝しました!   こんにちは、エンジニアインターンの内村です。みなさま、NEOの開発はされていますでしょうか？実は先日開催された、NEOブロックチェーンチャレンジ東京というハッカソンに弊社エンジニアチームで出場いたしまして、有難いことに準優勝を頂くことができました。この記事では、NEOブロックチェーンチャレンジ東京のイベントの様子や、弊社チームが開発したプロダクトの内容をレポートしたいと思います。    https/tech.ginco.io      
+  NEOăă­ăăŻăă§ăźăłăăŁăŹăłă¸ćąäşŹă§ćşĺŞĺăăžăă!   ăăăŤăĄăŻăă¨ăłă¸ăă˘ă¤ăłăżăźăłăŽĺćă§ăă ăżăŞăăžăNEOăŽéçşăŻăăăŚăăžăă§ăăăăďź ĺŽăŻĺćĽéĺŹăăăăNEOăă­ăăŻăă§ăźăłăăŁăŹăłă¸ćąäşŹă¨ăăăăăŤă˝ăłăŤĺźç¤žă¨ăłă¸ăă˘ăăźă ă§ĺşĺ ´ăăăăžăăŚăćéŁăăă¨ăŤćşĺŞĺăé ăăă¨ăă§ăăžăăă ăăŽč¨äşă§ăŻăNEOăă­ăăŻăă§ăźăłăăŁăŹăłă¸ćąäşŹăŽă¤ăăłăăŽć§ĺ­ăăĺźç¤žăăźă ăéçşăăăă­ăăŻăăŽĺĺŽšăăŹăăźăăăăă¨ćăăžăă    https/tech.ginco.io      
     </p>
     <p class="article-more-link">
     <a href="https://seita.tokyo/2018/09/14/neo%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%83%81%E3%83%A3%E3%83%AC%E3%83%B3%E3%82%B8%E6%9D%B1%E4%BA%AC%E3%81%A7%E6%BA%96%E5%84%AA%E5%8B%9D%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/">
@@ -1715,6 +1889,32 @@
             
             <li>
                 <div class="item-thumbnail">
+                    <a href="https://seita.tokyo/2019/02/01/go%E3%81%A7%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8B-part-1-%E5%9F%BA%E6%9C%AC%E5%9E%8B/" class="thumbnail">
+                    
+                        <span style="background-image:url(https://seita.tokyo/img/gopher.png)" alt="Seita Blog" class="thumbnail-image"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="https://seita.tokyo/categories/programming">
+                        programming
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="https://seita.tokyo/2019/02/01/go%E3%81%A7%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8B-part-1-%E5%9F%BA%E6%9C%AC%E5%9E%8B/" class="title">Goでブロックチェーンを作る  Part 1: 基本型</a></p>
+                    <p class="item-date">
+                        <time datetime="2019-02-01 00:41:08 -0800 PST" itemprop="datePublished">2019-02-01</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
                     <a href="https://seita.tokyo/2019/01/29/hugo%E3%81%AB%E3%83%96%E3%83%AD%E3%82%B0%E3%82%AB%E3%83%BC%E3%83%89%E5%9F%8B%E3%82%81%E8%BE%BC%E3%81%BFshortcode%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%99%E3%82%8B/" class="thumbnail">
                     
                         <span style="background-image:url(https://seita.tokyo/img/hugo.png)" alt="Seita Blog" class="thumbnail-image"></span>
@@ -1817,32 +2017,6 @@
                 </div>
             </li>
             
-            <li>
-                <div class="item-thumbnail">
-                    <a href="https://seita.tokyo/2019/01/14/%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0%E3%81%8B%E3%82%89mnemonic%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%93%E3%81%A0%E3%82%89%E8%BA%93%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2/" class="thumbnail">
-                    
-                        <span style="background-image:url(https://seita.tokyo/img/ethereum.png)" alt="Seita Blog" class="thumbnail-image"></span>
-                    
-                    </a>
-                </div>
-                <div class="item-inner">
-                    
-                    
-                    <p class="item-category">
-                        
-                        <a class="article-category-link" href="https://seita.tokyo/categories/programming">
-                        programming
-                        </a>
-                    </p>
-                    
-                    
-                    <p class="item-title"><a href="https://seita.tokyo/2019/01/14/%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0%E3%81%8B%E3%82%89mnemonic%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%93%E3%81%A0%E3%82%89%E8%BA%93%E3%81%84%E3%81%9F%E3%83%A1%E3%83%A2/" class="title">環境変数からmnemonicを読み込んだら躓いたメモ</a></p>
-                    <p class="item-date">
-                        <time datetime="2019-01-14 00:58:06 &#43;0200 &#43;0200" itemprop="datePublished">2019-01-14</time>
-                    </p>
-                </div>
-            </li>
-            
         </ul>
     </div>
 </div>
@@ -1861,7 +2035,7 @@
                 <a class="category-list-link" href="https://seita.tokyo/categories/programming">
                     programming
                 </a>
-                <span class="category-list-count">9</span>
+                <span class="category-list-count">10</span>
             </li>
             
         </ul>
@@ -1894,7 +2068,7 @@
                 <a class="category-list-link" href="https://seita.tokyo/tags/blockchain">
                     blockchain
                 </a>
-                <span class="category-list-count">3</span>
+                <span class="category-list-count">4</span>
             </li>
             
             <li class="category-list-item">
@@ -1933,6 +2107,14 @@
                 
                 <a class="category-list-link" href="https://seita.tokyo/tags/ginco">
                     ginco
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://seita.tokyo/tags/golang">
+                    golang
                 </a>
                 <span class="category-list-count">1</span>
             </li>
@@ -2033,6 +2215,14 @@
                 <span class="category-list-count">1</span>
             </li>
             
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://seita.tokyo/tags/translation">
+                    translation
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
         </ul>
     </div>
 </div>
@@ -2071,6 +2261,9 @@
         <a href="https://seita.tokyo/tags/ginco" style="font-size: 12px;">ginco</a>
         
         
+        <a href="https://seita.tokyo/tags/golang" style="font-size: 12px;">golang</a>
+        
+        
         <a href="https://seita.tokyo/tags/hackathon" style="font-size: 12px;">hackathon</a>
         
         
@@ -2105,6 +2298,9 @@
         
         
         <a href="https://seita.tokyo/tags/shortcode" style="font-size: 12px;">shortcode</a>
+        
+        
+        <a href="https://seita.tokyo/tags/translation" style="font-size: 12px;">translation</a>
         
     </div>
 </div>
