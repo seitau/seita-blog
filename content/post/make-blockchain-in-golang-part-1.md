@@ -8,10 +8,11 @@ images: ["img/gopher.png"]
 menu: ""
 categories: ["programming"]
 tags: ["blockchain", "golang", "translation"]
+showTOC: true
 draft: false
 ---
 
-## この記事について
+### この記事について
 
 この記事はIvan Kuznetsovさんの[Building Blockchain in Go. Part 1: Basic Prototype](https://jeiwan.cc/posts/building-blockchain-in-go-part-1/)を本人の許可を得て翻訳したものです。他のパートの翻訳記事は随時アップロードしていきます。
 
@@ -21,6 +22,8 @@ draft: false
 - [Part 2: プルーフオブワーク](https://seita.tokyo/2019/02/02/go%E3%81%A7%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8B-part-2-%E3%83%97%E3%83%AB%E3%83%BC%E3%83%95%E3%82%AA%E3%83%96%E3%83%AF%E3%83%BC%E3%82%AF/)
 
 翻訳経験に乏しいため、誤訳や不足等がありましたらご指摘お願い致します。
+
+<div id="toc-position"></div>
 
 # Introduction
 

@@ -8,6 +8,7 @@ images: ["img/gopher.png"]
 menu: ""
 categories: ["programming"]
 tags: ["blockchain", "golang", "translation"]
+showTOC: true
 draft: false
 ---
 

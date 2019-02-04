@@ -157,6 +157,9 @@ code {
   .outer {
     padding: 0;
   }
+  span.archive-category {
+    padding-left: 15px;
+  }
 }
 .left,
 .alignleft {
