@@ -41,7 +41,11 @@
 }
 
 code>span {
-    background-color: #272b2d !important;
+    background-color: #272822 !important;
+}
+
+p>code {
+    color: #e96900;
 }
 
 .embed-card.embed-blogcard{
@@ -156,3 +160,19 @@ div.page-embed.hatena-web-card div.embed-footer img.favicon{
     font-size: 1.4em;
     margin: 40px 0 5px 0;
 }
+
+#table-of-contents ul {
+    margin-top: 0.9em;
+    list-style-type: disc;
+    /*padding-left: 1.5em;*/
+}
+
+#table-of-contents h4 {
+    margin-bottom: 0;
+}
+
+#table-of-contents ul ul {
+    /*list-style-type: none;*/
+    margin-left: 0;
+}
+

@@ -20,8 +20,6 @@
     
     <link rel="stylesheet" href="https://seita.tokyo/css/custom.css">
     
-    <link rel="stylesheet" href="https://seita.tokyo/css/tomorrow_night_bright.css">
-    
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
 
@@ -200,7 +198,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        10
+        11
         <span>POSTS</span>
       </div>
       <div class="article-info-block">
@@ -350,6 +348,8 @@
 </header>
 
         <div class="article-entry" itemprop="articleBody">
+            
+
             <p>Ropstenでコントラクトをテストしようと思い、せっかくだからEtherscanに登録して弄ってみようと思ったものの、スムーズにいかなかったのでメモ。</p>
 
 <p>Etherscanにコントラクトを登録して内容を公開するには、deployしたコントラクトのソースを用意する必要があります。ここで問題なのが、コントラクトでたくさんimportしていた時に、すべてのコントラクトのコードを一箇所にまとめなきゃいけないという点です。初めて知った時は地獄だと思いました。</p>
@@ -361,7 +361,7 @@
 <p>自分はtruffleで開発していたので<a href="https://www.npmjs.com/package/truffle-flattener">truffle-flattener</a>一択でした。truffleを使っていないなら<a href="https://github.com/BlockCatIO/solidity-flattener">solidity-flattener</a>もありだと思いますが、自分の場合はpipを使ったことがなくて導入に苦労したのと、openzeppelin-solidityとかの継承関係を解決してくれないので使えませんでした。</p>
 
 <p>truffle-flattenerはコマンドラインで</p>
-<div class="highlight"><pre class="chroma"><code class="language-fish" data-lang="fish">truffle-flattener original.sol <span class="o">&gt;&gt;</span> output.sol</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fish" data-lang="fish">truffle-flattener original.sol <span style="color:#f92672">&gt;&gt;</span> output.sol</code></pre></div>
 <p>とやれば、継承関係も重複なく一箇所に出力してくれます。超便利。
 これでまとめたコードをEtherscanにコピペして登録完了！と思いきや、うまく行かない。なんで。</p>
 
@@ -377,6 +377,8 @@
 <p>ということでめでたくEtherscanにコントラクトを登録できました。
 過去に数回登録してたのにめっちゃ手間取った。。。</p>
         </div>
+
+
         <footer class="article-footer">
     <a data-url="https://seita.tokyo/2019/01/13/etherscan%E3%81%AB%E3%82%B3%E3%83%B3%E3%83%88%E3%83%A9%E3%82%AF%E3%83%88%E3%82%92%E7%99%BB%E9%8C%B2%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E4%BE%BF%E5%88%A9%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB/" data-id="7fe4d9cef4d36454b61fc0c1f31e8b3b" class="article-share-link">
         <i class="fa fa-share"></i>
@@ -526,6 +528,32 @@
             
             <li>
                 <div class="item-thumbnail">
+                    <a href="https://seita.tokyo/2019/02/02/go%E3%81%A7%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8B-part-2-%E3%83%97%E3%83%AB%E3%83%BC%E3%83%95%E3%82%AA%E3%83%96%E3%83%AF%E3%83%BC%E3%82%AF/" class="thumbnail">
+                    
+                        <span style="background-image:url(https://seita.tokyo/img/gopher.png)" alt="Etherscanにコントラクトを登録するときに便利なツール" class="thumbnail-image"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="https://seita.tokyo/categories/programming">
+                        programming
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="https://seita.tokyo/2019/02/02/go%E3%81%A7%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8B-part-2-%E3%83%97%E3%83%AB%E3%83%BC%E3%83%95%E3%82%AA%E3%83%96%E3%83%AF%E3%83%BC%E3%82%AF/" class="title">Goでブロックチェーンを作る Part 2: プルーフオブワーク</a></p>
+                    <p class="item-date">
+                        <time datetime="2019-02-02 09:24:09 -0800 PST" itemprop="datePublished">2019-02-02</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
                     <a href="https://seita.tokyo/2019/02/01/go%E3%81%A7%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8B-part-1-%E5%9F%BA%E6%9C%AC%E5%9E%8B/" class="thumbnail">
                     
                         <span style="background-image:url(https://seita.tokyo/img/gopher.png)" alt="Etherscanにコントラクトを登録するときに便利なツール" class="thumbnail-image"></span>
@@ -628,32 +656,6 @@
                 </div>
             </li>
             
-            <li>
-                <div class="item-thumbnail">
-                    <a href="https://seita.tokyo/2019/01/21/hugo%E3%82%92circleci%E3%81%A7%E8%87%AA%E5%8B%95%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%99%E3%82%8B/" class="thumbnail">
-                    
-                        <span style="background-image:url(https://seita.tokyo/img/circleci.png)" alt="Etherscanにコントラクトを登録するときに便利なツール" class="thumbnail-image"></span>
-                    
-                    </a>
-                </div>
-                <div class="item-inner">
-                    
-                    
-                    <p class="item-category">
-                        
-                        <a class="article-category-link" href="https://seita.tokyo/categories/programming">
-                        programming
-                        </a>
-                    </p>
-                    
-                    
-                    <p class="item-title"><a href="https://seita.tokyo/2019/01/21/hugo%E3%82%92circleci%E3%81%A7%E8%87%AA%E5%8B%95%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%99%E3%82%8B/" class="title">Hugoをcircleciで自動デプロイする</a></p>
-                    <p class="item-date">
-                        <time datetime="2019-01-21 12:00:06 &#43;0200 &#43;0200" itemprop="datePublished">2019-01-21</time>
-                    </p>
-                </div>
-            </li>
-            
         </ul>
     </div>
 </div>
@@ -672,7 +674,7 @@
                 <a class="category-list-link" href="https://seita.tokyo/categories/programming">
                     programming
                 </a>
-                <span class="category-list-count">10</span>
+                <span class="category-list-count">11</span>
             </li>
             
         </ul>
@@ -705,7 +707,7 @@
                 <a class="category-list-link" href="https://seita.tokyo/tags/blockchain">
                     blockchain
                 </a>
-                <span class="category-list-count">4</span>
+                <span class="category-list-count">5</span>
             </li>
             
             <li class="category-list-item">
@@ -753,7 +755,7 @@
                 <a class="category-list-link" href="https://seita.tokyo/tags/golang">
                     golang
                 </a>
-                <span class="category-list-count">1</span>
+                <span class="category-list-count">2</span>
             </li>
             
             <li class="category-list-item">
@@ -857,7 +859,7 @@
                 <a class="category-list-link" href="https://seita.tokyo/tags/translation">
                     translation
                 </a>
-                <span class="category-list-count">1</span>
+                <span class="category-list-count">2</span>
             </li>
             
         </ul>

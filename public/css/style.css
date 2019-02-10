@@ -95,7 +95,7 @@ th,
 td {
   text-align: left;
   font-weight: normal;
-  vertical-align: middle;
+  /*vertical-align: middle;*/
 }
 a img {
   border: none;
@@ -137,7 +137,7 @@ code {
   -webkit-border-radius: 2px;
   border-radius: 2px;
   font-family:  Menlo, "Source Code Pro", Consolas, Monaco, Consolas, monospace;
-  font-weight: 600;
+  font-weight: 500 !important;
   /*background-color: #f8f8f8;*/
 }
 .outer {
@@ -156,6 +156,9 @@ code {
 @media screen and (max-width: 559px) {
   .outer {
     padding: 0;
+  }
+  span.archive-category {
+    padding-left: 15px;
   }
 }
 .left,
@@ -941,6 +944,7 @@ a.article-title:hover {
 .article-entry td {
   border-bottom: 1px solid #eceff2;
   padding: 10px 0;
+  padding-right: 10px;
 }
 .article-entry blockquote {
   position: relative;
@@ -2086,7 +2090,7 @@ ol.toc {
   font-size: 14px;
   font-family:  Menlo, "Source Code Pro", Consolas, Monaco, Consolas, monospace;
   line-height: 22.400000000000002px;
-  background: #272b2d;
+  background: #272822;
   border-radius: 5px;
 }
 .highlight table {

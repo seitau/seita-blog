@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://seita.tokyo/2019/02/02/go%E3%81%A7%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8B-part-2-%E3%83%97%E3%83%AB%E3%83%BC%E3%83%95%E3%82%AA%E3%83%96%E3%83%AF%E3%83%BC%E3%82%AF/</loc>
+    <lastmod>2019-02-02T09:24:09-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://seita.tokyo/2019/02/01/go%E3%81%A7%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8B-part-1-%E5%9F%BA%E6%9C%AC%E5%9E%8B/</loc>
     <lastmod>2019-02-01T00:41:08-08:00</lastmod>
   </url>
@@ -74,7 +79,7 @@
   
   <url>
     <loc>https://seita.tokyo/tags/blockchain/</loc>
-    <lastmod>2019-02-01T00:41:08-08:00</lastmod>
+    <lastmod>2019-02-02T09:24:09-08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -125,7 +130,7 @@
   
   <url>
     <loc>https://seita.tokyo/tags/golang/</loc>
-    <lastmod>2019-02-01T00:41:08-08:00</lastmod>
+    <lastmod>2019-02-02T09:24:09-08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -185,13 +190,13 @@
   
   <url>
     <loc>https://seita.tokyo/post/</loc>
-    <lastmod>2019-02-01T00:41:08-08:00</lastmod>
+    <lastmod>2019-02-02T09:24:09-08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://seita.tokyo/categories/programming/</loc>
-    <lastmod>2019-02-01T00:41:08-08:00</lastmod>
+    <lastmod>2019-02-02T09:24:09-08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -209,7 +214,7 @@
   
   <url>
     <loc>https://seita.tokyo/</loc>
-    <lastmod>2019-02-01T00:41:08-08:00</lastmod>
+    <lastmod>2019-02-02T09:24:09-08:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -247,7 +252,7 @@
   
   <url>
     <loc>https://seita.tokyo/tags/translation/</loc>
-    <lastmod>2019-02-01T00:41:08-08:00</lastmod>
+    <lastmod>2019-02-02T09:24:09-08:00</lastmod>
     <priority>0</priority>
   </url>
   

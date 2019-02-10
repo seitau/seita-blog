@@ -20,8 +20,6 @@
     
     <link rel="stylesheet" href="https://seita.tokyo/css/custom.css">
     
-    <link rel="stylesheet" href="https://seita.tokyo/css/tomorrow_night_bright.css">
-    
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
 
@@ -29,7 +27,9 @@
       <meta property="og:image" content="https://seita.tokyo/img/gopher.png" />
       
     <meta property="og:title" content="Goでブロックチェーンを作る  Part 1: 基本型" />
-<meta property="og:description" content="この記事はIvan KuznetsovさんのBuilding Blockchain in Go. Part 1: Basic Prototypeを本人の許可を得て翻訳したものです。本来はpart1からpart7までのシリーズになっていますが、今回はpart1のみを翻訳しました。随時他のパートも翻訳していく予定です。" />
+<meta property="og:description" content="この記事について
+
+この記事はIvan KuznetsovさんのBuilding Blockchain in Go. Part 1: Basic Prototypeを本人の許可を得て翻訳したものです。他のパートの翻訳記事は随時アップロードしていきます。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://seita.tokyo/2019/02/01/go%E3%81%A7%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8B-part-1-%E5%9F%BA%E6%9C%AC%E5%9E%8B/" />
 <meta property="og:image" content="https://seita.tokyo/img/gopher.png" />
@@ -39,12 +39,14 @@
     
     
 <meta itemprop="name" content="Goでブロックチェーンを作る  Part 1: 基本型">
-<meta itemprop="description" content="この記事はIvan KuznetsovさんのBuilding Blockchain in Go. Part 1: Basic Prototypeを本人の許可を得て翻訳したものです。本来はpart1からpart7までのシリーズになっていますが、今回はpart1のみを翻訳しました。随時他のパートも翻訳していく予定です。">
+<meta itemprop="description" content="この記事について
+
+この記事はIvan KuznetsovさんのBuilding Blockchain in Go. Part 1: Basic Prototypeを本人の許可を得て翻訳したものです。他のパートの翻訳記事は随時アップロードしていきます。">
 
 
 <meta itemprop="datePublished" content="2019-02-01T00:41:08-08:00" />
 <meta itemprop="dateModified" content="2019-02-01T00:41:08-08:00" />
-<meta itemprop="wordCount" content="204">
+<meta itemprop="wordCount" content="212">
 
   <meta itemprop="image" content="https://seita.tokyo/img/gopher.png">
 
@@ -61,7 +63,9 @@
 
 
 <meta name="twitter:title" content="Goでブロックチェーンを作る  Part 1: 基本型"/>
-<meta name="twitter:description" content="この記事はIvan KuznetsovさんのBuilding Blockchain in Go. Part 1: Basic Prototypeを本人の許可を得て翻訳したものです。本来はpart1からpart7までのシリーズになっていますが、今回はpart1のみを翻訳しました。随時他のパートも翻訳していく予定です。"/>
+<meta name="twitter:description" content="この記事について
+
+この記事はIvan KuznetsovさんのBuilding Blockchain in Go. Part 1: Basic Prototypeを本人の許可を得て翻訳したものです。他のパートの翻訳記事は随時アップロードしていきます。"/>
 <meta name="twitter:site" content="https://seita.tokyo/"/>
 
 
@@ -200,7 +204,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        10
+        11
         <span>POSTS</span>
       </div>
       <div class="article-info-block">
@@ -352,117 +356,156 @@
 </header>
 
         <div class="article-entry" itemprop="articleBody">
-            <p>この記事はIvan Kuznetsovさんの<a href="https://jeiwan.cc/posts/building-blockchain-in-go-part-1/">Building Blockchain in Go. Part 1: Basic Prototype</a>を本人の許可を得て翻訳したものです。本来はpart1からpart7までのシリーズになっていますが、今回はpart1のみを翻訳しました。随時他のパートも翻訳していく予定です。</p>
+            
+            <div id="table-of-contents" itemprop="tableOfContents">
+                <section id="tableOfContents">
+  <h4>目次</h4>
+  <div class="toc">
+  <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#この記事について">この記事について</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#block">Block</a></li>
+<li><a href="#blockchain">Blockchain</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</nav>
+  </div>
+</section>
+
+            </div>
+            
+
+            <h3 id="この記事について">この記事について</h3>
+
+<p>この記事はIvan Kuznetsovさんの<a href="https://jeiwan.cc/posts/building-blockchain-in-go-part-1/">Building Blockchain in Go. Part 1: Basic Prototype</a>を本人の許可を得て翻訳したものです。他のパートの翻訳記事は随時アップロードしていきます。</p>
+
+<ul>
+<li><a href="https://seita.tokyo/2019/02/01/go%E3%81%A7%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8B-part-1-%E5%9F%BA%E6%9C%AC%E5%9E%8B/">Part 1: 基本型</a></li>
+<li><a href="https://seita.tokyo/2019/02/02/go%E3%81%A7%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8B-part-2-%E3%83%97%E3%83%AB%E3%83%BC%E3%83%95%E3%82%AA%E3%83%96%E3%83%AF%E3%83%BC%E3%82%AF/">Part 2: プルーフオブワーク</a></li>
+</ul>
 
 <p>翻訳経験に乏しいため、誤訳や不足等がありましたらご指摘お願い致します。</p>
 
+<div id="toc-position"></div>
+
 <h1 id="introduction">Introduction</h1>
 
-<p>ブロックチェーンは21世紀における最も革新的な技術の一つであり、その秘めたる可能性は未だ最大限に発揮されずに成熟過程にある。ブロックチェーンとは要するに分散したデータベースなのだが、他と一線を画しているのは、それがプライベートなものではなく、パブリックなものであるということだ。利用する者全てがデータベースの一部もしくは全体のコピーを持っており、新しい記録は他のデータベースの保持者の同意のもと追加される。そしてこのブロックチェーンこそが暗号通貨やスマートコントラクトを可能にしたのである*1。</p>
+<p>ブロックチェーンは21世紀における最も革新的な技術の一つであり、その秘めたる可能性は未だ最大限に発揮されずに成熟過程にあります。ブロックチェーンとは要するに分散したデータベースなのですが、他と一線を画しているのは、それがプライベートなものではなく、パブリックなものであるということです。利用する者全てがデータベースの一部もしくは全体のコピーを持っており、新しい記録は他のデータベースの保持者の同意のもと追加されます。そしてこのブロックチェーンこそが暗号通貨やスマートコントラクトを可能にしたのです*1。</p>
 
-<p>この一連の記事を通じて、シンプルなブロックチェーンを土台とした簡単な暗号通貨の作成を目指す。</p>
+<p>この一連の記事を通じて、シンプルなブロックチェーンを土台とした簡単な暗号通貨の作成を目指していきます。</p>
 
 <p>*1 訳注：ブロックチェーン上で実行されるスマートコントラクトを指すと思われます。</p>
 
 <h1 id="block">Block</h1>
 
-<p>それでは、「ブロックチェーン」の「ブロック」から始めよう。</p>
+<p>それでは、「ブロックチェーン」の「ブロック」から始めましょう。</p>
 
-<p>ブロックチェーンにおいて重要な情報を格納するのがブロックだ。例えば、ビットコインのブロックはトランザクションのデータを格納している、あらゆる暗号通貨の肝だ。この他にも、ブロックは技術的な情報を格納している。バージョンや現時点のタイムスタンプ、以前のブロックのハッシュ値などだ。</p>
+<p>ブロックチェーンにおいて重要な情報を格納するのがブロックです。例えば、ビットコインのブロックはトランザクションのデータを格納している、あらゆる暗号通貨の肝です。この他にも、ブロックは技術的な情報を格納しています。バージョンや現時点のタイムスタンプ、以前のブロックのハッシュ値などです。</p>
 
-<p>今回の記事では、いわゆる本格的なブロックチェーンやビットコインで用いられるようなブロックの実装はしない。代わりに、重要な情報のみを含んだわかりやすいものを使用する。それが以下のブロックだ:</p>
-<div class="highlight"><pre class="chroma"><code class="language-Go" data-lang="Go"><span class="kd">type</span> <span class="nx">Block</span> <span class="kd">struct</span> <span class="p">{</span>
-        <span class="nx">Timestamp</span>     <span class="kt">int64</span>
-        <span class="nx">Data</span>          <span class="p">[]</span><span class="kt">byte</span>
-        <span class="nx">PrevBlockHash</span> <span class="p">[]</span><span class="kt">byte</span>
-        <span class="nx">Hash</span>          <span class="p">[]</span><span class="kt">byte</span>
-<span class="p">}</span></code></pre></div>
-<p><code>Timestamp</code>はブロック生成時点のタイムスタンプ、<code>Data</code>はブロックに格納されている重要な情報、<code>PrevBlockHash</code>は以前のブロックのハッシュ値を示しており、<code>Hash</code>はこのブロックのハッシュ値を指している。ビットコインに限った話をすると、<code>Timestamp</code>、<code>PrevBlockHash</code>と<code>Hash</code>はブロックヘッダーに記録されて独立したデータ構造を形成しており、トランザクション（上記のブロックの<code>Data</code>にあたる情報）は個々のデータ構造を有しているのだが、ここでは分かりやすさを優先してそれらの情報を一箇所にまとめている。</p>
+<p>今回の記事では、いわゆる本格的なブロックチェーンやビットコインで用いられるようなブロックの実装はしません。代わりに、重要な情報のみを含んだわかりやすいものを使用します。それが以下のブロックです:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Block</span> <span style="color:#66d9ef">struct</span> {
+        <span style="color:#a6e22e">Timestamp</span>     <span style="color:#66d9ef">int64</span>
+        <span style="color:#a6e22e">Data</span>          []<span style="color:#66d9ef">byte</span>
+        <span style="color:#a6e22e">PrevBlockHash</span> []<span style="color:#66d9ef">byte</span>
+        <span style="color:#a6e22e">Hash</span>          []<span style="color:#66d9ef">byte</span>
+}</code></pre></div>
+<p><code>Timestamp</code>はブロック生成時点のタイムスタンプ、<code>Data</code>はブロックに格納されている重要な情報、<code>PrevBlockHash</code>は以前のブロックのハッシュ値を示しており、<code>Hash</code>はこのブロックのハッシュ値を指しています。ビットコインに限った話をすると、<code>Timestamp</code>、<code>PrevBlockHash</code>と<code>Hash</code>はブロックヘッダーに記録されて独立したデータ構造を形成しており、トランザクション（上記のブロックの<code>Data</code>にあたる情報）は個々のデータ構造を有しているのですが、ここでは分かりやすさを優先してそれらの情報を一箇所にまとめています。</p>
 
-<p>では、ハッシュ値はどのように算出するのだろうか？ハッシュ値の算出方法はブロックチェーンの重要な特徴の一つであり、ブロックチェーンの堅牢性を支えるものだ。</p>
+<p>では、ハッシュ値はどのように算出するのでしょうか？ハッシュ値の算出方法はブロックチェーンの重要な特徴の一つであり、ブロックチェーンの堅牢性を支えるものです。</p>
 
-<p>ハッシュ値を算出するのは計算上とても困難な作業であり、高性能なコンピュータをもってしても少なからず時間がかかる（これがビットコインのマイニングのために高性能なGPUが売れている理由である）。このように設計することで新しいブロックの生成を困難にし、一度生成されたブロックが保持するデータの改ざんを防いでいるのである。このメカニズムについてはまた今度実装する予定だ。</p>
+<p>ハッシュ値を算出するのは計算上とても困難な作業であり、高性能なコンピュータをもってしても少なからず時間がかかるプロセスです（これがビットコインのマイニングのために高性能なGPUが売れている理由である）。このように設計することで新しいブロックの生成を困難にし、一度生成されたブロックが保持するデータの改ざんを防いでいるのです。このメカニズムについてはまた今度実装する予定です。</p>
 
-<p>とりあえずここでは、上記のブロックを連結し、連結した組み合わせからSHA-256ハッシュを算出する。以下の<code>SetHash</code>メソッドで実行しよう:</p>
-<div class="highlight"><pre class="chroma"><code class="language-Go" data-lang="Go"><span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">Block</span><span class="p">)</span> <span class="nf">SetHash</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">timestamp</span> <span class="o">:=</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">strconv</span><span class="p">.</span><span class="nf">FormatInt</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">Timestamp</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-        <span class="nx">headers</span> <span class="o">:=</span> <span class="nx">bytes</span><span class="p">.</span><span class="nf">Join</span><span class="p">([][]</span><span class="kt">byte</span><span class="p">{</span><span class="nx">b</span><span class="p">.</span><span class="nx">PrevBlockHash</span><span class="p">,</span> <span class="nx">b</span><span class="p">.</span><span class="nx">Data</span><span class="p">,</span> <span class="nx">timestamp</span><span class="p">},</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">{})</span>
-        <span class="nx">hash</span> <span class="o">:=</span> <span class="nx">sha256</span><span class="p">.</span><span class="nf">Sum256</span><span class="p">(</span><span class="nx">headers</span><span class="p">)</span>
+<p>とりあえずここでは、上記のブロックを連結し、連結した組み合わせからSHA-256ハッシュを算出します。以下の<code>SetHash</code>メソッドで実行してみましょう:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">b</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Block</span>) <span style="color:#a6e22e">SetHash</span>() {
+        <span style="color:#a6e22e">timestamp</span> <span style="color:#f92672">:=</span> []byte(<span style="color:#a6e22e">strconv</span>.<span style="color:#a6e22e">FormatInt</span>(<span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">Timestamp</span>, <span style="color:#ae81ff">10</span>))
+        <span style="color:#a6e22e">headers</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">bytes</span>.<span style="color:#a6e22e">Join</span>([][]<span style="color:#66d9ef">byte</span>{<span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">PrevBlockHash</span>, <span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">Data</span>, <span style="color:#a6e22e">timestamp</span>}, []<span style="color:#66d9ef">byte</span>{})
+        <span style="color:#a6e22e">hash</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">sha256</span>.<span style="color:#a6e22e">Sum256</span>(<span style="color:#a6e22e">headers</span>)
 
-        <span class="nx">b</span><span class="p">.</span><span class="nx">Hash</span> <span class="p">=</span> <span class="nx">hash</span><span class="p">[:]</span>
-<span class="p">}</span></code></pre></div>
-<p>次はGo言語の慣習に従い、簡単なブロックの生成機能を実装する:</p>
-<div class="highlight"><pre class="chroma"><code class="language-Go" data-lang="Go"><span class="kd">func</span> <span class="nf">NewBlock</span><span class="p">(</span><span class="nx">data</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">prevBlockHash</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="o">*</span><span class="nx">Block</span> <span class="p">{</span>
-        <span class="nx">block</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Block</span><span class="p">{</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Unix</span><span class="p">(),</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">data</span><span class="p">),</span> <span class="nx">prevBlockHash</span><span class="p">,</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">{}}</span>
-        <span class="nx">block</span><span class="p">.</span><span class="nf">SetHash</span><span class="p">()</span>
-        <span class="k">return</span> <span class="nx">block</span>
-<span class="p">}</span></code></pre></div>
-<p>「ブロック」については以上だ！</p>
+        <span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">Hash</span> = <span style="color:#a6e22e">hash</span>[:]
+}</code></pre></div>
+<p>次はGo言語の慣習に従い、簡単なブロックの生成機能を実装します:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">NewBlock</span>(<span style="color:#a6e22e">data</span> <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">prevBlockHash</span> []<span style="color:#66d9ef">byte</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">Block</span> {
+        <span style="color:#a6e22e">block</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">Block</span>{<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>().<span style="color:#a6e22e">Unix</span>(), []byte(<span style="color:#a6e22e">data</span>), <span style="color:#a6e22e">prevBlockHash</span>, []<span style="color:#66d9ef">byte</span>{}}
+        <span style="color:#a6e22e">block</span>.<span style="color:#a6e22e">SetHash</span>()
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">block</span>
+}</code></pre></div>
+<p>「ブロック」については以上です！</p>
 
 <h1 id="blockchain">Blockchain</h1>
 
-<p>それでは、ブロックチェーンの実装に移ろう。</p>
+<p>それでは、ブロックチェーンの実装に移りましょう。</p>
 
-<p>ブロックチェーンは順序だった後部リンク型のリスト構造を持つデータベースである。つまりブロックは生成された順番で格納され、それぞれ一つ前のブロックとリンクしている。こういった構造によりチェーンに存在する最新のブロックを（効率的に）参照することが可能になっている。</p>
+<p>ブロックチェーンは順序だった後部リンク型のリスト構造を持つデータベースです。つまりブロックは生成された順番で格納され、それぞれ一つ前のブロックとリンクしています。こういった構造によりチェーンに存在する最新のブロックを（効率的に）参照することが可能になっているのです。</p>
 
-<p>Go言語では配列とマップを使用することでこの構造を実装できる。配列は順に並べられたハッシュ値を保持し（Go言語の配列には順序がある)、マップはハッシュ値とブロックのペア情報を保持する（マップに順序はない)。しかし今回はハッシュ値からブロックを取得する必要はないので、配列のみを使用しよう:</p>
-<div class="highlight"><pre class="chroma"><code class="language-Go" data-lang="Go"><span class="kd">type</span> <span class="nx">Blockchain</span> <span class="kd">struct</span> <span class="p">{</span>
-        <span class="nx">blocks</span> <span class="p">[]</span><span class="o">*</span><span class="nx">Block</span>
-<span class="p">}</span></code></pre></div>
-<p>これで初めてのブロックチェーンができた。予想以上に簡単だったね😉</p>
+<p>Go言語では配列とマップを使用することでこの構造を実装できます。配列は順に並べられたハッシュ値を保持し（Go言語の配列には順序があります)、マップはハッシュ値とブロックのペア情報を保持します（マップに順序はありません)。しかし今回はハッシュ値からブロックを取得する必要はないので、配列のみを使用しましょう:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Blockchain</span> <span style="color:#66d9ef">struct</span> {
+        <span style="color:#a6e22e">blocks</span> []<span style="color:#f92672">*</span><span style="color:#a6e22e">Block</span>
+}</code></pre></div>
+<p>これで初めてのブロックチェーンができました。予想以上に簡単でしたね😉</p>
 
-<p>それでは、ブロックの追加ができるようにしよう:</p>
-<div class="highlight"><pre class="chroma"><code class="language-Go" data-lang="Go"><span class="kd">func</span> <span class="p">(</span><span class="nx">bc</span> <span class="o">*</span><span class="nx">Blockchain</span><span class="p">)</span> <span class="nf">AddBlock</span><span class="p">(</span><span class="nx">data</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">prevBlock</span> <span class="o">:=</span> <span class="nx">bc</span><span class="p">.</span><span class="nx">blocks</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nx">bc</span><span class="p">.</span><span class="nx">blocks</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-        <span class="nx">newBlock</span> <span class="o">:=</span> <span class="nf">NewBlock</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">prevBlock</span><span class="p">.</span><span class="nx">Hash</span><span class="p">)</span>
-        <span class="nx">bc</span><span class="p">.</span><span class="nx">blocks</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">bc</span><span class="p">.</span><span class="nx">blocks</span><span class="p">,</span> <span class="nx">newBlock</span><span class="p">)</span>
-<span class="p">}</span></code></pre></div>
-<p>完成！ではない&hellip;.?</p>
+<p>それでは、ブロックの追加ができるようにしましょう:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">bc</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Blockchain</span>) <span style="color:#a6e22e">AddBlock</span>(<span style="color:#a6e22e">data</span> <span style="color:#66d9ef">string</span>) {
+        <span style="color:#a6e22e">prevBlock</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">bc</span>.<span style="color:#a6e22e">blocks</span>[len(<span style="color:#a6e22e">bc</span>.<span style="color:#a6e22e">blocks</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+        <span style="color:#a6e22e">newBlock</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">NewBlock</span>(<span style="color:#a6e22e">data</span>, <span style="color:#a6e22e">prevBlock</span>.<span style="color:#a6e22e">Hash</span>)
+        <span style="color:#a6e22e">bc</span>.<span style="color:#a6e22e">blocks</span> = append(<span style="color:#a6e22e">bc</span>.<span style="color:#a6e22e">blocks</span>, <span style="color:#a6e22e">newBlock</span>)
+}</code></pre></div>
+<p>完成?</p>
 
-<p>ブロックを追加するにはブロックが存在している必要があるが、まだブロックチェーン上にブロックが一つもない。どんなブロックチェーンでも最低一つはブロックが必要だ。そしてその一番最初のブロックはgenesis blockと呼ばれている。</p>
+<p>いやまだやることがあります&hellip;</p>
 
-<p>それでは、メソッドを実装してgenesis blockを生成しよう:</p>
-<div class="highlight"><pre class="chroma"><code class="language-Go" data-lang="Go"><span class="kd">func</span> <span class="nf">NewGenesisBlock</span><span class="p">()</span> <span class="o">*</span><span class="nx">Block</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="nf">NewBlock</span><span class="p">(</span><span class="s">&#34;Genesis Block&#34;</span><span class="p">,</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">{})</span>
-<span class="p">}</span></code></pre></div>
-<p>これで、genesis blockを伴ったブロックチェーンを生成する関数を実装できる:</p>
-<div class="highlight"><pre class="chroma"><code class="language-Go" data-lang="Go"><span class="kd">func</span> <span class="nf">NewBlockchain</span><span class="p">()</span> <span class="o">*</span><span class="nx">Blockchain</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="o">&amp;</span><span class="nx">Blockchain</span><span class="p">{[]</span><span class="o">*</span><span class="nx">Block</span><span class="p">{</span><span class="nf">NewGenesisBlock</span><span class="p">()}}</span>
-<span class="p">}</span></code></pre></div>
-<p>実際に予想通り動くか確認しよう:</p>
-<div class="highlight"><pre class="chroma"><code class="language-Go" data-lang="Go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">bc</span> <span class="o">:=</span> <span class="nf">NewBlockchain</span><span class="p">()</span>
+<p>ブロックを追加するにはブロックが存在している必要がありますが、まだブロックチェーン上にブロックが一つもありません。どんなブロックチェーンでも最低一つはブロックが必要です。そしてその一番最初のブロックはgenesis blockと呼ばれています。</p>
 
-        <span class="nx">bc</span><span class="p">.</span><span class="nf">AddBlock</span><span class="p">(</span><span class="s">&#34;Send 1 BTC to Ivan&#34;</span><span class="p">)</span>
-        <span class="nx">bc</span><span class="p">.</span><span class="nf">AddBlock</span><span class="p">(</span><span class="s">&#34;Send 2 more BTC to Ivan&#34;</span><span class="p">)</span>
+<p>それでは、メソッドを実装してgenesis blockを生成しましょう:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">NewGenesisBlock</span>() <span style="color:#f92672">*</span><span style="color:#a6e22e">Block</span> {
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">NewBlock</span>(<span style="color:#e6db74">&#34;Genesis Block&#34;</span>, []<span style="color:#66d9ef">byte</span>{})
+}</code></pre></div>
+<p>これで、genesis blockを伴ったブロックチェーンを生成する関数を実装できます:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">NewBlockchain</span>() <span style="color:#f92672">*</span><span style="color:#a6e22e">Blockchain</span> {
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">Blockchain</span>{[]<span style="color:#f92672">*</span><span style="color:#a6e22e">Block</span>{<span style="color:#a6e22e">NewGenesisBlock</span>()}}
+}</code></pre></div>
+<p>実際に予想通り動くか確認しましょう:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+        <span style="color:#a6e22e">bc</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">NewBlockchain</span>()
 
-        <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">block</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">bc</span><span class="p">.</span><span class="nx">blocks</span> <span class="p">{</span>
-                <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Prev. hash: %x\n&#34;</span><span class="p">,</span> <span class="nx">block</span><span class="p">.</span><span class="nx">PrevBlockHash</span><span class="p">)</span>
-                <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Data: %s\n&#34;</span><span class="p">,</span> <span class="nx">block</span><span class="p">.</span><span class="nx">Data</span><span class="p">)</span>
-                <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Hash: %x\n&#34;</span><span class="p">,</span> <span class="nx">block</span><span class="p">.</span><span class="nx">Hash</span><span class="p">)</span>
-                <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">()</span>
-        <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+        <span style="color:#a6e22e">bc</span>.<span style="color:#a6e22e">AddBlock</span>(<span style="color:#e6db74">&#34;Send 1 BTC to Ivan&#34;</span>)
+        <span style="color:#a6e22e">bc</span>.<span style="color:#a6e22e">AddBlock</span>(<span style="color:#e6db74">&#34;Send 2 more BTC to Ivan&#34;</span>)
+
+        <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">block</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">bc</span>.<span style="color:#a6e22e">blocks</span> {
+                <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Prev. hash: %x\n&#34;</span>, <span style="color:#a6e22e">block</span>.<span style="color:#a6e22e">PrevBlockHash</span>)
+                <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Data: %s\n&#34;</span>, <span style="color:#a6e22e">block</span>.<span style="color:#a6e22e">Data</span>)
+                <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Hash: %x\n&#34;</span>, <span style="color:#a6e22e">block</span>.<span style="color:#a6e22e">Hash</span>)
+                <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>()
+        }
+}</code></pre></div>
 <p>実行結果：</p>
-<div class="highlight"><pre class="chroma"><code class="language-Go" data-lang="Go"><span class="nx">Prev</span><span class="p">.</span> <span class="nx">hash</span><span class="p">:</span>
-<span class="nx">Data</span><span class="p">:</span> <span class="nx">Genesis</span> <span class="nx">Block</span>
-<span class="nx">Hash</span><span class="p">:</span> <span class="nx">aff955a50dc6cd2abfe81b8849eab15f99ed1dc333d38487024223b5fe0f1168</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#a6e22e">Prev</span>. <span style="color:#a6e22e">hash</span>:
+<span style="color:#a6e22e">Data</span>: <span style="color:#a6e22e">Genesis</span> <span style="color:#a6e22e">Block</span>
+<span style="color:#a6e22e">Hash</span>: <span style="color:#a6e22e">aff955a50dc6cd2abfe81b8849eab15f99ed1dc333d38487024223b5fe0f1168</span>
 
-<span class="nx">Prev</span><span class="p">.</span> <span class="nx">hash</span><span class="p">:</span> <span class="nx">aff955a50dc6cd2abfe81b8849eab15f99ed1dc333d38487024223b5fe0f1168</span>
-<span class="nx">Data</span><span class="p">:</span> <span class="nx">Send</span> <span class="mi">1</span> <span class="nx">BTC</span> <span class="nx">to</span> <span class="nx">Ivan</span>
-<span class="nx">Hash</span><span class="p">:</span> <span class="nx">d75ce22a840abb9b4e8fc3b60767c4ba3f46a0432d3ea15b71aef9fde6a314e1</span>
+<span style="color:#a6e22e">Prev</span>. <span style="color:#a6e22e">hash</span>: <span style="color:#a6e22e">aff955a50dc6cd2abfe81b8849eab15f99ed1dc333d38487024223b5fe0f1168</span>
+<span style="color:#a6e22e">Data</span>: <span style="color:#a6e22e">Send</span> <span style="color:#ae81ff">1</span> <span style="color:#a6e22e">BTC</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">Ivan</span>
+<span style="color:#a6e22e">Hash</span>: <span style="color:#a6e22e">d75ce22a840abb9b4e8fc3b60767c4ba3f46a0432d3ea15b71aef9fde6a314e1</span>
 
-<span class="nx">Prev</span><span class="p">.</span> <span class="nx">hash</span><span class="p">:</span> <span class="nx">d75ce22a840abb9b4e8fc3b60767c4ba3f46a0432d3ea15b71aef9fde6a314e1</span>
-<span class="nx">Data</span><span class="p">:</span> <span class="nx">Send</span> <span class="mi">2</span> <span class="nx">more</span> <span class="nx">BTC</span> <span class="nx">to</span> <span class="nx">Ivan</span>
-<span class="nx">Hash</span><span class="p">:</span> <span class="mi">561237522</span><span class="nx">bb7fcfbccbc6fe0e98bbbde7427ffe01c6fb223f7562288ca2295d1</span></code></pre></div>
-<p>これで以上だ！</p>
+<span style="color:#a6e22e">Prev</span>. <span style="color:#a6e22e">hash</span>: <span style="color:#a6e22e">d75ce22a840abb9b4e8fc3b60767c4ba3f46a0432d3ea15b71aef9fde6a314e1</span>
+<span style="color:#a6e22e">Data</span>: <span style="color:#a6e22e">Send</span> <span style="color:#ae81ff">2</span> <span style="color:#a6e22e">more</span> <span style="color:#a6e22e">BTC</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">Ivan</span>
+<span style="color:#a6e22e">Hash</span>: <span style="color:#ae81ff">561237522</span><span style="color:#a6e22e">bb7fcfbccbc6fe0e98bbbde7427ffe01c6fb223f7562288ca2295d1</span></code></pre></div>
+<p>これで以上です！</p>
 
 <h1 id="conclusion">Conclusion</h1>
 
-<p>ここではとてもシンプルなブロックチェーンの基本型を作成した。それぞれが一つ前のブロックと繋がったブロックの配列だ。しかし実際のブロックチェーンはもっと複雑になっている。上記のブロックチェーンでは早く簡単にブロックを生成することができるが、実際にはもっと作業が必要になる。ブロックを追加する権利を得るために大変な計算をしなければならないのだ（このメカニズムはProof-of-Workと呼ばれる）。さらに、分散型データベースには意思決定者が存在しない。つまり新しいブロックはネットワークの参加者によって承認されなければならない（このメカニズムはコンセンサスと呼ばれる）。しかも、今回作成したブロックチェーンにはトランザクションが何もない。</p>
+<p>ここではとてもシンプルなブロックチェーンの基本型を作成しました。それぞれが一つ前のブロックと繋がったブロックの配列です。しかし実際のブロックチェーンはもっと複雑になっています。上記のブロックチェーンでは早く簡単にブロックを生成することができますが、実際にはもっと作業が必要になります。ブロックを追加する権利を得るために大変な計算をしなければならないのです（このメカニズムはProof-of-Workと呼ばれます）。さらに、分散型データベースには意思決定者が存在しません。つまり新しいブロックはネットワークの参加者によって承認されなければなりません（このメカニズムはコンセンサスと呼ばれます）。しかも、今回作成したブロックチェーンにはトランザクションが何もありません。</p>
 
-<p>それぞれの特徴については今後掲載する記事の中で触れていきたいと思う。</p>
+<p>それぞれの特徴については今後掲載する記事の中で触れていきたいと思います。</p>
         </div>
+
+
         <footer class="article-footer">
     <a data-url="https://seita.tokyo/2019/02/01/go%E3%81%A7%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8B-part-1-%E5%9F%BA%E6%9C%AC%E5%9E%8B/" data-id="70d49fa6a2839204cd2a02bc8fd14d72" class="article-share-link">
         <i class="fa fa-share"></i>
@@ -558,6 +601,13 @@
     
 
     
+    <a href="https://seita.tokyo/2019/02/02/go%E3%81%A7%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8B-part-2-%E3%83%97%E3%83%AB%E3%83%BC%E3%83%95%E3%82%AA%E3%83%96%E3%83%AF%E3%83%BC%E3%82%AF/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          Newer
+      </strong>
+      <div class="article-nav-title">Goでブロックチェーンを作る Part 2: プルーフオブワーク</div>
+    </a>
+    
 </nav>
 
 
@@ -602,6 +652,32 @@
     </h3>
     <div class="widget">
         <ul id="recent-post">
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="https://seita.tokyo/2019/02/02/go%E3%81%A7%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8B-part-2-%E3%83%97%E3%83%AB%E3%83%BC%E3%83%95%E3%82%AA%E3%83%96%E3%83%AF%E3%83%BC%E3%82%AF/" class="thumbnail">
+                    
+                        <span style="background-image:url(https://seita.tokyo/img/gopher.png)" alt="Goでブロックチェーンを作る  Part 1: 基本型" class="thumbnail-image"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="https://seita.tokyo/categories/programming">
+                        programming
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="https://seita.tokyo/2019/02/02/go%E3%81%A7%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8B-part-2-%E3%83%97%E3%83%AB%E3%83%BC%E3%83%95%E3%82%AA%E3%83%96%E3%83%AF%E3%83%BC%E3%82%AF/" class="title">Goでブロックチェーンを作る Part 2: プルーフオブワーク</a></p>
+                    <p class="item-date">
+                        <time datetime="2019-02-02 09:24:09 -0800 PST" itemprop="datePublished">2019-02-02</time>
+                    </p>
+                </div>
+            </li>
             
             <li>
                 <div class="item-thumbnail">
@@ -707,32 +783,6 @@
                 </div>
             </li>
             
-            <li>
-                <div class="item-thumbnail">
-                    <a href="https://seita.tokyo/2019/01/21/hugo%E3%82%92circleci%E3%81%A7%E8%87%AA%E5%8B%95%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%99%E3%82%8B/" class="thumbnail">
-                    
-                        <span style="background-image:url(https://seita.tokyo/img/circleci.png)" alt="Goでブロックチェーンを作る  Part 1: 基本型" class="thumbnail-image"></span>
-                    
-                    </a>
-                </div>
-                <div class="item-inner">
-                    
-                    
-                    <p class="item-category">
-                        
-                        <a class="article-category-link" href="https://seita.tokyo/categories/programming">
-                        programming
-                        </a>
-                    </p>
-                    
-                    
-                    <p class="item-title"><a href="https://seita.tokyo/2019/01/21/hugo%E3%82%92circleci%E3%81%A7%E8%87%AA%E5%8B%95%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%99%E3%82%8B/" class="title">Hugoをcircleciで自動デプロイする</a></p>
-                    <p class="item-date">
-                        <time datetime="2019-01-21 12:00:06 &#43;0200 &#43;0200" itemprop="datePublished">2019-01-21</time>
-                    </p>
-                </div>
-            </li>
-            
         </ul>
     </div>
 </div>
@@ -751,7 +801,7 @@
                 <a class="category-list-link" href="https://seita.tokyo/categories/programming">
                     programming
                 </a>
-                <span class="category-list-count">10</span>
+                <span class="category-list-count">11</span>
             </li>
             
         </ul>
@@ -784,7 +834,7 @@
                 <a class="category-list-link" href="https://seita.tokyo/tags/blockchain">
                     blockchain
                 </a>
-                <span class="category-list-count">4</span>
+                <span class="category-list-count">5</span>
             </li>
             
             <li class="category-list-item">
@@ -832,7 +882,7 @@
                 <a class="category-list-link" href="https://seita.tokyo/tags/golang">
                     golang
                 </a>
-                <span class="category-list-count">1</span>
+                <span class="category-list-count">2</span>
             </li>
             
             <li class="category-list-item">
@@ -936,7 +986,7 @@
                 <a class="category-list-link" href="https://seita.tokyo/tags/translation">
                     translation
                 </a>
-                <span class="category-list-count">1</span>
+                <span class="category-list-count">2</span>
             </li>
             
         </ul>
