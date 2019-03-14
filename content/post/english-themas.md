@@ -8,12 +8,14 @@ images: ["img/themas.jpg"]
 menu: ""
 categories: ["programming", "study-abroad"]
 tags: ["English"]
-draft: true
+draft: false
 ---
 
 アメリカで留学生活を始めてから数ヶ月経ちまして、こちらの環境にもようやく慣れてきました。
 
 友達と各地に観光に行ったり、ハッカソンに出場したり、サーフィンしたりと楽しく過ごさせてもらってます。
+
+<!--more-->
 
 {{< figure src="/img/dye-hair.jpg" width="400px" >}}
 

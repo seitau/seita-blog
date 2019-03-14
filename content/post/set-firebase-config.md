@@ -9,7 +9,7 @@ menu: ""
 categories: ["programming"]
 tags: ["firebase"]
 showTOC: false
-draft: true
+draft: false
 ---
 
 サービスアカウントを環境変数に設定するときに使うけど毎回忘れるので備忘録としてご紹介。
