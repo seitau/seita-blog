@@ -1,5 +1,5 @@
 ---
-title: "Firebase Functionsの環境変数にJSONをサクッと設定する方法"
+title: "Firebase Cloud Functionsの環境変数にJSONをサクッと設定する方法"
 date: 2019-03-13T18:49:04-07:00
 banner: "img/firebase.png"
 narrowBanner: false
