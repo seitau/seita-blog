@@ -16,7 +16,46 @@ draft: false
 
 <!--more-->
 
-polyglotには様々な機能がありますが、今回は形態素解析だけを使用しています。
+## Polyglotとは
+
+Polyglotは英語で多言語話者のことを指すのですが、pythonの[polyglot](https://polyglot.readthedocs.io/en/latest/Installation.html)はその名の通り多数の自然言語を処理するツールを提供するパッケージです。
+
+Googleの[Cloud Natural Language Api](https://cloud.google.com/natural-language/)の構文解析のように文章を品詞分解してくれるパッケージはよくあるのですが、polyglotのように英語の文章を形態素に分解する機能があるものは珍しいのではないでしょうか。
+
+:eye:形態素(英: morpheme)とは、言語学の用語で、意味をもつ表現要素の最小単位のことを指します。
+
+
+### 形態素解析
+Polyglotには様々な機能がありますが、今回は形態素解析だけを使用します。
+
+例えば、以下のコードで"This is a sample text"というテキストを形態素に分解すると、
+
+```python
+from polyglot.text import Text, Word
+
+text = "This is a sample text"
+words = text.replace(",", "").split()
+
+for w in words:
+    word = Word(w, language="en")
+    print(word.morphemes)
+```
+
+以下のように一つ一つの単語を形態素に分解した結果が得られます。
+
+```text
+['Thi', 's']
+['is']
+['a']
+['s', 'ample']
+['text']
+```
+
+## API作成
+
+今回はこのpolyglotの機能をフロントのjavascriptで利用したかったため、google cloud functionのpythonランタイムでpolyglotを使って形態素解析apiを作成しブラウザからアクセスできるようにしました。
+
+以下が作成したコードです。
 
 ```python
 from polyglot.text import Text, Word
@@ -40,7 +79,7 @@ def parse_morpheme(request):
 
         if request_json and 'text' in request_json:
             downloader.download("morph2.en")
-            text = request_json['text']
+            text = request_json['text'].replace(" ", "")
             parsedText = Text(text)
             parsedText.language = "en"
             response.set_data(json.dumps({ "result": parsedText.morphemes }))
@@ -59,13 +98,74 @@ def parse_morpheme(request):
 
 ```
 
-このコードを以下のコマンドでgcpにデプロイします。
+以下のrequest methodが`OPTIONS`か判定するブロックで、CORSに対応しています。
+
+```python
+if request.method == 'OPTIONS':
+  headers = request.headers.get('Access-Control-Request-Headers')
+
+  if headers:
+    response.headers['Access-Control-Allow-Headers'] = headers
+    response.status_code = 200
+    return response
+```
+
+### テスト
+
+書いた関数を毎度デプロイしてテストするのも時間がかかるので、以下のようにflaskを使用してlocalで先ほど定義した`parse_morpheme`関数をテストします。
+
+```python
+from flask import Flask, jsonify, request, Response
+from main import parse_morpheme
+
+if __name__ == "__main__":
+    app = Flask(__name__)
+
+    @app.route('/', methods=['POST'])
+    def index():
+        return parse_morpheme(request)
+
+    app.run('127.0.0.1', 8000, debug=True)
+```
+
+上のコードを`python`コマンドで実行し、"this is an apple"をデータに`http://127.0.0.1:8000/`へPOSTリクエストを送信すると、
+
+```bash
+curl -X POST --data '{"text":"this is an apple" }' -H "Content-Type: application/json" http://127.0.0.1:8000/ | jq .
+```
+
+以下のように結果が返ってきました。良さそうですね。
+
+```json
+{
+  "result": [
+    "th",
+    "is",
+    "is",
+    "an",
+    "apple"
+  ]
+}
+```
+
+参考記事
+{{< web-embed url="https://stackoverflow.com/a/53700497" >}}
+
+### デプロイ
+
+`parse_morpheme`関数を以下のコマンドでgcpにデプロイします。
 
 ```bash
 gcloud functions deploy parse_morpheme --runtime python37 --trigger-http
 ```
 
+### 結果
+
 試しに、"this is an apple"というテキストをparseしてみると、
+
+```bash
+curl -X POST --data '{"text":"thisisanapple" }' -H "Content-Type: application/json" https:cloud-functions-endpoint/parse_morpheme | jq .
+```
 
 ```json
 {
@@ -81,5 +181,6 @@ gcloud functions deploy parse_morpheme --runtime python37 --trigger-http
 
 とリスポンスが返ってきました。うまく行ってそう。
 
-
+## 感想
+普段cloud functionはjavascriptで書いてますが、pythonの方が数倍楽に書ける気がしました。同期処理がdefaultの言語は直感的で良いですね。
 

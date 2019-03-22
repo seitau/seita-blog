@@ -35,7 +35,7 @@ draft: false
 {{<  tweet 1060428808342331392 >}}
 
 
-# 反骨精神を糧に開発する
+# 反骨駆動開発
 ちょうどそんな悶々とした気持ちでいたころ、自分が受講していたTechnologies and Humanitiesというinterdisciplinaryの授業で、[STEM](https://ja.wikipedia.org/wiki/STEM%E6%95%99%E8%82%B2)に代わる[THEMAS](http://themas.mat.ucsb.edu/)(STEM + Humanity + Art)を軸に、自分でなんでも好きなもの創って、学期末に発表して！という課題を受けました。とにかく独創的に世界を表現しろ！というものでした。
 
 そこで僕は、他に言語学の授業を受講していたのも相俟って、ここぞとばかりに言語への不満を表現すべく[こんなもの](http://www.themas.tokyo/)を開発しました。
