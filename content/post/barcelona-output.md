@@ -6,8 +6,8 @@ narrowBanner: false
 description: ""
 images: ["img/guell-park.png"]
 menu: ""
-categories: ["programming"]
-tags: []
+categories: ["travel"]
+tags: ["barcelona","travel", "art"]
 showTOC: false
 draft: false
 ---
