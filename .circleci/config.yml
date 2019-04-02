@@ -12,7 +12,7 @@ jobs:
       - run: git submodule sync && git submodule update --init
       - run:
           name: Build Hugo Website
-          command: hugo -t hugo-icarus-theme
+          command: hugo -t hugo-icarus-theme --ignoreCache
       - deploy:
           name: Deploy Website to Firebase Hosting
           branch: master
