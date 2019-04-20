@@ -4,6 +4,7 @@ const sketch = function(p5) {
     p5.setup = async function() {
         p5.createCanvas(p5.windowWidth, p5.windowHeight);
         p5.background(0);
+        console.log('hoge');
     }
 
     p5.draw = async function() {
