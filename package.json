@@ -1,0 +1,36 @@
+{
+    "name": "seita-blog",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "watch-js": "watchify -t babelify static/js/src/*.js -o static/js/dist/bundle.js -dv",
+        "watch": "npm run watch-js",
+        "build": "browserify static/js/src/main.js -o static/js/dist/bundle.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/seita-uc/seita-blog.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/seita-uc/seita-blog/issues"
+    },
+    "homepage": "https://github.com/seita-uc/seita-blog#readme",
+    "browserify": {
+        "transform": [
+            "babelify"
+        ]
+    },
+    "devDependencies": {
+        "@babel/core": "^7.3.4",
+        "@babel/preset-env": "^7.3.4",
+        "babel-preset-env": "^1.7.0",
+        "babelify": "^10.0.0"
+    },
+    "dependencies": {
+        "babel-polyfill": "^6.26.0",
+        "p5": "^0.8.0"
+    }
+}
