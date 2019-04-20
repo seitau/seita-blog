@@ -24,7 +24,7 @@ enableEmoji = true
     description = "留学・プログラミング・読書についての記録"
     images = ["img/site-feature-image.jpeg"]
     copyright  = "[Seita Uchimura](https://github.com/seita-uc) All Rights Reserved"
-    avatar = "img/icon.jpg"
+    avatar = "img/icon.jpeg"
     logo = "img/favicon.ico"
     disable_mathjax = false 
     ogpApiEndpoint = "https://seita.tokyo/ogp?url="
