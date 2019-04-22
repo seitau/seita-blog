@@ -96,7 +96,7 @@ const sketch = function(p5) {
                 p5.ellipse(profileImgX, profileImgY, profileImgSize.width+100, profileImgSize.height+100);
             }
 
-            if(particles[i].bounced && particles.length < 10) {
+            if(particles[i].bounced && particles.length < 7) {
                 const particlePosition = particles[i].position();
                 const newParticle = new Particle(
                     particlePosition.x,
