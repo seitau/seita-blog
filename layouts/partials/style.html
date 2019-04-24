@@ -1,0 +1,7 @@
+{{ $bulma := resources.Get "bulma/bulma.sass"}}
+
+{{ $scss := $bulma }}
+
+{{ $style := $scss | resources.ToCSS }}
+
+<link href="{{ $style.Permalink }}" rel="stylesheet"/>
