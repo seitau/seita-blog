@@ -18,7 +18,7 @@ enableEmoji = true
 
 [params]
     author = "Seita"
-    bio = "Blogger - Programmer - Student"
+    bio = "Blogger - Engineer - Student"
     location = "Tokyo"
     site_description = "留学・プログラミング・読書についての記録"
     description = "留学・プログラミング・読書についての記録"
@@ -36,7 +36,7 @@ enableEmoji = true
     date_format = "2006-01-02"
 
     # Add custom assets with their paths relative to the static folder
-	  custom_css = ["css/custom.css"]
+	  custom_css = ["css/custom.css", "css/portfolio.css"]
 	  custom_js  = []
 
 [[params.menu]]
@@ -53,6 +53,11 @@ enableEmoji = true
     before = false
     label  = "Categories"
     link   = "categories/"
+
+[[params.menu]]
+    before = false
+    label  = "Portfolio"
+    link   = "portfolio/"
 
 # Enter a link for the follow button on the left
 [params.profile]
