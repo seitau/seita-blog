@@ -11,6 +11,9 @@ jobs:
         # install git submodules for managing third-party dependencies
       - run: git submodule sync && git submodule update --init
       - run:
+          name: Show Hugo Version
+          command: hugo version
+      - run:
           name: Build Hugo Website
           command: hugo -t hugo-icarus-theme --ignoreCache
       - deploy:
