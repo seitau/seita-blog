@@ -2,7 +2,7 @@
 FROM node:8
 
 # Download and install hugo
-ENV HUGO_VERSION 0.53
+ENV HUGO_VERSION 0.55.1
 ENV HUGO_BINARY hugo_${HUGO_VERSION}_Linux-64bit.deb
 
 #ADD https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY} /tmp/hugo.deb
