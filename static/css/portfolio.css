@@ -42,6 +42,32 @@ canvas {
 .work-image {
     width: 100%;
     margin: 0px 0px;
+    display: block;
+    position: relative;
+}
+.work-image-hover-mask {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    color: #fff;
+    text-align: center;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.work-image:hover .work-image-hover-mask {
+    opacity: 1;
+    transition: all 0.6s ease;
+}
+.work-image-hover-mask p {
+    font-size: 35px;
 }
 .work-title {
     background-color: white;
