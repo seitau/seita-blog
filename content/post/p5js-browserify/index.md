@@ -1,7 +1,6 @@
 ---
 title: "browserify+babelでasync/awaitを使用した快適p5.js開発環境構築"
 filename: "p5js-browserify"
-slug: "new-post"
 date: 2019-04-26T20:09:30-07:00
 banner: "img/p5js.png"
 narrowBanner: false
