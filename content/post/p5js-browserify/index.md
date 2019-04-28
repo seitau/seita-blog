@@ -83,7 +83,9 @@ localにwatchifyがインストールされていれば、以上の`watch-js`を
 
 だそうで、プロミスだったり、WeakMapだったりの便利機能が実際には利用できるようになっているらしいです。
 
-また、肝心のp5.jsは[instance mode](https://github.com/processing/p5.js/wiki/Global-and-instance-mode)で記述しています。
+また、自分は[instance mode](https://github.com/processing/p5.js/wiki/Global-and-instance-mode)でp5.jsを記述しています。この方が、複数のsketchを管理したり、他のjsモジュールを使用する際に便利だからです。
+
+以下にp5.jsのサンプルコードを貼り付けておきます。
 
 ```js
 import 'babel-polyfill';
@@ -91,12 +93,7 @@ import 'babel-polyfill';
 const sleep = msec => new Promise(resolve => setTimeout(resolve, msec));
 const sketch = function(p5) {
     p5.setup = function() {
-        sample = document.getElementById("sample");
-        sample.style.height = `${sample.clientWidth}px`;
-        const canvas = p5.createCanvas(sample.clientWidth, sample.clientHeight);
-        canvas.parent('sample');
-        canvas.position(0, 0);
-        canvas.style('z-index', '0');
+        p5.createCanvas(800, 800);
         p5.background(0);
     }
 
@@ -112,6 +109,6 @@ const sketch = function(p5) {
 new p5(sketch)
 ```
 
-draw関数の中でawaitをつかって1秒後に描画されるようにしました。下のcanvasの上でマウスを動かすと1秒遅れで円がついてくるのがわかると思います。ちゃんと動いてますね！
+以上のサンプルが以下のcanvasで実行されています。draw関数の中でawaitをつかって1秒後に描画されるようにしました。canvasの上でマウスを動かすと1秒遅れで円がついてくるのがわかると思います。async/awaitが解釈され、ちゃんと動いてますね！
 
 <div id="sample" style="margin:0px 20%;width:60%;height:auto;background:rgb(0,0,0,0);position:relative;"></div>
