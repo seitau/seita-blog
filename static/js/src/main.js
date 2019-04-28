@@ -13,8 +13,8 @@ class Particle {
 
     move() {
         let particleSize = this.p5.random(20, 40);
-        this.px = this.px + this.pxspeed;
-        this.py = this.py + this.pyspeed;
+        this.px += this.pxspeed;
+        this.py += this.pyspeed;
         this.p5.stroke('black');
         this.p5.strokeWeight(this.p5.random(0.5, 2));
         this.p5.fill(this.pc, this.p5.random(30, 40));
