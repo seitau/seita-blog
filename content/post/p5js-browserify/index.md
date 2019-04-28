@@ -18,8 +18,8 @@ draft: false
 
 <!--more-->
 
-<div id="p5js-example" style="margin:0px 20%;width:60%;height:auto;background:rgb(0,0,0,0);position:relative;">
-</div>
+<div id="p5js-example" style="margin:0px 20%;width:60%;height:auto;background:rgb(0,0,0,0);position:relative;"></div>
+
 {{< script path="script.js" >}}
 
 ## async/awaitを使おう
@@ -33,4 +33,85 @@ babelとasync/awaitについてはこちらの記事で詳しく説明されて�
 
 ### browserify+babel
 
+数あるツールの中でも、今回はbrowserifyを選択しました。理由は機能が大きすぎず学習コストを抑えながら自分の目的を果たしてくれそうだったからです。
 
+browserify+babelの基本的な使い方はこちらの記事で紹介されています。
+{{< web-embed url="https://qiita.com/foursue/items/d80667eff2faed8613f2#browserify%E3%81%A7%E4%BD%BF%E3%81%86%E5%A0%B4%E5%90%88" >}}
+
+念の為自分の`package.json`の一部を掲載しておきます。以下の内容でbrowserifyを走らせれば、module化されたファイルを`import`や`require`で複数読み込んでいる場合でもブラウザで実行できる形式によしなに変換してくれて、かつbabelがjsをトランスパイルしてくれます。ありがたや〜。
+
+```json    
+{
+    "scripts": {
+        "watch-js": "watchify -t babelify static/js/src/*.js -o static/js/dist/bundle.js -dv",
+        "watch": "npm run watch-js",
+        "build": "browserify static/js/src/main.js -o static/js/dist/bundle.js"
+    },
+    "browserify": {
+        "transform": [["babelify", { "presets": ["@babel/preset-env"] }]]
+    },
+    "devDependencies": {
+        "@babel/core": "^7.3.4",
+        "@babel/preset-env": "^7.3.4",
+        "babel-preset-env": "^1.7.0",
+        "babelify": "^10.0.0",
+        "babel-polyfill": "^6.26.0"
+    },
+    "dependencies": {
+        "p5": "^0.8.0"
+    }
+}
+```
+
+localにwatchifyがインストールされていれば、以上の`watch-js`を実行するとjsファイルの変更を検知して自動ビルドしてくれるようになります。
+
+## p5.jsを使おう
+
+自分は以下のようにCDNでp5.jsをhtmlファイル内で読み込んで使用しています。適宜最新のバージョンを指定するようにしましょう。
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script>
+```
+
+実際にp5.jsの処理を記述するファイルでは、まず冒頭で`import 'babel-polyfill';`とすることで一部機能が利用可能になります。
+
+公式によると、
+
+>This will emulate a full ES2015+ environment (no < Stage 4 proposals) and is intended to be used in an application rather than a library/tool. (this polyfill is automatically loaded when using babel-node).
+
+>This means you can use new built-ins like Promise or WeakMap, static methods like Array.from or Object.assign, instance methods like Array.prototype.includes, and generator functions (provided you use the regenerator plugin). 
+
+だそうで、プロミスだったり、WeakMapだったりの便利機能が実際には利用できるようになっているらしいです。
+
+また、肝心のp5.jsは[instance mode](https://github.com/processing/p5.js/wiki/Global-and-instance-mode)で記述しています。
+
+```js
+import 'babel-polyfill';
+
+const sleep = msec => new Promise(resolve => setTimeout(resolve, msec));
+const sketch = function(p5) {
+    p5.setup = function() {
+        sample = document.getElementById("sample");
+        sample.style.height = `${sample.clientWidth}px`;
+        const canvas = p5.createCanvas(sample.clientWidth, sample.clientHeight);
+        canvas.parent('sample');
+        canvas.position(0, 0);
+        canvas.style('z-index', '0');
+        p5.background(0);
+    }
+
+    p5.draw = async function() {
+        p5.fill(255);
+        const x = p5.mouseX;
+        const y = p5.mouseY;
+        await sleep(1000);
+        p5.ellipse(x, y, 20, 20);
+    }
+}
+
+new p5(sketch)
+```
+
+draw関数の中でawaitをつかって1秒後に描画されるようにしました。下のcanvasの上でマウスを動かすと1秒遅れで円がついてくるのがわかると思います。ちゃんと動いてますね！
+
+<div id="sample" style="margin:0px 20%;width:60%;height:auto;background:rgb(0,0,0,0);position:relative;"></div>

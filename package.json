@@ -27,10 +27,10 @@
         "@babel/core": "^7.3.4",
         "@babel/preset-env": "^7.3.4",
         "babel-preset-env": "^1.7.0",
-        "babelify": "^10.0.0"
+        "babelify": "^10.0.0",
+        "babel-polyfill": "^6.26.0"
     },
     "dependencies": {
-        "babel-polyfill": "^6.26.0",
         "p5": "^0.8.0"
     }
 }
