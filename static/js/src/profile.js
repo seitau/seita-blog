@@ -76,7 +76,7 @@ const s = function(p5) {
     p5.draw = async function() {
         p5.background('#ffffff');
 
-        const profileImg = p5.select('#avatar');
+        const profileImg = p5.select('#avatar-placeholder');
         const profileImgSize = profileImg.size();
         const profileImgX = 78+profileImgSize.width/2;
         const profileImgY = 25+profileImgSize.height/2;

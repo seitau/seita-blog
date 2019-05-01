@@ -12,6 +12,17 @@
     background: rgb(0, 0, 0, 0);
 }
 
+#avatar-placeholder {
+    overflow: hidden;
+    background: rgb(0, 0, 0, 0);
+    border-radius: 50%; 
+    display: block;
+    position: relative;
+    margin: 10px auto 20px;
+    width: 128px;
+    height: 128px;
+}
+
 .article-banner-image {
   object-fit: cover;
   display: block;

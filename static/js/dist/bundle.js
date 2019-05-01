@@ -7957,8 +7957,9 @@ var _profile = require("./profile.js");
 
 var _sample = require("./sample.js");
 
+//import { avatar } from './avatar.js';
 new p5(_profile.profile);
-new p5(_sample.sample);
+new p5(_sample.sample); //new p5(avatar);
 
 },{"./profile.js":333,"./sample.js":334,"babel-polyfill":1}],333:[function(require,module,exports){
 "use strict";
@@ -8084,7 +8085,7 @@ var s = function s(p5) {
         switch (_context2.prev = _context2.next) {
           case 0:
             p5.background('#ffffff');
-            profileImg = p5.select('#avatar');
+            profileImg = p5.select('#avatar-placeholder');
             profileImgSize = profileImg.size();
             profileImgX = 78 + profileImgSize.width / 2;
             profileImgY = 25 + profileImgSize.height / 2;

@@ -7,7 +7,7 @@ int imgDaliWidth, imgDaliHeight;
 PImage imgPortraitMono;
 PImage imgPortraitColor;
 color[] colors = new color[10];
-String imgPath = "codes/images/algorithmic_portrait/";
+String imgPath = "https://seita.tokyo/portfolio/codes/images/algorithmic_portrait/";
 int weight;
 
 void setup(){
