@@ -1,25 +1,32 @@
 {
-  "name": "functions",
-  "description": "Cloud Functions for Firebase",
-  "scripts": {
-    "lint": "./node_modules/.bin/eslint .",
-    "serve": "sh serve.sh",
-    "shell": "firebase functions:shell",
-    "start": "npm run shell",
-    "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
-  },
-  "dependencies": {
-    "cheerio": "^1.0.0-rc.2",
-    "eslint": "^5.12.1",
-    "firebase-admin": "^6.0.0",
-    "firebase-functions": "^2.1.0",
-    "ogp-parser": "^0.4.1",
-    "request": "^2.88.0",
-    "request-promise": "^4.2.4"
-  },
-  "private": true,
-  "devDependencies": {
-    "eslint-plugin-promise": "^4.0.1"
-  }
+    "name": "functions",
+    "description": "Cloud Functions for Firebase",
+    "scripts": {
+        "serve": "sh serve.sh",
+        "shell": "firebase functions:shell",
+        "start": "npm run shell",
+        "deploy": "firebase deploy --only functions",
+        "logs": "firebase functions:log",
+        "build": "./node_modules/.bin/tslint --project tsconfig.json && ./node_modules/.bin/tsc",
+        "lint": "./node_modules/.bin/tslint --project tsconfig.json"
+    },
+    "dependencies": {
+        "cheerio": "^1.0.0-rc.2",
+        "eslint": "^5.12.1",
+        "firebase-admin": "^6.0.0",
+        "firebase-functions": "^2.1.0",
+        "ogp-parser": "^0.4.1",
+        "request": "^2.88.0",
+        "request-promise": "^4.2.4",
+        "@google-cloud/language": "^2.0.1",
+        "@line/bot-sdk": "^6.7.0",
+        "firebase-admin": "^7.0.0",
+        "firebase-functions": "^2.2.0",
+        "tslint": "^5.12.1",
+        "typescript": "^3.3.3"
+    },
+    "private": true,
+    "devDependencies": {
+        "eslint-plugin-promise": "^4.0.1"
+    }
 }

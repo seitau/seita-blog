@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "lib": ["es7", "dom"],
+    "module": "commonjs",
+    "noImplicitReturns": true,
+    "noImplicitAny": false,
+    "outDir": "lib",
+    "sourceMap": true,
+    "target": "es6",
+    "allowJs": true
+  },
+  "compileOnSave": true,
+  "include": [
+    "src"
+  ]
+}
