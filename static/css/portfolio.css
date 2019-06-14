@@ -1,6 +1,6 @@
-html,body { 
-    height:100%;
-    width:100%;
+html, body { 
+    height: 100%;
+    width: 100%;
 }
 img {
     width: 100%;
@@ -16,7 +16,7 @@ canvas {
     vertical-align: middle;
 }
 .works-container {
-    margin: 2.5rem;
+    margin: 2.5rem !important;
 }
 .work {
     /*width: 30%;*/
@@ -35,7 +35,6 @@ canvas {
         margin: 0rem 2.5rem;
     }
 }
-
 .work:hover {
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
 }
