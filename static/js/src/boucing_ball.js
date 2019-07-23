@@ -130,4 +130,4 @@ const s = function(p5) {
     }
 }
 
-export let profile = s;
+export let boucing_ball = s;

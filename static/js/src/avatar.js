@@ -35,7 +35,7 @@ const s = function(p5) {
             for(let x = 0; x < imgPortraitColor.width; x += 2){
                 const color = imgPortraitMono.get(x, y);
                 weight = adjustWeight(color);
-                console.log(color);
+                //console.log(color);
                 if(weight == 0) {
                     continue;
                 }

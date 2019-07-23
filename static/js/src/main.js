@@ -1,8 +1,8 @@
 import 'babel-polyfill';
-import { profile } from './profile.js';
+import { boucing_ball } from './boucing_ball.js';
 import { sample } from './sample.js';
 //import { avatar } from './avatar.js';
 
-new p5(profile);
+new p5(boucing_ball);
 new p5(sample);
 //new p5(avatar);
