@@ -1,10 +1,10 @@
 ---
 title: "バルセロナに来てアウトプットは大事だなと思った話"
 date: 2019-03-28T19:34:17+01:00
-banner: "img/guell-park.png"
+banner: "img/guell-park.jpeg"
 narrowBanner: false
 description: ""
-images: ["img/guell-park.png"]
+images: ["img/guell-park.jpeg"]
 menu: ""
 categories: ["travel"]
 tags: ["barcelona","travel", "art"]
