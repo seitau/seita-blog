@@ -8,7 +8,7 @@ images: ["img/hugo.png"]
 menu: ""
 categories: ["programming"]
 tags: ["hugo", "shortcode"]
-draft: false
+draft: true
 ---
 
 先日fishからzshに乗り換え、快適な環境を構築していく中で幾つか便利コマンドを発見したりスクリプトを作成したので紹介します。
