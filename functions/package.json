@@ -7,8 +7,11 @@
         "start": "npm run shell",
         "deploy": "firebase deploy --only functions",
         "logs": "firebase functions:log",
-        "build": "./node_modules/.bin/tslint --project tsconfig.json && ./node_modules/.bin/tsc",
-        "lint": "./node_modules/.bin/tslint --project tsconfig.json"
+        "build": "./node_modules/.bin/eslint --project tsconfig.json && ./node_modules/.bin/tsc",
+        "lint": "./node_modules/.bin/eslint index.js"
+    },
+    "engines": {
+        "node": "8"
     },
     "dependencies": {
         "@google-cloud/language": "^3.6.2",
