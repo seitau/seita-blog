@@ -8,6 +8,7 @@
   ],
   "extends": "eslint:recommended",
   "rules": {
+    "no-prototype-builtins": "off",
     // Removed rule "disallow the use of console" from recommended eslint rules
     "no-console": "off",
 
