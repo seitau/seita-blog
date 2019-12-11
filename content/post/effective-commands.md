@@ -1,13 +1,13 @@
 ---
 title: "ディレクトリ移動/ファイル選択を爆速にするTerminalツール"
 date: 2019-11-30T07:24:15-08:00
-banner: "img/hugo.png"
+banner: "img/iterm2.png"
 narrowBanner: true
 description: ""
-images: ["img/hugo.png"]
+images: ["img/iterm2.png"]
 menu: ""
 categories: ["programming"]
-tags: ["zsh", "command", "vim", "terminal"]
+tags: ["zsh", "command", "vim", "terminal", "advent calendar"]
 draft: false
 ---
 
